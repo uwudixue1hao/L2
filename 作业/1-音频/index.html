@@ -115,9 +115,11 @@
 		<script type="text/javascript">
 			var myAudio = document.getElementById("audio");
 			var play = document.getElementById("play");
+			var progressBar = document.querySelector("div.progressbar");
 			var progress = document.querySelector("div.progressbar em#progress");
 			var image = document.querySelector(".img-box img");
 			var isMouseDown = false;
+			var x;
 			play.onclick = function() {
 				if (myAudio.paused) {
 					myAudio.play();
@@ -138,20 +140,25 @@
 			
 			progress.onmousedown = function(e) {
 					isMouseDown = true;
+					x = e.clientX;
 				if (myAudio.played) {
 					myAudio.pause();
 					image.style.webkitAnimationPlayState = "paused";
 				}
 			}
-			progress.onmouseup = function(e) {
-				console.log(2);
-//				myAudio.play();
-//				image.style.webkitAnimationPlayState = "running";
+			progressBar.onmouseup = function(e) {
+				isMouseDown = false;
+				myAudio.play();
+				image.style.webkitAnimationPlayState = "running";
 			}
-			progress.onmousemove = function(e) {
+			progressBar.onmousemove = function(e) {
 				if (isMouseDown) {
-					console.log(e.clientX);
-					var left = this.style.left;
+					var left = (progress.style.left.replace("px", "") * 1) + (e.clientX - x);
+					x = e.clientX;
+					var width = progressBar.offsetWidth - progress.offsetWidth;
+					if (left < width) {
+						progress.style.left = left + "px";
+					}
 				}
 			};
 		</script>
