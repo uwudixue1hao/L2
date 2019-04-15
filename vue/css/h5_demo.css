@@ -1,0 +1,146 @@
+* {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	outline: none;
+	font-size: 100%;
+	font-size-adjust: none;
+	-webkit-text-size-adjust: none;
+	-moz-text-size-adjust: none;
+	-ms-text-size-adjust: none;
+	text-decoration: none;
+}
+
+*:focus {
+	outline: none;
+}
+
+a:hover {
+	text-decoration: none;
+}
+
+p {
+	font-size: 20px;
+	line-height: 25px;
+	letter-spacing: 0px;
+}
+
+header {
+	width: 100%;
+	height: 50px;
+	text-align: center;
+}
+
+header p {
+	text-align: center;
+	padding-top: 10px;
+}
+
+.left {
+	float: left;
+}
+.right {
+	float: right;
+}
+
+
+.content {
+	margin: 0 20px 0 50px;
+}
+
+.content .trolley {
+	margin-bottom: 10px;
+}
+
+.content .trolley .title {
+	overflow: hidden;
+	line-height: 50px;
+	height: 50px;
+}
+
+.content .trolley .title font {
+	overflow: hidden;
+}
+
+.content .trolley .title img {
+	height: 20px;
+	vertical-align: middle;
+	display: inline-block;
+	margin: 15px 10px 0;
+}
+.content .trolley .title em {
+	background: url("../img/icon2.jpg");
+	background-size: 8px 12px;
+	width: 8px;
+	height: 12px;
+	margin: 20px 0 0 10px;
+}
+
+.content .trolley .product {
+	overflow: hidden;
+	padding-right: 15px;
+	box-shadow: 3px 3px 10px 5px #f7f7f7;
+}
+
+.content .trolley .product img {
+	width: 28%;
+	margin: 20px 0 20px 10px;
+}
+
+.content .trolley .product .info {
+	margin: 20px 0 20px 10px;
+	width: 65%;
+}
+
+.content .trolley .product .info p {
+	font-size: 16px;
+	line-height: 20px;
+	margin-bottom: 30px;
+}
+
+.content .trolley .product .info .num {
+	width: 50px;
+	line-height: 30px;
+	display: inline-block;
+	text-align: center;
+	margin: 0 10px;
+	background-color: #f7f7f7;
+}
+
+footer {
+	height: 80px;
+	border-top: 1px solid #e0e0e0;
+	border-bottom: 1px solid #e0e0e0;
+	position: fixed;
+	left: 0;
+	right: 0;
+	margin: 0 auto;
+	bottom: 0;
+}
+
+footer .sum {
+	margin-left: 50px;
+	height: 100%;
+	width: 88%;
+	overflow: hidden;
+}
+
+footer .sum span, footer .sum font {
+	display: inline-block;
+	vertical-align: middle;
+	line-height: 80px;
+}
+
+footer .sum font {
+	font-size: 20px;
+	margin-left: 10px;
+}
+
+footer .sum input[type=submit], footer .sum a {
+	width: 30%;
+	height: 100%;
+	line-height: 80px;
+	background-color: #f72d1f;
+	text-align: center;
+	color: #FFFFFF;
+}
