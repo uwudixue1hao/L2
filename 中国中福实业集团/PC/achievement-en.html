@@ -1,0 +1,319 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>中国中福实业集团</title>
+<link type="text/css" rel="stylesheet" href="css/style-en.css" />
+<script type="text/javascript" src="js/jquery.js"></script> 
+
+<!-- dropmenu -->
+<script type="text/javascript" src="js/dropmenu/dropmenu.js"></script> 
+<script>
+function scrollShow(index){
+	$(window).scroll(function() {
+		var scrollTop = $(this).scrollTop();
+		var indexTop = $('#'+index).offset().top;
+		if (scrollTop > indexTop - 101) {
+			var floatA = $('#leftFixed').find('a[href="#'+index+'"]');
+			floatA.parent('li').addClass('firstli');
+			floatA.parent('li').siblings().removeClass('firstli');
+		}
+	}); 
+}
+</script>
+</head>
+
+<body>
+
+<!-- 头部 start -->
+<div class="nav_container">
+    <div class="fixed fixed_other">
+    	<div class="header">
+            <img alt="logo" src="img/logo.png" />
+            <p><a href="index.html" title="">简体中文</a>|<a href="index-en.html" title="">English</a></p>
+        </div>
+    </div>
+</div>
+<div class="nav_container2">
+	<div class="fixed fixed_other2">
+        <div class="nav">
+            <div class="nav_box_ul">
+            	<ul class="u1">
+                	<li><a href="index-en.html" title="">HOME</a></li>
+                	<li><a href="about-en.html" title="">ABOUT</a></li>
+                	<li class="l1"><a href="achievement-en.html" title="">INDUSTRIES & ACHIEVEMENTS</a></li>
+                    <li><a href="dynamic-en.html" title="">NEWS</a></li>
+                    <li class="l2"><a href="responsibility-en.html" title="">SOCIAL RESPONSIBILITY</a></li>
+                    <li><a href="join-en.html" title="">JOIN US</a></li>
+                    <li class="l3"><a href="contact-en.html" title="">CONTACT US</a></li>
+                </ul>
+                <ul id="nav_one" class="nav_one">
+                	<li>
+                        <a title="" class="btnlist">other sites</a>
+                        <div class="nav_box_menu" style="display:none;">
+                            <ul class="u2">
+                                <li><a href="#" title="">Fu Shou Yuan Group</a></li>
+                                <li><a href="#" title="">Shanghai FuShouYuan</a></li>
+                                <li><a href="#" title="">Hefei Shushan cemetery</a></li>
+                                <li><a href="#" title="">Shandong FuShouYuan</a></li>
+                                <li><a href="#" title="">Shanghai cemetery</a></li>
+                                <li><a href="#" title="">Henan FuShouYuan</a></li>
+                                <li><a href="#" title="">Jinzhou cemetery</a></li>
+                                <li><a href="#" title="">White angel</a></li>
+                                <li><a href="#" title="">Chongqing hall</a></li>
+                                <li><a href="#" title="">Hefei humanistic</a></li>
+                            </ul>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- 头部 end -->
+<script>
+$(document).ready(function(){
+	$("#nav_one").dropmenu();
+	
+	$(window).bind("scroll", function(){
+		var winSTop= $(this).scrollTop();
+		var top = winSTop - 315;
+		if(winSTop>=295){
+			$("#leftFixed").css("top",top+"px");
+		}else{
+			$("#leftFixed").css("top","0");
+		}
+		
+	})
+	
+	scrollShow('charity');
+	scrollShow('investment');
+	scrollShow('premises');
+	scrollShow('logistics');
+	scrollShow('technology');
+	scrollShow('capital');
+	$('#leftFixed a').click(function(){
+		var href = $(this).attr("href");
+		var hrefTop = $(href).offset().top - 99;
+		$("body, html").animate({
+			scrollTop: hrefTop
+		},800);
+		return false;
+	});
+	
+});
+</script>
+<!-- banner start -->
+<div class="banner_box about_banner_box wide-container" style="width:100%;height:312px;">
+	<div id="slides">
+        <ul class="slides-container">
+            <li>
+            	<img src="img/achievement_banner-en.jpg" width="100%" />
+            </li>
+        </ul>
+    </div>
+</div>
+<script type="text/javascript" src="js/superslides/jquery.superslides.js"></script>
+<script>
+    $(function() {
+		$('#slides').superslides({
+			play: 0,
+			animation: 'fade',
+			animation_speed: '500',
+			inherit_width_from: ".wide-container",
+			inherit_height_from: ".wide-container"
+		});
+    });
+</script> 
+<!-- banner end -->
+<div class="main_box" id="charity">
+	<div class="main">
+    	<div class="main_navul">
+        	<div id="leftFixed" class="leftFixed">
+                <h4>Industries & Achievements</h4>
+                <ul>
+                    <li class="firstli"><a href="#charity" title="">Welfare Industry</a></li>
+                    <li><a href="#investment" title=""><font class="f1"><span class="sp3">Urban Investment</span> <span class="sp4">Construction</span></font></a></li>
+                    <li><a href="#premises" title="">Real Estate</a></li>
+                    <li><a href="#logistics" title=""><font class="f1"><span class="sp3">Trade and Logistics</span> <span class="sp4">Services</span></font></a></li>
+                    <li><a href="#technology" title=""><font class="f1"><span class="sp3">Modern Technology</span> <span class="sp4">Investment</span></font></a></li>
+                    <li class="noborder"><a href="#capital" title="">Capital</a></li>
+                </ul>
+                <a href="index.html" title="" class="backIndex" style="width:100%;">Home</a>
+            </div>
+        </div>
+    	<div class="main_rightbox">
+        	<h3 class="achievement_h4_margin">Welfare Industry</h3>
+            <div class="about_content_idea main_content_charity">
+                <font class="f1">Welfare Industry – Funeral Service</font>
+                <p class="p_margin">Zhongfu attaches great significance to welfare industry, and makes great contribution to Chinese welfare industry by exploring a new path on funeral service and aged care industry. </p>
+                <font class="f2">Achievement<span>Fu Shou Yuan</span></font>
+                <p class="achievement_p_margin">
+                    Fu Shou Yuan International Group Ltd., invested and established by Zhongfu, is a first-class modern cemetery in China, which opens up the era of modern funeral culture and social and human heritage. Presently, Fu Shou Yuan has become a famous model in funeral industry and formed an innovative mode. It is selected as a model base by national Civil Affairs, Ministry of Construction, and Ministry of Culture. Its branches can be found across the county, and it has become the first listed company among Chinese funeral industry. <br /><br />
+                    Fu Shou Yuan is the biggest provider of funeral service, as well as the leader and integrator in domestic market. It is also a place filled with memories and emotions, a company with traditional values and a social citizen with responsibility. <br /><br />
+                    It provides professional, customized and diversified service to meet different customer demands. It also helps people to find warmth and strength from the memory of past life so as to create a better and happy life through humanity memorial.  
+                </p>
+                <p class="about_content_ouridea achievement_content_ouridea"></p>
+                <p class="achievement_p_margin achievement_p_border">
+                    Its mission for the next two decades is to "break through tradition and enlighten future". It will make use of its brand and leading position in the market to expand funeral service in more regions, extend vertical service range, and set up industrial standard. On the basis of traditional culture and consciousness, Fu Shou Yuan will continue to promote international cooperation and exchanges, introduce better funeral services, and create a new funeral service model in future. <br />
+                    <a href="#" title="">Browse Fu Shou Yuan Group website&gt;</a> 
+                </p>
+                <font class="f1">Welfare Industry –Aged Care Industry</font>
+                <p class="achievement_p_margin2">Zhongfu explores the construction and development of pension industry actively. It cooperates with Peking Union Medical College, Japan Tokushukai Medical Group, SECOM Group, John Knox Village, Laguna Woods Village, professional teams on aged community and Gerontology Department of University of North Texas, and learn from them with the purpose to meet the cultural requirements of Chinese pension industry. This project is attached great importance by the central government, and great support from Ministry of Civil Affairs, Ministry of Health, China Committee on Aging, China Aging Development Foundation and China Charity Federation. It is also one of the national "Love Care" projects. </p>
+		</div>
+	</div>
+    </div>
+</div>
+<div class="main_box main_box2" id="investment">
+	<div class="main">
+    	<div class="main_rightbox">
+        	<h3 class="achievement_h4_margin2">Urban Investment Construction</h3>
+            <p>Zhongfu pays much attention to urban investment and construction. In recent years, it has participated in many key projects in Shanghai, Chongqing and other cities. These projects, in both investment and financing, and quality and characteristic, demonstrate modern scientific concept and far-reaching social influence. </p>
+            <div class="achievement_content_img">
+                <font class="f2 f4" style="margin-bottom:17px;">Achievement<span>Shanghai Lupu Bridge</span></font>
+                <img alt="" src="img/achievement_content_img.jpg" width="455" height="328" />
+                <p>
+                    Zhongfu co-established Shanghai Lupu Bridge Investment and Development Co., Ltd. as a major sponsor. It conformed to the requirements of national investment and financing system reform, integrated resource advantages of 6 large-scale companies, and participated in the construction and management of major Shanghai municipal projects. Lupu Bridge, with a total investment of 2.5 billion RMB, and its great curves and modeling of combination of curves and straight lines, becomes a new international landmark of Shanghai in the 21st century. 
+                </p>
+            </div>
+    <!-- 城市投资建设锚点 -->
+    <span name="premises" id="premises"></span>
+        </div>
+	</div>
+</div>
+<div class="main_box" id="premises">
+	<div class="main">
+    	<div class="main_rightbox">
+        	<h3 class="achievement_h4_margin3">Real Estate</h3>
+            <font class="f1">Real Estate - Development</font>
+            <p class="achievement_p_margin3">Since its establishment in 1992, Zhongfu real estate industry has been actively involved in Shanghai old city reconstruction, and has made great contribution to the improvement of urban environment and residents' living conditions. In recent years, it has completed a development area of over 3 million square meters, including residential real estate, commercial real estate, industrial real estate, etc. Since 2003, its Zhongfu Property Co., Ltd. has been selected as Shanghai 50 Best Development Companies for many times. </p>
+            <div class="about_content_idea main_content_charity main_content_charity2">
+                <font class="f2 f4">Achievement<span>Phase I Zhongfu City, Phase II , Phase III</span></font>
+                <p class="achievement_p_margin4">Block 1, Block 2 and Block 3 of Zhongfu City were completed in December 2005, and presented Hectometer Champs Elysees with Shanghai features and middle- and high-end residential real estate on Nanjing Road, next to the Pedestrian Street. </p>
+                <img alt="" src="img/achievement_content_img2.jpg" class="img2" width="394" height="291" />
+            </div>
+            <div class="about_content_idea main_content_charity main_content_charity9">
+                <font class="f2 f5">Achievement<span>Shanghai Zhongfu Hotel Management Co., Ltd.</span></font>
+                <p class="achievement_p_margin5">In the most prosperous Shanghai Bund and Nanjing Road areas, Shanghai Zhongfu Hotel Management Co., Ltd. owns two famous hotels: Salvo Hotel Shanghai and Charms Hotel. </p>
+                <font class="f6" style="font-weight:bold;">Salvo Hotel Shanghai</font>
+                <img alt="" src="img/achievement_content_img3.jpg" class="img1" width="715" height="253" /><br /><br />
+                <p class="achievement_p_margin5">
+          			A large-scale high-star business hotel affiliated to Shanghai Zhongfu and fully operated by Shanghai Zhongfu Hotel Management Co., Ltd. It is located in Shanghai Bund, the most prosperous business circle in Huangpu District, and on 339 Guangdong Road, the junction of East Yan'an Road and Middle Shandong Road, with walking distance to Bund, Yuyuan Garden and Nanjing Road Walking Street. It has been open for business since 2004. <br /><br />
+         			Salvo Hotel Shanghai features dignified and elegant architectural style, combining Chinese and western styles. It has rich and grandeurs atmosphere as well as modern feelings. The hotel is consisted of main and auxiliary structures. The main building is 31-storey, with a total floor area of approximately 50,000 square meters. It has over 600 "digital" business rooms, deluxe rooms and others, as well as multifunctional conference hall which can accommodate 250 people and a number of different conference rooms with different specification. Salvo Hotel Shanghai, with its excellent quality and sincere service, will impress you with great value and pleasant memories.
+                </p>
+                <font class="f6" style="font-weight:bold;">Shanghai Charms Hotel</font>
+                <div class="main_content_charity8">
+                    <img alt="" src="img/achievement_content_img4.jpg" width="410" height="307" />
+                    <p>
+                        The hotel is close to Nanjing Road Pedestrian Street, with walking distance to Bund and other major tourist destinations. The hotel is well equipped with functional and fashionable rooms, and elegant and cozy restaurant and lobby. It is your best choice no matter you want to have dinner, or hold parties and banquets. Its fully equipped conferences rooms are of different sizes. This 26-storey building has 520 guest rooms. The hotel opened in 2002. 
+                    </p>
+                </div>
+            </div>
+            <font class="f1 f7" style="margin-top:53px;">Real Estate - Planning and Design</font>
+            <p class="achievement_p_margin11">Shanghai Zhongfu Architectural Design Institute is a Class A design organization, with Grade I qualification in design, decoration and supervision. Its projects have been selected as excellent works many a time by provincial and municipal authorities. And it provides design service nationwide. </p>
+            <div class="about_content_idea main_content_charity main_content_charity4">
+                <font class="f2 f8" style="margin-bottom:17px;">Achievements<span>Lujiazui Financial Tower</span></font>
+                <img alt="" src="img/achievement_content_img5.jpg" class="img2" width="300" height="413" />
+                <p class="achievement_p_margin4 achievement_p_margin7">
+          			Lujiazui Financial Tower has a total construction area of 69,403 square meters, with 19 floors above ground and 3 underground. Every floor features wide vision over Huangpu River. It also has a sunken plaza, providing business support services, such as catering and leisure. It is located in north of Lujiazui Ring Road, adjacent to Oriental Pearl Tower, Shanghai Ocean Aquarium and Super Brand Mall.<br /><br />
+          			The building is in rectangle, with energy-efficient glass curtain wall in the outside, simple and neat with no redundant decoration. The inside patterns and architectural standard conform with Grade A standard, and meet the requirements of international financial institutions and enterprises that intend to enter the Lujiazui financial district.
+                </p>
+            </div>
+            <div class="about_content_idea main_content_charity main_content_charity5">
+                <font class="f2 f4">Achievements<span>Lianyang Commercial Plaza</span></font>
+                <p class="achievement_p_margin8">
+           			Located in Lianyang community in Central Pudong, Lianyang Commercial Plaza is adjacent to Thumb Plaza. The plaza is the central place of four buildings: Lianyang Department Store, a restaurant, an entertainment location and an iBiz business hotel. In architectural style, it features coexistence of modern and traditional characteristics. In architectural form and detail treatment approach, it reflects ArtDeco of Shanghai culture. It integrates Shanghai culture with modern business concept, creating a public commercial space containing traditional and modern elements, which interaction helps people to appreciate the charm of modern Shanghai.
+                </p>
+                <img alt="" src="img/achievement_content_img6.jpg" class="img2" />
+            </div>
+            <div class="about_content_idea main_content_charity main_content_charity6">
+                <font class="f2 f9">Achievements<span>Suifenhe Russia Cultural Exchange Center</span></font>
+                <img alt="" src="img/achievement_content_img7.jpg" />
+            </div>
+            <div class="about_content_idea main_content_charity main_content_charity2" style="margin-bottom:80px;">
+                <font class="f2 f4">Achievements<span>Shanghai Vizcaya Spa</span></font>
+                <p class="achievement_p_margin9">
+                	Located in Biyun International Community of Pudong Shanghai, it coves a total land area of 111.520 square meters. Its design is based on typical western residential style, with all residential buildings scattered around center of the community to create a sense of aggregation. Besides, in this way, every house can make use of the facilities and public green spaces to the biggest extent. The land is not of the same height, which enriches space perception and natural feelings. 
+                </p>
+                <img alt="" src="img/achievement_content_img8.jpg" class="img2" />
+            </div>
+            <div class="about_content_idea main_content_charity main_content_charity3" style="margin-bottom:65px;">
+                <font class="f2 f4">Achievements<span>Phase 4 of Shanghai Jiacheng</span></font>
+                <img alt="" src="img/achievement_content_img9.jpg" class="img2" />
+                <p class="achievement_p_margin4 achievement_p_margin10">
+          			High-rise residence less than 18-storey and multi-storey residence of 4-6 stories with backward terrace. High-rise residence features curved layout, emphasizing large-scale landscape and open space, and creating a sense of being enclosed and neatness. In center of the community, there is a north-south landscape avenue which separates the high-rise residence and multi-storey residence, and which also includes all residences into landscaping systems, greatly improving people's living standard. <br /><br />
+         			The design concept of waterfront living highlights the 3-level interaction with water of distant view, close looking and playing with water. The waterfront footpath connects with waterfront square and form a unique patchwork landscape belt. 
+                </p>
+            </div>
+        </div>
+	</div>
+</div>
+<div class="main_box main_box2" id="logistics">
+	<div class="main">
+    	<div class="main_rightbox">
+        	<h3 class="achievement_h4_margin4">Trade and Logistics Services</h3>
+            <div class="about_content_idea main_content_charity">
+                <img alt="" src="img/achievement_content_img10.jpg" class="img3" />
+                <font class="f1">Comprehensive Trade</font>
+                <p class="achievement_p_margin12" style="margin-bottom:25px;">
+          			Zhongfu trading system has comprehensive import and export rights approved by the state, and its business scope includes: grain and oil, food, soil and livestock, textile products, garments, light industry, artware, ferrous metals, non-ferrous metals, non-metallic mineral products, chemical and petrochemical products, rubber products, pharmaceuticals, medical equipment, transport equipment, machinery and equipment, instruments and other products that are permitted by national policy.<br /><br />
+            		Zhongfu has operations in over 60 countries and regions around the world, with close long-term cooperation with about 10 thousand traders. Apart from traditional trade, it also has bulk trade relations with foreign countries in petrochemicals, energy, materials, ore, etc. 
+                </p>
+                <font class="f1">Modern Logistics</font>
+                <p class="achievement_p_margin13" style="margin-bottom:35px;">Zhongfu has a modern logistics system, integrating warehousing, distribution, freight forwarding, sea transport and container transport. It also sets up Shanghai Eastern Fuda Transport Service Company together with DHL Danzas Air & Ocean. and China Eastern Airlines. This joint venture has Grade A international freight qualification, and is specialized in air cargo agent. It, together with Shanghai Zhongfu International Freight Co., Ltd., forms the core strength of Zhongfu logistics system. </p>
+    <!-- 民政公益产业锚点 -->
+    <span name="technology" id="technology"></span>
+            </div>
+        </div>
+	</div>
+</div>
+<div class="main_box" id="technology">
+	<div class="main">
+    	<div class="main_rightbox">
+        	<h3 class="achievement_h4_margin5" style="padding-bottom:20px;">Modern Technology Investment Service</h3>
+            <p class="achievement_p_margin14">Zhongfu attaches great significance to investment and construction of modern science and technology service industry, especially life sciences and communications technology. It is actively involved in innovation and cutting-edge technology. </p>
+            <div class="about_content_idea main_content_charity">
+                <img alt="" src="img/achievement_content_img11.jpg" class="img4" />
+    
+            </div>
+        </div>
+	</div>
+</div>
+<div class="main_box main_box2" id="capital">
+	<div class="main">
+    	<div class="main_rightbox">
+        	<h3 class="achievement_h4_margin6">Capital</h3>
+            <p class="achievement_p_margin15">Zhongfu focuses on stock market investment, futures trading, business investment, mergers, acquisitions and restructuring and asset management, with the investment, mergers, acquisitions and restructuring of high-tech business having first priority. It has already successfully operated the listing of bus share and Fu Shou Yuan. Presently, it is operating Shanghai Lupu Bridge Investment Development Co., Ltd., and investing in securities companies and insurance companies. It invests and sets up Chongqing Yuzhong Small-scale loans Co., Ltd. to enter financial industry. </p>
+            <div class="about_content_idea main_content_charity7">
+                <font class="f2 f10">Achievement</font>
+                <img src="img/achievement_content_img13-en.jpg" width="360" height="258" /><img src="img/achievement_content_img14-en.jpg" width="366" height="258" />
+                <img src="img/achievement_content_img15-en.jpg" width="360" height="269" /><img src="img/achievement_content_img16-en.jpg" width="366" height="269" />
+            </div>
+        </div>
+	</div>
+</div>
+
+
+<!-- footer start -->
+<div class="footer">
+	<div class="footer_content">
+    	<ul>
+        	<li><a href="contact-en.html" title="">Contact Us</a></li>
+            <li class="vertical">|</li>
+            <li><a href="map-en.html" title=""> Site Map</a></li>
+            <li class="vertical">|</li>
+            <li><a href="map-en.html#statement" title="">Legal Statement</a></li>
+            <li class="vertical">|</li>
+            <li><a href="#" title="">沪ICP证：034583i45号</a></li>
+        </ul>
+        <p>Copyright © 1998 - 2013 Zhongfu. All Rights Reserved. 中福公司 版权所有</p>
+        <ul class="u1">
+        	<li><a href="#" title=""><img alt="" src="img/copyright_img1.jpg" width="122" height="52" /></a></li>
+        </ul>
+    </div>
+</div>
+<!-- footer end -->
+
+
+</body>
+</html>

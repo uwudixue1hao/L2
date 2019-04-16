@@ -1,0 +1,320 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>中国中福实业集团</title>
+<link type="text/css" rel="stylesheet" href="css/style-en.css" />
+<script type="text/javascript" src="js/jquery.js"></script> 
+
+<!-- dropmenu -->
+<script type="text/javascript" src="js/dropmenu/dropmenu.js"></script> 
+<script type="text/javascript" src="js/javascript.js"></script>
+</head>
+
+<body>
+
+<!-- 头部 start -->
+<div class="nav_container">
+    <div class="fixed fixed_other">
+    	<div class="header">
+            <img alt="logo" src="img/logo.png" />
+            <p><a href="index.html" title="">简体中文</a>|<a href="index-en.html" title="">English</a></p>
+        </div>
+    </div>
+</div>
+<div class="nav_container2">
+	<div class="fixed fixed_other2">
+        <div class="nav">
+            <div class="nav_box_ul">
+                <ul class="u1">
+                	<li><a href="index-en.html" title="">HOME</a></li>
+                	<li><a href="about-en.html" title="">ABOUT</a></li>
+                	<li class="l1"><a href="achievement-en.html" title="">INDUSTRIES & ACHIEVEMENTS</a></li>
+                    <li><a href="dynamic-en.html" title="">NEWS</a></li>
+                    <li class="l2"><a href="responsibility-en.html" title="">SOCIAL RESPONSIBILITY</a></li>
+                    <li><a href="join-en.html" title="">JOIN US</a></li>
+                    <li class="l3"><a href="contact-en.html" title="">CONTACT US</a></li>
+                </ul>
+                <ul id="nav_one" class="nav_one">
+                	<li>
+                        <a title="" class="btnlist">other sites</a>
+                        <div class="nav_box_menu" style="display:none;">
+                            <ul class="u2">
+                                <li><a href="#" title="">Fu Shou Yuan Group</a></li>
+                                <li><a href="#" title="">Shanghai FuShouYuan</a></li>
+                                <li><a href="#" title="">Hefei Shushan cemetery</a></li>
+                                <li><a href="#" title="">Shandong FuShouYuan</a></li>
+                                <li><a href="#" title="">Shanghai cemetery</a></li>
+                                <li><a href="#" title="">Henan FuShouYuan</a></li>
+                                <li><a href="#" title="">Jinzhou cemetery</a></li>
+                                <li><a href="#" title="">White angel</a></li>
+                                <li><a href="#" title="">Chongqing hall</a></li>
+                                <li><a href="#" title="">Hefei humanistic</a></li>
+                            </ul>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- 头部 end -->
+<script>
+$(document).ready(function(){
+	$("#nav_one").dropmenu();
+	
+	$(window).bind("scroll", function(){
+		var winSTop= $(this).scrollTop();
+		var top = winSTop - 315;
+		if(winSTop>=295){
+			$("#leftFixed").css("top",top+"px");
+		}else{
+			$("#leftFixed").css("top","0");
+		}
+		
+	})
+	
+	scrollShow('introduction');
+	scrollShow('history');
+	scrollShow('idea');
+	scrollShow('architecture');
+	scrollShow('team');
+	scrollShow('branch');
+	scrollShow('honor');
+	$('#leftFixed a').click(function(){
+		var href = $(this).attr("href");
+		var hrefTop = $(href).offset().top - 99;
+		$("body, html").animate({
+			scrollTop: hrefTop
+		},800);
+		return false;
+	});
+	
+	
+});
+</script>
+<!-- banner start -->
+<div class="banner_box about_banner_box wide-container" style="width:100%;height:312px;">
+	<div id="slides">
+        <ul class="slides-container">
+            <li>
+    			<img alt="" src="img/about_banner-en.jpg" width="100%" />
+			</li>
+        </ul>
+    </div>
+<script type="text/javascript" src="js/superslides/jquery.superslides.js"></script>
+<script>
+    $(function() {
+		$('#slides').superslides({
+			play: 0,
+			animation: 'fade',
+			animation_speed: '500',
+			inherit_width_from: ".wide-container",
+			inherit_height_from: ".wide-container"
+		});
+    });
+</script> 
+</div>
+<!-- banner end -->
+<div class="main_box" id="introduction">
+	<div class="main">
+    	<div class="main_navul">
+        	<div id="leftFixed" class="leftFixed">
+                <h4>About Zhongfu</h4>
+                <ul style="background:#fff;">
+                    <li class="firstli"><a href="#introduction" title="">About Us</a></li>
+                    <li><a href="#history" title="">History</a></li>
+                    <li><a href="#idea" title="">Corporate Culture</a></li>
+                    <li><a href="#architecture" title="">Organization</a></li>
+                    <li><a href="#team" title="">Management Team</a></li>
+                    <li><a href="#branch" title=""><font style="width:160px;height:55px;display:block;position:absolute;"><span class="sp1" style="position:absolute;top:-10px;left:0;">Branches&nbsp;&nbsp;and</span> <span class="sp2" style="position:absolute;top:10px;left:0;">Subsidiaries</span></a></font></li>
+                    <li class="noborder"><a href="#honor" title="" onclick="getDiv();">Honors</a></li>
+                </ul>
+                <a href="index.html" title="" class="backIndex" style="width:100%;;">Home</a>
+            </div>
+        </div>
+        <div class="main_rightbox" style="float:right;width:735px;">
+            <h3 class="h4_margin" style="padding-bottom:25px;">About Us</h3>
+            <p>
+                China Zhongfu Group was established with the approval from central Government, with Zhongfu Industries Corporation as our parent company. Based in Shanghai, Zhongfu provides services nationwide and worldwide, and takes social responsibility. It is a modern group featuring multi-directional opening, international operation and diversified development. In 2009, Zhongfu was honored as "Shanghai Famous Trademark".<br /><br />
+                Established in 1995, Zhongfu Group was originally known as Kanghua. In 2000, it was restructured. After two decades, Zhongfu now has an asset of over 30 billion RMB, leading over 40 domestic and foreign companies, including public-listed companies. In recent years, its business scope has been expanded to trade, logistics, construction, capital operation, high-tech, philanthropy, etc. through modern business operational concept and advanced management methodology, by integrating the advantages of domestic and foreign resources. It has preliminarily formed the interaction matrix of three drives, where big trading drives big capital, big capital drives big investment; therefore, it develops to a benign circulation.</p>
+            <div class="about_content_img">
+                <img alt="" src="img/about_content_img-en.jpg" width="723" height="344" />
+            </div>
+        </div>
+    </div>
+</div>
+<div class="main_box main_box2" id="history">
+	<div class="main">
+    	<div class="main_rightbox">
+            <h3 class="h4_margin">History</h3>
+            <div class="about_content_history">
+                <ul>
+                    <li>
+                        <h3 style="padding-top:25px;">1990</h3>
+                        <span>In 1990, we cooperated with Shanghai Public Bus Company and established Zhongfu Bus Associated Company, which started a new bus operation mode featuring quality services, superior management and socialized operation. It is highly praised by Shanghai Municipal Government and Shanghai people. In 1993, this company was listed in Stock Market A-board in China after restructuring (Bus Group). </span>
+                    </li>
+                    <li>
+                        <h3>1994</h3>
+                        <span>
+              				In 1994, we invested 100 million RMB together with Continental Grain Company and Sinopec Shanghai Petrochemical Company Limited on LPG operation projects to improve residents and industrial energy structure and improve urban air quality.<br /><br />
+               				In 1994, we built Shanghai Fu Shou Yuan, the pioneering cemetery park to reform funeral industry in China. With "After-life Garden" as its operation philosophy, Fu Shou Yuan combines humanity philosophy with traditional Chinese funeral culture and forms modern garden culture, integrating landscape, history, culture, education and leisure, which has become a benchmark for cemeteries in China. 
+                        </span>
+                    </li>
+                    <li>
+                        <h3>1995</h3>
+                        <span>In 1995, we planned the first batch of land to lease in Shanghai Hongqiao Development Zone to foreign investors, where the lease in batches was gaining steam, and the company made a great contribution to the construction of Shanghai Hongqiao Development Zone.</span>
+                    </li>
+                    <li>
+                        <h3>1998</h3>
+                        <span>In 1998, we participated in the reconstruction project of the old downtown in central Shanghai - Huangpu District and Xuhui District, and solved the urban reconstruction problems fundamentally with the new concept of "remove and return". It's a model for Shanghai downtown urban reconstruction. </span>
+                    </li>
+                    <li>
+                        <h3>2000</h3>
+                        <span>In 2000, we started Shanghai Lupu Bridge Investment and Development Co., Ltd. as a major initiator with a total investment of 2.5 billion RMB. The company was established to invest and construct of "the Top 1 Steel Arch Bridge" and for a management period of 25 years. This bridge was awarded a number of international architectural prizes, and has become a landmark of Shanghai.</span>
+                    </li>
+                    <li>
+                        <h3>2001</h3>
+                        <span>In 2001, we carried out development and construction of large steel-structure housing in Shanghai jointly with Laiwu Steel Group Co., Ltd. serving as a pioneer in the further development and upgrading of new materials, technologies and processes in Shanghai housing industry.</span>
+                    </li>
+                    <li>
+                        <h3>2003</h3>
+                        <span>In 2003, we established Chongqing Caiyuanba Yangtze River Bridge Construction Development Co., Ltd., with an investment of 2.5 billion RMB, for the investment and construction of Caiyuanba Yangtze River Bridge with BOT mode.</span>
+                    </li>
+                    <li>
+                        <h3>2006</h3>
+                        <span>In 2006, we took "Shanghai Environment Protection" central mall development pilot project, and established a joint venture -- Shanghai Central Mall Investment Co., Ltd. together with Shanghai New World Holding Co., Ltd. It invested approximately 2.5 billion RMB to complete replacement and relocation. Huangpu District Government invited investment and merchants from domestic and foreign markets. </span>
+                    </li>
+                    <li>
+                        <h3>2008</h3>
+                        <span>In 2008, we invested and set up aged communities in Fengxian District and Baoshan District of Shanghai and an explored sustainable aged care model with Chinese culture through intensive industrial experiences. </span>
+                    </li>
+                    <li>
+                        <h3>2011</h3>
+                        <span>In December 2011, we established Shanghai Zhongfu Group International Trade Co., Ltd. and began to explore the development of international trading. </span>
+                    </li>
+                    <li>
+                        <h3>2013</h3>
+                        <span>In 2013, Fu Shou Yuan International Group Co., Ltd. went public in Hong Kong, being the first funeral business stock listed in Hong Kong main board. </span>
+                    </li>
+                </ul>
+    <!-- 发展历程锚点 -->
+    <span name="idea" id="idea"></span>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="main_box" id="idea">
+	<div class="main">
+    	<div class="main_rightbox">
+        	<h3 class="h4_margin" style="padding-bottom:20px;">Corporate Culture</h3>
+            <div class="about_content_idea">
+                <font>Corporate Spirit and Business Principles</font>
+                <p class="p_margin" style="margin-bottom:24px;">
+          			Corporate Spirit: pioneering, hard working, practical, innovative;<br />
+         			Business Principles: six industries, three drives,; diversified, international, and modernized;<br />
+         			With "Zhong (Chinese) Rules the Business Market, Fu(Benefit) the Whole World", ranks in the world's famous companies with its reputation and strength.<br />
+                    Scope of businesses: commerce and trading, urban construction, real estate, charity, technologies, finance, etc. Driven by financial capital and technology services and charity, it is based on Shanghai and extending its services to nationwide and worldwide to form a large-scale and high standard business pattern. 
+                </p>
+                <font>Vision</font>
+                <p class="p_margin_2" style="margin-bottom:20px;">
+           			In face of new economic era, and in order to adapt to global economic integration, and grasp the opportunities and deals with the challenges brought by China's joining in WTO, Zhongfu establishes a flat, facilitated, networked and informationized management system on the basis of organizational innovation and process reengineering, and builds core competitiveness in capital organization, marketing organization and human resources organization in worldwide. Rely on science, technology and innovation, it realizes rapid appreciation and expansion of capital, and further expands development space to achieve strategic goal of extraordinary and great-leap-forward development, and greater performance. <br /><br />
+           			With the concept of "learning, thinking, research, innovation", Zhongfu will integrate global resource, continuously enhance and improve business management. With the mission of benefiting the society, it will contribute to the development of our nation and the society and promote harmonious development of company, employees and the society as a whole. 
+                </p>
+                <p class="about_content_ouridea">
+                    
+                </p>
+            </div>
+        </div>
+	</div>
+</div>
+<div class="main_box main_box2" id="architecture">
+	<div class="main">
+    	<div class="main_rightbox">
+        	<h3 class="h4_margin" style="padding-bottom:20px;">Organization</h3>
+            <div class="about_content_architecture">
+                <font>Strict organizational system, scientific decision-making procedures and effective management guarantee the uniformity of company exploration and innovation as well as execution time.</font>
+                <img alt="" src="img/about_architecture-en.png" width="729" height="577" style="margin-bottom:68px;" />
+            </div>
+		</div>
+	</div>
+</div>
+<div class="main_box" id="team">
+	<div class="main">
+    	<div class="main_rightbox">
+        	<h3 class="h4_margin" style="padding-bottom:46px;">Management Team</h3>
+            <div class="about_content_team">
+                <img alt="" src="img/about_architecture_img2.jpg" width="729" height="411" />
+                <h2>Bai Xiaojiang</h2>
+                <ul>
+                	<li><a title="">Vice Chairman of Shanghai Chamber of Commerce</a></li>
+                    <li><a title="">Chairman \ CEO of China Zhongfu Industrial Group </a></li>
+                    <li><a title="">Eighth, ninth and tenth Shanghai CPPCC member</a></li>
+                    <li><a title="">China Democratic National Construction Association, sixth, seventh and eighth Central Committee member</a></li>
+                    <li><a title="">Executive Director of China Charity Federation </a></li>
+                    <li><a title="">Vice Chairman of China Association of Social Welfare</a></li>
+                    <li><a title="">Deputy Secretary-General of China Aging Development Foundation</a></li>
+                    <li><a title="">Researcher of Research Institution of Multinational Corporation(MNC)</a></li>
+                    <li><a title="">Hero for Shanghai's Construction</a></li>
+                </ul>
+            </div>
+        </div>
+	</div>
+</div>
+<div class="main_box main_box2" id="branch">
+	<div class="main">
+    	<div class="main_rightbox">
+        	<h3 class="h4_margin" style="padding-bottom:37px;">Branches and Subsidiaries</h3>
+            <div class="about_content_branch">
+                <ul>
+                    <li><a>Shanghai Lupu Bridge Investment and Development Co., Ltd.</a></li>
+                    <li><a>Shanghai CNOOC International Trade Co., Ltd.</a></li>
+                    <li><a>Fu Shou Yuan International Group Ltd.</a></li>
+                    <li><a>Shanghai Zhongfu Urban Investment Co., Ltd.</a></li>
+                    <li><a>Shanghai Zhongfu Properties Co., Ltd.</a></li>
+                    <li><a>Shanghai Zhongfu Property Development Co., Ltd.</a></li>
+                    <li><a>Shanghai Zhongfu Architecture Design Institute Co., Ltd.</a></li>
+                    <li><a>Dansha Zhongfu International Freight Co., Ltd.</a></li>
+                    <li><a>Shanghai Zhongfu International Logistics Co., Ltd.</a></li>
+                    <li><a>Shanghai Shenhua Coal Sales Co., Ltd.</a></li>
+                    <li><a>Shanghai Changjiang Nonferrous Metals Market</a></li>
+                    <li><a>Chongqing Caiyuanba Yangtze River Bridge Construction Development Co., Ltd.</a></li>
+                    <li><a>Shanghai Zhongfu Jinghua Investment Management Co., Ltd.</a></li>
+                    <li><a>Fulechuan International Group Ltd. </a></li>
+                </ul>
+            </div>
+		</div>
+	</div>
+</div>
+<div class="main_box" id="honor">
+	<div class="main">
+    	<div class="main_rightbox">
+        	<h3 class="h4_margin" style="padding-bottom:125px;">Honors</h3>
+        	<div class="about_content_honor"><img alt="" src="img/about_honor-en.jpg" /></div>
+        </div>
+	</div>
+</div>
+
+<!-- footer start -->
+<div class="footer">
+	<div class="footer_content">
+    	<ul>
+        	<li><a href="contact-en.html" title="">Contact Us</a></li>
+            <li class="vertical">|</li>
+            <li><a href="map-en.html" title=""> Site Map</a></li>
+            <li class="vertical">|</li>
+            <li><a href="map-en.html#statement" title="">Legal Statement</a></li>
+            <li class="vertical">|</li>
+            <li><a href="#" title="">沪ICP证：034583i45号</a></li>
+        </ul>
+        <p>Copyright © 1998 - 2013 Zhongfu. All Rights Reserved. 中福公司 版权所有</p>
+        <ul class="u1">
+        	<li><a href="#" title=""><img alt="" src="img/copyright_img1.jpg" width="122" height="52" /></a></li>
+        </ul>
+    </div>
+</div>
+<!-- footer end -->
+
+
+</body>
+</html>

@@ -1,0 +1,195 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>中国中福实业集团</title>
+<link type="text/css" rel="stylesheet" href="css/style-en.css" />
+<script type="text/javascript" src="js/jquery.js"></script> 
+
+<!-- dropmenu -->
+<script type="text/javascript" src="js/dropmenu/dropmenu.js"></script> 
+<script>
+function scrollShow(index){
+	$(window).scroll(function() {
+		var scrollTop = $(this).scrollTop();
+		var indexTop = $('#'+index).offset().top;
+		if (scrollTop > indexTop - 101) {
+			var floatA = $('#leftFixed').find('a[href="#'+index+'"]');
+			floatA.parent('li').addClass('firstli');
+			floatA.parent('li').siblings().removeClass('firstli');
+		}
+	}); 
+}
+</script>
+</head>
+
+<body>
+
+<!-- 头部 start -->
+<div class="nav_container">
+    <div class="fixed fixed_other">
+    	<div class="header">
+            <img alt="logo" src="img/logo.png" />
+            <p><a href="index.html" title="">简体中文</a>|<a href="index-en.html" title="">English</a></p>
+        </div>
+    </div>
+</div>
+<div class="nav_container2">
+	<div class="fixed fixed_other2">
+        <div class="nav">
+            <div class="nav_box_ul">
+                <ul class="u1">
+                	<li><a href="index-en.html" title="">HOME</a></li>
+                	<li><a href="about-en.html" title="">ABOUT</a></li>
+                	<li class="l1"><a href="achievement-en.html" title="">INDUSTRIES & ACHIEVEMENTS</a></li>
+                    <li><a href="dynamic-en.html" title="">NEWS</a></li>
+                    <li class="l2"><a href="responsibility-en.html" title="">SOCIAL RESPONSIBILITY</a></li>
+                    <li><a href="join-en.html" title="">JOIN US</a></li>
+                    <li class="l3"><a href="contact-en.html" title="">CONTACT US</a></li>
+                </ul>
+                <ul id="nav_one" class="nav_one">
+                	<li>
+                        <a title="" class="btnlist">other sites</a>
+                        <div class="nav_box_menu" style="display:none;">
+                            <ul class="u2">
+                                <li><a href="#" title="">Fu Shou Yuan Group</a></li>
+                                <li><a href="#" title="">Shanghai FuShouYuan</a></li>
+                                <li><a href="#" title="">Hefei Shushan cemetery</a></li>
+                                <li><a href="#" title="">Shandong FuShouYuan</a></li>
+                                <li><a href="#" title="">Shanghai cemetery</a></li>
+                                <li><a href="#" title="">Henan FuShouYuan</a></li>
+                                <li><a href="#" title="">Jinzhou cemetery</a></li>
+                                <li><a href="#" title="">White angel</a></li>
+                                <li><a href="#" title="">Chongqing hall</a></li>
+                                <li><a href="#" title="">Hefei humanistic</a></li>
+                            </ul>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- 头部 end -->
+<script>
+$(document).ready(function(){
+	$("#nav_one").dropmenu();
+	
+	$(window).bind("scroll", function(){
+		var winSTop= $(this).scrollTop();
+		var top = winSTop - 315;
+		if(winSTop>=295){
+			$("#leftFixed").css("top",top+"px");
+		}else{
+			$("#leftFixed").css("top","0");
+		}
+		
+	})
+	
+	scrollShow('charity');
+	scrollShow('idea');
+	scrollShow('report');
+	$('#leftFixed a').click(function(){
+		var href = $(this).attr("href");
+		var hrefTop = $(href).offset().top - 99;
+		$("body, html").animate({
+			scrollTop: hrefTop
+		},800);
+		return false;
+	});
+	
+});
+</script>
+<!-- banner start -->
+<div class="banner_box about_banner_box wide-container" style="width:100%;height:312px;">
+	<div id="slides">
+        <ul class="slides-container">
+            <li>
+				<img src="img/responsibility_banner-en.jpg" width="100%" />
+            </li>
+        </ul>
+	</div>
+    <!-- 公益事业锚点 -->
+	<span name="charity" id="charity"></span>
+</div>
+<script type="text/javascript" src="js/superslides/jquery.superslides.js"></script>
+<script>
+    $(function() {
+		$('#slides').superslides({
+			play: 0,
+			animation: 'fade',
+			animation_speed: '500',
+			inherit_width_from: ".wide-container",
+			inherit_height_from: ".wide-container"
+		});
+    });
+</script> 
+<!-- banner end -->
+<div class="main_box" id="charity">
+	<div class="main">
+    	<div class="main_navul">
+        	<div id="leftFixed" class="leftFixed">
+            	<h4>Social Responsibility</h4>
+                <ul>
+                    <li class="firstli"><a href="#charity" title="">Public Welfare</a></li>
+                    <li><a href="#idea" title=""><font class="f1"><span class="sp1">Environmental</span> <span class="sp2">Protection</span></font></a></li>
+                    <li class="noborder"><a href="#report" title=""><font class="f1"><span class="sp3">Reports on Social</span> <span class="sp4">Responsibility</span></font></a></li>
+                </ul>
+                <a href="index-en.html" title="" class="backIndex" style="width:100%;">Home</a>
+            </div>
+        </div>
+    	<div class="main_rightbox">
+        	<h3 class="achievement_h4_margin">Public Welfare</h3>
+            <div class="about_content_idea main_content_charity">
+                <img src="img/responsibility_img1.jpg" width="726" height="484" class="responsibility_img1" />
+    
+            </div>
+        </div>
+    </div>
+</div>
+<div class="main_box main_box2" id="idea">
+	<div class="main">
+    	<div class="main_rightbox">
+            <h3 class="achievement_h4_margin">Environmental Protection </h3>
+            <div class="about_content_idea main_content_charity">
+                <img src="img/responsibility_img2.jpg" width="726" height="484" class="responsibility_img2" />
+                
+            </div>
+        </div>
+    </div>
+</div>
+<div class="main_box" id="report">
+	<div class="main">
+    	<div class="main_rightbox">
+            <h3 class="achievement_h4_margin">Reports on Social Responsibility</h3>
+            <div class="about_content_idea main_content_charity">
+                <img src="img/responsibility_img3.jpg" width="726" height="484" class="responsibility_img1" />
+                
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- footer start -->
+<div class="footer">
+	<div class="footer_content">
+    	<ul>
+        	<li><a href="contact-en.html" title="">Contact Us</a></li>
+            <li class="vertical">|</li>
+            <li><a href="map-en.html" title=""> Site Map</a></li>
+            <li class="vertical">|</li>
+            <li><a href="map-en.html#statement" title="">Legal Statement</a></li>
+            <li class="vertical">|</li>
+            <li><a href="#" title="">沪ICP证：034583i45号</a></li>
+        </ul>
+        <p>Copyright © 1998 - 2013 Zhongfu. All Rights Reserved. 中福公司 版权所有</p>
+        <ul class="u1">
+        	<li><a href="#" title=""><img alt="" src="img/copyright_img1.jpg" width="122" height="52" /></a></li>
+        </ul>
+    </div>
+</div>
+<!-- footer end -->
+
+
+</body>
+</html>

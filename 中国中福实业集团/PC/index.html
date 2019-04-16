@@ -1,0 +1,219 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>中国中福实业集团</title>
+<link type="text/css" rel="stylesheet" href="css/style.css" />
+<script type="text/javascript" src="js/jquery.js"></script> 
+
+<!-- dropmenu -->
+<script type="text/javascript" src="js/dropmenu/dropmenu.js"></script> 
+
+</head>
+
+<body>
+
+<!-- 头部 start -->
+<div class="nav_container">
+    <div class="fixed fixed_other">
+    	<div class="header">
+            <img alt="logo" src="img/logo.png" />
+            <p><a href="index.html" title="">简体中文</a>|<a href="index-en.html" title="">English</a></p>
+        </div>
+    </div>
+</div>
+<div class="nav_container2">
+	<div class="fixed fixed_other2">
+        <div class="nav">
+            <div class="nav_box_ul">
+                <ul class="u1">
+                    <li><a href="index.html" title="">首页</a></li>
+                    <li><a href="about.html" title="">关于中福</a></li>
+                    <li><a href="achievement.html" title="">产业与成果</a></li>
+                    <li><a href="dynamic.html" title="">中福动态</a></li>
+                    <li><a href="responsibility.html" title="">社会责任</a></li>
+                    <li><a href="join.html" title="">加入中福</a></li>
+                    <li><a href="contact.html" title="">联系我们</a></li>
+                </ul>
+                <ul id="nav_one" class="nav_one">
+                	<li>
+                        <a title="" class="btnlist">访问中福相关站点</a>
+                        <div class="nav_box_menu" style="display:none;">
+                            <ul class="u2">
+                                <li><a href="#" title="">福寿园集团</a></li>
+                                <li><a href="#" title="">上海福寿园</a></li>
+                                <li><a href="#" title="">合肥大蜀山文化陵园</a></li>
+                                <li><a href="#" title="">山东福寿园</a></li>
+                                <li><a href="#" title="">上海海港陵园</a></li>
+                                <li><a href="#" title="">河南福寿园</a></li>
+                                <li><a href="#" title="">锦州帽山公墓</a></li>
+                                <li><a href="#" title="">上海福寿园礼仪公司</a></li>
+                                <li><a href="#" title="">重庆安乐堂</a></li>
+                                <li><a href="#" title="">合肥人本礼仪</a></li>
+                            </ul>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- 头部 end -->
+<!-- banner start -->
+<div class="banner_box">
+	<div class="slides_box">
+        <div id="demo3" class="wide-container" style="width:100%;height:338px;">
+        	<div id="slides">
+                <ul class="slides-container">
+                    <li><a href="#" title=""><img alt="" src="img/index_banner1.jpg" /></a></li>
+                    <li><a href="#" title=""><img alt="" src="img/index_banner2.jpg" /></a></li>
+                    <li><a href="#" title=""><img alt="" src="img/index_banner3.jpg" /></a></li>
+                    <li><a href="#" title=""><img alt="" src="img/index_banner4.jpg" /></a></li>
+                    <li><a href="#" title=""><img alt="" src="img/index_banner5.jpg" /></a></li>
+                    <li><a href="#" title=""><img alt="" src="img/index_banner6.jpg" /></a></li>
+                </ul>
+            </div>
+            
+        </div>
+        
+        <div style="width:100%;height:95px;position:relative;margin-top:8px;">
+                <div class="banner_box_btn">
+                    <div class="banner_box_ul">
+                        <ul id="silder_page" class="slides-pagination">
+                            <li class="a_backImg"><a href="#1" title="">民政公益产业</a></li>
+                            <li><a href="#2" title="">城市投资建设</a></li>
+                            <li><a href="#3" title="">房地产业</a></li>
+                            <li><a href="#4" title="">贸易物流服务</a></li>
+                            <li><a href="#5" title="">现代科技投资</a></li>
+                            <li><span class="a_backImg2"></span><a href="#6" title="">资本运作</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+    </div>
+<script type="text/javascript" src="js/superslides/jquery.superslides.js"></script>
+<script>
+    $(function() {
+		/* dropmenu */
+		$("#nav_one").dropmenu();
+		
+		$(".fixed_other2").css("position", "inherit");
+		$(".fixed_other").css("position", "inherit");
+		
+		if(navigator.userAgent.indexOf("MSIE 6.0") > 0)
+		{
+			//是IE6
+			
+			
+		}else{
+			$('#slides').superslides({
+				play: '5000',
+				animation: 'fade',
+				animation_speed: '500',
+				inherit_width_from: ".wide-container",
+				inherit_height_from: ".wide-container"
+			});
+			$(".banner_box_btn .banner_box_ul #silder_page li a").click(function(){
+				var a=$(this).parent().index();
+				if(!$(this).parent().hasClass("a_backImg")){
+					$(".banner_box_btn .banner_box_ul #silder_page li").removeClass("a_backImg");
+					$(this).parent().addClass("a_backImg");
+					$('.slides-pagination a').eq(a).trigger('click');
+				}
+			});
+			$('#slides').on('animated.slides',function(){
+				var nowIndex = $('#slides').superslides('current');
+				$("#silder_page li").removeClass("a_backImg");
+				$("#silder_page li").eq(nowIndex).addClass('a_backImg');
+			});
+		}
+		
+    });
+</script>  
+    
+</div>
+<!-- banner end -->
+
+<div class="index_main">
+	<div class="index_main_box">
+        <div class="index_main_left">
+            <h4>中福简介<span>ABOUT ZHONGFU</span></h4>
+            <p>
+            	中国中福实业集团经国家批准成立，以中国中福实业有限公司为母体，立足上海，服务全国，面向世界，福系社会，是一个全方位开放，国际化经营，多元化发展的现代化企业集团，并于2009年荣获上海市著名商标称号。<br /><br />
+				企业建立于1995年，原系中国康华；2000年实现重组改制，经中福人近二十年的努力奋斗，  现中福系统已拥有三百多亿人民币资产，统领包括上市公司在内的四十余家国内公司和海外公司。
+            </p>
+            <a href="#" title="" class="index_main_more">了解更多...</a>
+        </div>
+    	
+    	<div class="index_main_middle">
+            <h4>成果展示<span>WORKS</span></h4>
+            <div class="imgbox">
+                <a href="#" title=""><img alt="" src="img/index_show_img1.jpg" /></a>
+                <h3>上海福寿园</h3>
+                <a href="#" title=""><img alt="" src="img/index_show_img2.jpg" /></a>
+                <h3>上海卢浦大桥</h3>
+            </div>
+            <a href="#" title="" class="index_main_more" style="padding-left:17px;">了解更多...</a>
+        </div>
+        
+        <div class="index_main_right">
+            <h4>公司动态<span>PRESS RELEASE</span></h4>
+            <ul>
+            	<li>
+                	<span>2014-03-09</span>
+                    <font>
+                    	<a href="#" title="">中国中福原系国家民政部直属企业，并成为上海第一个成功进行BOT(私营企业)</a>
+                    </font>
+                </li>
+                <li>
+                	<span>2014-05-12</span>
+                    <font>
+                    	<a href="#" title="">中国中福实业有限公司是由原国家经贸委和国家工商局批准成立的服务全国福利事业</a>
+                        <img alt="" src="img/dynamic_btn.jpg" class="a_pdf" />
+                    </font>
+                </li>
+                <li>
+                	<span>2014-06-02</span>
+                    <font>
+                    	<a href="#" title="">作为一家综合性大型公司的中国中福实业有限公司</a>
+                    </font>
+                </li>
+                <li>
+                	<span>2014-06-20</span>
+                    <font>
+                    	<a href="#" title="">公司及全体董事会全体成员保证信息披露内容的真实、准确和完整</a>
+                        <img alt="" src="img/dynamic_btn.jpg" class="a_pdf" />
+                    </font>
+                </li>
+            </ul>
+        </div>
+    	
+    </div>
+    
+</div>
+
+
+<!-- footer start -->
+<div class="footer">
+	<div class="footer_content">
+    	<ul>
+        	<li><a href="contact.html" title="">联系中福</a></li>
+            <li class="vertical">|</li>
+            <li><a href="map.html" title="">网站地图</a></li>
+            <li class="vertical">|</li>
+            <li><a href="map.html#statement" title="">法律声明</a></li>
+            <li class="vertical">|</li>
+            <li><a href="#" title="">沪ICP证：034583i45号</a></li>
+        </ul>
+        <p>Copyright © 1998 - 2013 Zhongfu. All Rights Reserved. 中福公司 版权所有</p>
+        <ul class="u1">
+        	<li><a href="#" title=""><img alt="" src="img/copyright_img1.jpg" width="122" height="52" /></a></li>
+        </ul>
+    </div>
+</div>
+<!-- footer end -->
+
+
+</body>
+</html>

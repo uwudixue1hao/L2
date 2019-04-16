@@ -1,0 +1,310 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>中国中福实业集团</title>
+<link type="text/css" rel="stylesheet" href="css/style.css" />
+<script type="text/javascript" src="js/jquery.js"></script> 
+
+<!-- dropmenu -->
+<script type="text/javascript" src="js/dropmenu/dropmenu.js"></script> 
+<script type="text/javascript" src="js/javascript.js"></script>
+</head>
+
+<body>
+
+<!-- 头部 start -->
+<div class="nav_container">
+    <div class="fixed fixed_other">
+    	<div class="header">
+            <img alt="logo" src="img/logo.png" />
+            <p><a href="index.html" title="">简体中文</a>|<a href="index-en.html" title="">English</a></p>
+        </div>
+    </div>
+</div>
+<div class="nav_container2">
+	<div class="fixed fixed_other2">
+        <div class="nav">
+            <div class="nav_box_ul">
+                <ul class="u1">
+                    <li><a href="index.html" title="">首页</a></li>
+                    <li><a href="about.html" title="">关于中福</a></li>
+                    <li><a href="achievement.html" title="">产业与成果</a></li>
+                    <li><a href="dynamic.html" title="">中福动态</a></li>
+                    <li><a href="responsibility.html" title="">社会责任</a></li>
+                    <li><a href="join.html" title="">加入中福</a></li>
+                    <li><a href="contact.html" title="">联系我们</a></li>
+                </ul>
+                <ul id="nav_one" class="nav_one">
+                	<li>
+                        <a title="" class="btnlist">访问中福相关站点</a>
+                        <div class="nav_box_menu" style="display:none;">
+                            <ul class="u2">
+                                <li><a href="#" title="">福寿园集团</a></li>
+                                <li><a href="#" title="">上海福寿园</a></li>
+                                <li><a href="#" title="">合肥大蜀山文化陵园</a></li>
+                                <li><a href="#" title="">山东福寿园</a></li>
+                                <li><a href="#" title="">上海海港陵园</a></li>
+                                <li><a href="#" title="">河南福寿园</a></li>
+                                <li><a href="#" title="">锦州帽山公墓</a></li>
+                                <li><a href="#" title="">上海福寿园礼仪公司</a></li>
+                                <li><a href="#" title="">重庆安乐堂</a></li>
+                                <li><a href="#" title="">合肥人本礼仪</a></li>
+                            </ul>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- 头部 end -->
+<script>
+$(document).ready(function(){
+	$("#nav_one").dropmenu();
+	
+	$(window).bind("scroll", function(){
+		var winSTop= $(this).scrollTop();
+		var top = winSTop - 315;
+		if(winSTop>=295){
+			$("#leftFixed").css("top",top+"px");
+		}else{
+			$("#leftFixed").css("top","0");
+		}
+		
+	})
+	
+	scrollShow('charity');
+	scrollShow('investment');
+	scrollShow('premises');
+	scrollShow('logistics');
+	scrollShow('technology');
+	scrollShow('capital');
+	$('#leftFixed a').click(function(){
+		var href = $(this).attr("href");
+		var hrefTop = $(href).offset().top - 99;
+		$("body, html").animate({
+			scrollTop: hrefTop
+		},800);
+		return false;
+	});
+});
+</script>
+<!-- banner start -->
+<div class="banner_box about_banner_box wide-container" style="width:100%;height:312px;">
+	<div id="slides">
+        <ul class="slides-container">
+            <li>
+				<img src="img/achievement_banner.jpg" width="100%" height="312" />
+    		</li>
+        </ul>
+    </div>
+    
+</div>
+<script type="text/javascript" src="js/superslides/jquery.superslides.js"></script>
+<script>
+    $(function() {
+		$('#slides').superslides({
+			play: 0,
+			animation: 'fade',
+			animation_speed: '500',
+			inherit_width_from: ".wide-container",
+			inherit_height_from: ".wide-container"
+		});
+    });
+</script>  
+<!-- banner end -->
+<div class="main_box" id="charity">
+	<div class="main">
+    	<div class="main_navul">
+        	<div id="leftFixed" class="leftFixed">
+                <h4>产业与成果</h4>
+                <ul>
+                    <li class="firstli"><a href="#charity" title="">民政公益产业</a></li>
+                    <li><a href="#investment" title="">城市投资建设</a></li>
+                    <li><a href="#premises" title="">房地产业</a></li>
+                    <li><a href="#logistics" title="">贸易物流服务</a></li>
+                    <li><a href="#technology" title="">现代科技投资</a></li>
+                    <li class="noborder"><a href="#capital" title="">资本运作</a></li>
+                </ul>
+                <a href="index.html" title="" class="backIndex" style="width:100%;">回到首页</a>
+            </div>
+        </div>
+        <div class="main_rightbox">
+        	<h3 name="charity" id="charity" class="achievement_h4_margin" style="padding-bottom:29px;">民政公益产业</h3>
+            <div class="about_content_idea main_content_charity">
+                <font class="f1" style="padding-bottom:3px;display:inline-block;">殡葬服务</font>
+                <p class="p_margin" style="margin-bottom:28px;">中福集团注重民政公益产业，在殉葬服务和养老产业上，积极探索出一条改革开拓的道路，为中国民政公益事业贡献了自己的一份力量。</p>
+                <font class="f2">成果展示<span>福寿园</span></font>
+                <p class="achievement_p_margin" style="margin-top:17px;">
+                    福寿园国际集团，是中福集团投资建设的国内一流的现代化文化陵园。它开创了现代殉葬文化和社会人文传承的崭新之路。目前，福寿园企业，已成了殉葬业中的著名品牌和创新模式，已被国家民政部、建设部、文化部等列为示范基地，福寿园企业已遍布全国三十多个省市，并成为中国殉葬业第一个上市公司。<br /><br />
+                    福寿园集团是中国最大的殡葬服务提供商，中国殡葬服务业的领军者和整合者。同时，它也是一个承载记忆与情感的生命场所，一个传承传统价值观的文化企业，一个充满责任感的社会公民。<br /><br />
+                    福寿园集团不仅仅提供专业且个性化的多样服务，满足不同客户群的需求；更希望能通过人文纪念的方式，帮助人们从过往的生命记忆中寻找温情和力量，创造美好、幸福的生活。 
+                </p>
+                <p class="about_content_ouridea achievement_content_ouridea" style="margin-bottom:22px;"></p>
+                <p class="achievement_p_margin achievement_p_border" style="padding-bottom:49px;margin-bottom:45px;">
+                    福寿园集团未来二十年的目标是"突破传统，启迪未来"。集团将利用公司品牌及领先的市场地位，将殡葬服务扩展至中国更多的地区，并扩大纵向服务范围，树立行业最佳标准。在传统文化与意识的基础上，福寿园集团将不断增进国际合作与交流，为中国殡葬服务行业引进更完善的殡葬服务，寻求与创造未来全新的殡葬服务模式。<br /><br />
+                    <a href="#" title="">浏览福寿园集团官网 ></a> 
+                </p>
+                <font class="f1" style="display:inline-block;margin-bottom:6px;">养老产业</font>
+                <p class="achievement_p_margin2" style="margin-bottom:85px;">中福集团在民政公益产业的发展中，积极探索养老业的建设和发展。 中福集团与中国协和医科大学、日本德洲会、日本SECOM集团、美国John Knox Village、Laguna Woods Village专业经营老人社区之团队及美国北德州大学老年学系合作，借鉴其成功经验，以满足华人养老事业文化需求，项目获得国家中央政府高度重视，民政部、卫生部、中国老龄委、中国老年事业发展基金会、中华慈善总会的大力支持，并列为国家"爱心护理工程"项目。</p>
+            </div>
+        </div>
+    </div>    
+</div>
+<div class="main_box main_box2" id="investment">
+	<div class="main">
+    	<div class="main_rightbox">
+        	<h3 class="achievement_h4_margin2" style="padding-bottom:29px;">城市投资建设</h3>
+            <p>中福集团着重于城市投资建设。近年来直接参与了上海、重庆等大城市的重点工程。其参与的项目，无论是在投资融资方面，还是在品质特点方面，都是有现代的科学理念和深远的社会影响力。</p>
+            <div class="achievement_content_img" style="margin-bottom:115px;">
+                <font class="f2 f4">成果展示<span>上海卢浦大桥</span></font>
+                <img alt="" src="img/achievement_content_img.jpg" width="455" height="328" />
+                <p>
+                    以中福集团为发起人成立的上海卢浦大桥投资发展有限公司，顺应国家投融资体制改革要求，融合国内6家大型企业（集团）优势资源，以社会资本参与上海重大市政工程建设和管理。<br /><br />
+                    总体投资25亿元人民币的卢浦大桥，以其世界第一跨和曲直结合的优美造型，成为上海二十一世纪国际化大都是的新标志性建筑。
+                </p>
+            </div>
+    <!-- 城市投资建设锚点 -->
+    <span name="premises" id="premises"></span>
+        </div>
+    </div>
+</div>
+<div class="main_box" id="premises">
+	<div class="main">
+    	<div class="main_rightbox">
+        	<h3 class="achievement_h4_margin3" style="padding-bottom:33px;">房地产业</h3>
+            <font class="f1">开发</font>
+            <p class="achievement_p_margin3">中福集团的房地产业，从1992年开展以来，积极参与上海市的旧城改造，为城市环境和市民居住生活的提高，作出了应有贡献。近年来，在住宅房产，商业房产，工业房产等方面，开发面积已累计有三百多万平方米。自2003年以来，旗下的中福地产集团已有多次被评选为上海市50强开发企业。</p>
+            <div class="about_content_idea main_content_charity main_content_charity2">
+                <font class="f2 f4" style="margin-bottom:35px;">成果展示<span>中福城一期、中福城二期、中福城三期</span></font>
+                <p class="achievement_p_margin4">中福城一期、二期、三期于2005年12月全面竣工，在南京路上步行街边，呈现上海特色的"百米香榭商业街"和中高档住宅楼盘。</p>
+                <img alt="" src="img/achievement_content_img2.jpg" class="img2" width="394" height="291" />
+            </div>
+            <div class="about_content_idea main_content_charity main_content_charity9">
+                <font class="f2 f5" style="margin-bottom:23px;">成果展示<span>上海中福酒店管理有限公司</span></font>
+                <p class="achievement_p_margin5" style="margin-bottom:23px;">上海中福酒店管理有限公司在上海最繁华的外滩和南京路地段，拥有两家星级的中福世福汇大酒店和中福大酒店。</p>
+                <font class="f6" style="font-weight:bold;">上海中福世福汇大酒店</font>
+                <img alt="" src="img/achievement_content_img3.jpg" class="img1" width="715" height="253" /><br /><br />
+                <p class="achievement_p_margin5" style="margin-bottom:20px;">
+                    是上海中福集团所属的一座高星级的大型商务酒店，由上海中福酒店公寓经营管理有限公司全权经营管理。酒店位于上海市黄浦区最繁华的外滩商务圈，地处交通主干线延安东路与山东中路交汇处的广东路339号，距外滩、豫园、南京东路步行街仅举步之遥，交通十分便捷。酒店已于2004年对外营业。<br /><br />
+                    上海世福汇大酒店建筑风格端庄典雅，中西合璧，既蕴藏着富贵华丽的韵律，又洋溢着二十一世纪的现代气息。酒店由主辅连体结构组成。主楼高三十一层，总建筑面积约50000平方米。酒店拥有："数字化"商务客房与各类豪华客房 600 余间（套），以及能同时接纳 250 人的多功能会议厅和多个不同规格的商务会议室。上海世福汇——"品质卓越，至诚服务" 将给您带来超值的享受，美好的记忆。
+                </p>
+                <font class="f6" style="font-weight:bold;">上海中福大酒店</font>
+                <div class="main_content_charity8">
+                    <img alt="" src="img/achievement_content_img4.jpg" width="410" height="307" />
+                    <p>
+                        邻近市中心中华第一街南京路步行街，交通极为便捷，可步行到达外滩等主要景点。酒店设施齐全，客房布置高雅实用，凸显"时尚、高尚"的品格。酒店餐厅大堂环境高贵典雅，富有浓厚的现代气息，是聚会用餐、生日宴会之选。会议设施齐备的大小不等的会议室，是举办会议的理想选择。酒店开业时间2002年，楼高26层，客房总数520间-套。
+                    </p>
+                </div>
+            </div>
+            <font class="f1 f7" style="margin-top:53px;">规划设计</font>
+            <p class="achievement_p_margin11">中福集团属下的"上海中福建筑设计院"是国家甲级设计单位，拥有设计、装饰，监理各类一级资质。其设计的项目多次评为省、市级优秀作品，其设计的地域遍布全国各省份。</p>
+            <div class="about_content_idea main_content_charity main_content_charity4" style="margin-bottom:58px;">
+                <font class="f2 f8">成果展示<span>陆家嘴金融大厦</span></font>
+                <img alt="" src="img/achievement_content_img5.jpg" class="img2" width="300" height="413" />
+                <p class="achievement_p_margin4 achievement_p_margin7">
+                    陆家嘴金融中心大厦总建筑面积69,403平方米，地上19层，地下3层，每层均有开阔视野，可以眺望浦江两岸全景。大厦有下沉式广场可提供餐饮、休闲等系列商业配套服务。大厦位于陆家嘴环路北侧，邻近东方明珠、上海海洋水族馆、正大广场。<br /><br />
+                    陆家嘴金融中心大厦建筑平面呈矩型，外立面采用节能型玻璃幕墙，简洁利落没有多余的装饰。其内部格局及建筑标准完全依照高标准甲级写字楼而设计，以满足跨国金融机构及企业入驻陆家嘴金融中心区的需要。
+                </p>
+            </div>
+            <div class="about_content_idea main_content_charity main_content_charity5">
+                <font class="f2 f4" style="margin-bottom:33px;">成果展示<span>联洋商业广场</span></font>
+                <p class="achievement_p_margin8">
+                    联洋商业广场位于浦东市中心联洋社区，紧邻著名的大拇指广场，由四幢建筑围合而成；联洋百货、大型餐饮、娱乐休闲和一幢iBiz商务酒店。建筑风格上做了现代与传统并存的设计尝试，建筑形体及细部处理的手法上体现了海派文化经典的ArtDeco装饰风格。<br /><br />
+                    联洋商业广场将海派文化的关系与现代商业的理念融为一体，营造出一个包含传统、表示现代的开放、精致的公共商业空间，传统和现代元素的互动促使人们领略到现代上海的魅力。
+                </p>
+                <img alt="" src="img/achievement_content_img6.jpg" class="img2" />
+            </div>
+            <div class="about_content_idea main_content_charity main_content_charity6">
+                <font class="f2 f9">成果展示<span>绥芬河中俄文化交流中心</span></font>
+                <img alt="" src="img/achievement_content_img7.jpg" />
+            </div>
+            <div class="about_content_idea main_content_charity main_content_charity2">
+                <font class="f2 f4" style="margin-bottom:38px;">成果展示<span>上海维诗凯亚</span></font>
+                <p class="achievement_p_margin9">
+                    基地位于上海浦东碧云国际社区内，总用地面积111.520m2。工程在布局上选择了典型的西方住区机构为设计基础，所有住宅围绕社区中心发散形展开布局加强了小区的聚合感，社区中心的服务设施及公共绿地能最大限度的被每一住户共享。设计的重点在地形的起伏变化，丰富了空间感受，使社区的形态与结构结合得自然而充满趣味。
+                </p>
+                <img alt="" src="img/achievement_content_img8.jpg" class="img2" />
+            </div>
+            <div class="about_content_idea main_content_charity main_content_charity3" style="margin-bottom:65px;">
+                <font class="f2 f4" style="margin-bottom:35px;">成果展示<span>上海嘉城四期</span></font>
+                <img alt="" src="img/achievement_content_img9.jpg" class="img2" />
+                <p class="achievement_p_margin4 achievement_p_margin10">
+                    布局采用18层以下高层住宅和4-6层退台式多层住宅组合的产品组合形式。高层采用弧形布局，强调大尺度景观和开放空间，空间有一定围合感和整理感。小区中央设置南北向贯通的景观大道轴线，把高层区和多层区分开，同时把小区内所有住宅纳入景观绿化系统，大大提高了住宅景观品质。<br /><br />
+                    水岸住局的设计理念,强调了滨水地带生活，人与水的远眺、近赏、亲水三个层次的与水互动的要求。设计的滨水步道，把沿河的步道、滨水广场全部联系起来，形成大小相间、高低转折、错落有致、趣意盎然的滨水景观带。
+                </p>
+            </div>
+        </div>
+    </div>    
+</div>
+<div class="main_box main_box2" id="logistics">
+	<div class="main">
+    	<div class="main_rightbox">
+        	<h3 class="achievement_h4_margin">贸易物流服务</h3>
+            <div class="about_content_idea main_content_charity">
+                <img alt="" src="img/achievement_content_img10.jpg" class="img3" />
+                <font class="f1" style="display:inline-block;margin-bottom:5px;">综合贸易</font>
+                <p class="achievement_p_margin12">
+                    中福集团的贸易体系拥有经国家批准的综合进出口权，经营范围包括：粮油、食品、土畜产品、纺织产品、服装轻工、工艺品、黑色金属、有色金属、非金属矿产品、化工及石化产品、橡胶制品、医药、医疗器械、运输工具、机械设备、仪器仪表及国家政策允许经营的各类产品。<br /><br />
+                        中福集团业务遍及世界60多个国家和地区，与近万家客商建立了长期的友好合作关系。除传统贸易外，中福集团还与各国开展石油化工、能源材料、矿石等大宗贸易。 
+                </p>
+                <font class="f1" style="display:inline-block;margin-bottom:5px;">现代物流</font>
+                <p class="achievement_p_margin13" style="margin-bottom:80px;">中福集团拥有包括仓储、配送、分拨、海陆空货运代理及海洋运输、集装箱运输等一体化的现代物流体系。与世界最大的物流公司瑞士丹沙中福货运代理公司；与东方航空公司合资成立具有国际货运一级资质的上海东方福达运输服务公司，专业从事航空货运代理；和集团全资拥有的上海中福国际货运有限公司共同构成了中福集团物流体系的核心力量。</p>
+    <!-- 民政公益产业锚点 -->
+    <span name="technology" id="technology"></span>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="main_box" id="technology">
+	<div class="main">
+    	<div class="main_rightbox">
+        	<h3 class="achievement_h4_margin5" style="padding-bottom:33px;">现代科技投资服务</h3>
+            <p class="achievement_p_margin14">上海中福酒店管理有限公司在上海最繁华的外滩和南京路地段，拥有两家星级的中福世福汇大酒店和中福大酒店。</p>
+            <div class="about_content_idea main_content_charity">
+                <img alt="" src="img/achievement_content_img11.jpg" class="img4" />
+    
+            </div>
+    <!-- 民政公益产业锚点 -->
+    <span name="capital" id="capital"></span>
+        </div>
+    </div>
+</div>
+<div class="main_box main_box2" id="capital">
+	<div class="main">
+    	<div class="main_rightbox">
+        	<h3 class="achievement_h4_margin5" style="padding-bottom:33px;">资本运作</h3>
+            <p class="achievement_p_margin15" style="margin-bottom:69px;">中福集团主要从事证券市场投资，期货交易和企业投资、购并、重组及资产委托管理。特别是对高新技术企业的投资、购并、重组是中福集团的发展重点。中福集团已成功运作巴士股份、福寿园发展有限公司上市。目前正着手上海卢浦大桥投资发展有限公司，以及投资参股证券公司、保险公司，组建了全资的重庆市渝中区小额贷款有限公司，进军金融业。</p>
+            <div class="about_content_idea main_content_charity7" style="margin-bottom:55px;">
+                <font class="f2 f10">成果展示</font>
+                <img src="img/achievement_content_img13.jpg" width="360" height="258" /><img src="img/achievement_content_img14.jpg" width="366" height="258" />
+                <img src="img/achievement_content_img15.jpg" width="360" height="269" /><img src="img/achievement_content_img16.jpg" width="366" height="269" />
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- footer start -->
+<div class="footer">
+	<div class="footer_content">
+    	<ul>
+        	<li><a href="contact.html" title="">联系中福</a></li>
+            <li class="vertical">|</li>
+            <li><a href="map.html" title="">网站地图</a></li>
+            <li class="vertical">|</li>
+            <li><a href="map.html#statement" title="">法律声明</a></li>
+            <li class="vertical">|</li>
+            <li><a href="#" title="">沪ICP证：034583i45号</a></li>
+        </ul>
+        <p>Copyright © 1998 - 2013 Zhongfu. All Rights Reserved. 中福公司 版权所有</p>
+        <ul class="u1">
+        	<li><a href="#" title=""><img alt="" src="img/copyright_img1.jpg" width="122" height="52" /></a></li>
+        </ul>
+    </div>
+</div>
+<!-- footer end -->
+
+
+</body>
+</html>

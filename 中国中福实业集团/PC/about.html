@@ -1,0 +1,318 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>中国中福实业集团</title>
+<link type="text/css" rel="stylesheet" href="css/style.css" />
+<link type="text/css" rel="stylesheet" href="css/fonts.css" />
+<script type="text/javascript" src="js/jquery.js"></script> 
+
+<!-- dropmenu -->
+<script type="text/javascript" src="js/dropmenu/dropmenu.js"></script> 
+<script type="text/javascript" src="js/javascript.js"></script>
+</head>
+
+<body>
+<!-- 头部 start -->
+<div class="nav_container">
+    <div class="fixed fixed_other">
+    	<div class="header">
+            <img alt="logo" src="img/logo.png" />
+            <p><a href="index.html" title="">简体中文</a>|<a href="index-en.html" title="">English</a></p>
+        </div>
+    </div>
+</div>
+<div class="nav_container2">
+	<div class="fixed fixed_other2">
+        <div class="nav">
+            <div class="nav_box_ul">
+                <ul class="u1">
+                    <li><a href="index.html" title="">首页</a></li>
+                    <li><a href="about.html" title="">关于中福</a></li>
+                    <li><a href="achievement.html" title="">产业与成果</a></li>
+                    <li><a href="dynamic.html" title="">中福动态</a></li>
+                    <li><a href="responsibility.html" title="">社会责任</a></li>
+                    <li><a href="join.html" title="">加入中福</a></li>
+                    <li><a href="contact.html" title="">联系我们</a></li>
+                </ul>
+                <ul id="nav_one" class="nav_one">
+                	<li>
+                        <a title="" class="btnlist">访问中福相关站点</a>
+                        <div class="nav_box_menu" style="display:none;">
+                            <ul class="u2">
+                                <li><a href="#" title="">福寿园集团</a></li>
+                                <li><a href="#" title="">上海福寿园</a></li>
+                                <li><a href="#" title="">合肥大蜀山文化陵园</a></li>
+                                <li><a href="#" title="">山东福寿园</a></li>
+                                <li><a href="#" title="">上海海港陵园</a></li>
+                                <li><a href="#" title="">河南福寿园</a></li>
+                                <li><a href="#" title="">锦州帽山公墓</a></li>
+                                <li><a href="#" title="">上海福寿园礼仪公司</a></li>
+                                <li><a href="#" title="">重庆安乐堂</a></li>
+                                <li><a href="#" title="">合肥人本礼仪</a></li>
+                            </ul>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- 头部 end -->
+<script>
+$(document).ready(function(){
+	$("#nav_one").dropmenu();
+	
+	$(window).bind("scroll", function(){
+		var winSTop= $(this).scrollTop();
+		var top = winSTop - 315;
+		if(winSTop>=295){
+			$("#leftFixed").css("top",top+"px");
+		}else{
+			$("#leftFixed").css("top","0");
+		}
+		
+	})
+	
+	scrollShow('introduction');
+	scrollShow('history');
+	scrollShow('idea');
+	scrollShow('architecture');
+	scrollShow('team');
+	scrollShow('branch');
+	scrollShow('honor');
+	$('#leftFixed a').click(function(){
+		var href = $(this).attr("href");
+		var hrefTop = $(href).offset().top - 99;
+		$("body, html").animate({
+			scrollTop: hrefTop
+		},800);
+		return false;
+	});
+
+
+});
+</script>
+<!-- banner start -->
+<div class="banner_box about_banner_box wide-container" style="width:100%;height:312px;">
+	<div id="slides">
+        <ul class="slides-container">
+            <li>
+                <img alt="" src="img/about_banner.jpg" />
+            </li>
+        </ul>
+    </div>
+</div>
+<script type="text/javascript" src="js/superslides/jquery.superslides.js"></script>
+<script>
+    $(function() {
+		$('#slides').superslides({
+			play: 0,
+			animation: 'fade',
+			animation_speed: '500',
+			inherit_width_from: ".wide-container",
+			inherit_height_from: ".wide-container"
+		});
+    });
+</script>  
+<!-- banner end -->
+
+<div class="main_box" id="introduction">
+	<div class="main_navul">
+        <div id="leftFixed" class="leftFixed">
+            <h4>关于中福</h4>
+            <ul>
+                <li class="firstli"><a href="#introduction" title="">企业简介</a></li>
+                <li><a href="#history" title="">发展历程</a></li>
+                <li><a href="#idea" title="">企业理念</a></li>
+                <li><a href="#architecture" title="">组织架构</a></li>
+                <li><a href="#team" title="">管理团队</a></li>
+                <li><a href="#branch" title="">分支机构与下属企业</a></li>
+                <li class="noborder"><a href="#honor" title="">企业荣誉</a></li>
+            </ul>
+            <a href="index.html" title="" class="backIndex" style="width:100%;">回到首页</a>
+        </div>
+    </div>
+	<div class="main">
+        <div class="main_rightbox">
+            <h3 class="h4_margin" style="padding-bottom:20px;width:735px;float:right;">企业简介</h3>
+            <p style="width:735px;float:right;">中国中福实业集团经国家批准成立，以中国中福实业有限公司为母体，立足上海，服务全国，面向世界，福系社会，是一个全方位开放，国际化经营，多元化发展的现代化企业集团，并于2009年荣获上海市著名商标称号。<br /><br />企业建立于1995年，原系中国康华；2000年实现重组改制，经中福人近二十年的努力奋斗，  现中福系统已拥有三百多亿人民币资产，统领包括上市公司在内的四十余家国内公司和海外公司。近年来集团以现代经营理念、先进管理方式，通过整合中外优势资源，将业务范围拓展至贸易、物流、城建、资本运作、高新技术、公益事业等各个方面，初步形成大贸易带动大资金、大资金带动大投资的三轮互动、良性循环的发展格局。</p>
+            <div class="about_content_img" style="width:735px;float:right;">
+                <img alt="" src="img/about_content_img.jpg" width="723" height="344" />
+    
+            </div>
+        </div>
+    </div>  
+</div>
+<div class="main_box main_box2" id="history">
+	<div class="main">
+    	<div class="main_rightbox">
+        	<h3 class="h4_margin" style="margin-bottom:40px;">发展历程</h3>
+            <div class="about_content_history">
+                <ul>
+                    <li>
+                        <h3>1990</h3>
+                        <span>1990年与上海公交公司合作组建中福公交联营公司，开创上海高质量服务、高起点管理、社会化运营的新公交模式，获得上海市政府及市民的高度赞扬。该公司1993年重组后在国内A股上市（巴士集团）。</span>
+                    </li>
+                    <li>
+                        <h3>1994</h3>
+                        <span>
+                            1994年组织美国大陆谷物公司、上海金山石化共同投资美元１亿元组建经营液化气经营项目，改善居民及工业能源结构、提高城市大气环境质量。<br /><br />
+                            1994年组建上海福寿园，该陵园成为全国殡葬事业改革的前驱。福寿园以"人生后花园"的经营理念，将人文理念与中国传统殡葬文化有机界结合，形成及景观、历史、文化、教育、休闲位一体的现代园林文化，成为全国陵园标杆。
+                        </span>
+                    </li>
+                    <li>
+                        <h3>1995</h3>
+                        <span>1995年策划上海虹桥开发区第一块土地向外资批租，进而掀起国内第一批土地批租的高潮，为上海虹桥开发区的建设做出重大贡献。</span>
+                    </li>
+                    <li>
+                        <h3>1998</h3>
+                        <span>1998年参与上海中心城区—黄浦区、徐汇区旧城改造项目，以"原拆原迁"的新思路，根本性解决旧城改造难题，成为上海中心城区旧区改造的示范。</span>
+                    </li>
+                    <li>
+                        <h3>2000</h3>
+                        <span>2000年作为主要发起人组建上海卢浦大桥投资发展有限公司，总投资人民币25亿元，负责"世界第一钢拱桥"的投资、建设和25年的经营管理。获得多项国际建筑大奖，成为了上海市标志性建筑。</span>
+                    </li>
+                    <li>
+                        <h3>2001</h3>
+                        <span>2001年，与莱芜钢铁集团合资在上海开展大型钢结构住宅的开发建设，为上海住宅产业在新材料、新技术、新工艺进一步深化发展和升级换代起到先行者的作用。</span>
+                    </li>
+                    <li>
+                        <h3>2003</h3>
+                        <span>2003年组建重庆菜园坝长江大桥建设开发有限公司，投资人民币25亿元以BOT模式负责菜园坝长江大桥的投资、建设。</span>
+                    </li>
+                    <li>
+                        <h3>2006</h3>
+                        <span>2006年，中福公司承接"上海市风貌保护"中央商场开发试点工程，与上海新世界集团合资组成上海中央商场投资有限公司。共投入人民币近25亿资金，完成全部动迁置换工作，由黄浦区政府为主向全世界整体招商。</span>
+                    </li>
+                    <li>
+                        <h3>2008</h3>
+                        <span>2008年在上海奉贤区、宝山区投资兴建老年社区，通过产业集约化经验方式，探索符合中国特点、具有可持续发展能力的养老发展模式。</span>
+                    </li>
+                    <li>
+                        <h3>2011</h3>
+                        <span>2011年12月成立上海中福集团国际贸易有限公司，开始初探对外贸易领域发展。</span>
+                    </li>
+                    <li>
+                        <h3>2013</h3>
+                        <span>2013年福寿园国际集团有限公司香港上市，成为大陆第一支在香港主版上市的殡葬企业股。</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="main_box" id="idea">
+	<div class="main">
+    	<div class="main_rightbox">
+        	<h3 class="h4_margin" style="margin-bottom:18px;">企业理念</h3>
+            <div class="about_content_idea">
+                <font style="font-weight:bold;font-size:15px;">企业精神和经营方针</font>
+                <p class="p_margin">
+                    "开拓、拼搏、求实、创新"是企业的精神；<br />
+                    "六业发展，三轮驱动; 多元化、国际化、现代化"是企业的经营方针；<br />
+                    "中道商海，福利天下"以诚信和实力跻身于世界知名企业的行列。<br />
+                    企业经营范围涉及商贸、城建、房产、社会公益、科技、金融等众多领域；企业以金融资本，科技服务，以及公益为驱动力；企业立足上海，面向全国，放眼世界，形成大范围，高规格的经营格局。
+                </p>
+                <font style="font-weight:bold;font-size:15px;">企业目标展望</font>
+                <p class="p_margin_2">
+                    面对新经济时代到来，为适应全球经济一体化趋势，应对中国加入WTO带来的巨大机遇和挑战，中福集团在组织创新、流程再造的基础上着力打造扁平化、便捷化、网络化、信息化的经营管理体系，构筑全球范围内的资金组织、市场组织、人力资源组织的核心竞争力，依托科技导向，以创新为手段，快捷高速推进资产的增值与扩张，进一步拓展视野发展空间，实现超常规、跨越式的企业发展战略目标，铸造中福集团新的更大的辉煌。<br /><br />
+                    开拓创新、与时俱进的中福集团，将秉承"学习、思考、研究、创新、超越"的企业理念，融合全球资源，不断提高和改善企业经营管理，以福利天下为己任，用自身的不断努力回馈国家，推动社会进步，实现企业、员工、社会的和谐发展。 
+                </p>
+                <p class="about_content_ouridea" style="margin-bottom:93px;">
+                    
+                </p>
+            </div>
+        </div>
+    </div>    
+</div>
+<div class="main_box main_box2" id="architecture">
+	<div class="main">
+    	<div class="main_rightbox">
+        	<h3 class="h4_margin" style="margin-bottom:16px;">组织架构</h3>
+            <div class="about_content_architecture">
+                <font>严谨的组织体系，科学的决策程序，实效的经营管理，确保企业经营者开拓崭新和时效执行的高度统一。</font>
+                <img alt="" src="img/about_architecture.png" width="729" height="577" />
+            </div>
+        </div>
+    </div>    
+</div>
+<div class="main_box" id="team">
+	<div class="main">
+    	<div class="main_rightbox">
+        	<h3 class="h4_margin" style="margin-bottom:45px;">管理团队</h3>
+            <div class="about_content_team">
+                <img alt="" src="img/about_architecture_img2.jpg" width="729" height="411" />
+                <h3>白晓江</h3>
+                <ul style="margin-bottom:70px;">
+                    <li><a>上海市商会副会长</a></li>
+                    <li><a>中国社会福利协会副会长</a></li>
+                    <li><a>中国中福实业集团董事长总裁</a></li>
+                    <li><a>中国老龄事业发展基金会——副秘书长</a></li>
+                    <li><a>上海市第八、九、十届政协委员</a></li>
+                    <li><a>中国跨国企业研究所研究员</a></li>
+                    <li><a>中国民主建国会第六、第七及第八届中央委员会委员</a></li>
+                    <li><a>上海市建设功臣</a></li>
+                    <li><a>中华慈善总会常务理事</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="main_box main_box2" id="branch">
+	<div class="main">
+    	<div class="main_rightbox">
+        	<h3 class="h4_margin" style="margin-bottom:125px;">企业分支机构与下属企业</h3>
+            <div class="about_content_branch">
+                <ul>
+                    <li><a>上海卢浦大桥投资发展有限公司</a></li>
+                    <li><a>丹沙中福国际货运有限公司</a></li>
+                    <li><a>上海中海石油国际贸易有限公司</a></li>
+                    <li><a>上海中福国际物流有限公司</a></li>
+                    <li><a>福寿园国际集团有限公司</a></li>
+                    <li><a>上海神华煤炭销售有限公司</a></li>
+                    <li><a>上海中福城市投资有限公司</a></li>
+                    <li><a>上海长江有色金属现货市场</a></li>
+                    <li><a>上海中福地产置业有限公司</a></li>
+                    <li><a>重庆菜园坝长江大桥建设开发有限公司</a></li>
+                    <li><a>上海中福房产开发公司</a></li>
+                    <li><a>上海中福精华投资管理公司</a></li>
+                    <li><a>上海中福建筑设计院有限公司</a></li>
+                    <li><a>福利川国际集团有限公司</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="main_box" id="honor">
+	<div class="main">
+    	<div class="main_rightbox">
+        	<h3 class="h4_margin" style="margin-bottom:48px;">企业荣誉</h3>
+        	<div class="about_content_honor"><img alt="" src="img/about_honor.jpg" /></div>
+        </div>
+    </div>
+</div>
+
+<!-- footer start -->
+<div class="footer">
+	<div class="footer_content">
+    	<ul>
+        	<li><a href="contact.html" title="">联系中福</a></li>
+            <li class="vertical">|</li>
+            <li><a href="map.html" title="">网站地图</a></li>
+            <li class="vertical">|</li>
+            <li><a href="map.html#statement" title="">法律声明</a></li>
+            <li class="vertical">|</li>
+            <li><a href="#" title="">沪ICP证：034583i45号</a></li>
+        </ul>
+        <p>Copyright © 1998 - 2013 Zhongfu. All Rights Reserved. 中福公司 版权所有</p>
+        <ul class="u1">
+        	<li><a href="#" title=""><img alt="" src="img/copyright_img1.jpg" width="122" height="52" /></a></li>
+        </ul>
+    </div>
+</div>
+<!-- footer end -->
+
+
+</body>
+</html>

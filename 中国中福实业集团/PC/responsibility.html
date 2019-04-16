@@ -1,0 +1,182 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>中国中福实业集团</title>
+<link type="text/css" rel="stylesheet" href="css/style.css" />
+<script type="text/javascript" src="js/jquery.js"></script> 
+
+<!-- dropmenu -->
+<script type="text/javascript" src="js/dropmenu/dropmenu.js"></script> 
+<script type="text/javascript" src="js/javascript.js"></script>
+</head>
+
+<body>
+
+<!-- 头部 start -->
+<div class="nav_container">
+    <div class="fixed fixed_other">
+    	<div class="header">
+            <img alt="logo" src="img/logo.png" />
+            <p><a href="index.html" title="">简体中文</a>|<a href="index-en.html" title="">English</a></p>
+        </div>
+    </div>
+</div>
+<div class="nav_container2">
+	<div class="fixed fixed_other2">
+        <div class="nav">
+            <div class="nav_box_ul">
+                <ul class="u1">
+                    <li><a href="index.html" title="">首页</a></li>
+                    <li><a href="about.html" title="">关于中福</a></li>
+                    <li><a href="achievement.html" title="">产业与成果</a></li>
+                    <li><a href="dynamic.html" title="">中福动态</a></li>
+                    <li><a href="responsibility.html" title="">社会责任</a></li>
+                    <li><a href="join.html" title="">加入中福</a></li>
+                    <li><a href="contact.html" title="">联系我们</a></li>
+                </ul>
+                <ul id="nav_one" class="nav_one">
+                	<li>
+                        <a title="" class="btnlist">访问中福相关站点</a>
+                        <div class="nav_box_menu" style="display:none;">
+                            <ul class="u2">
+                                <li><a href="#" title="">福寿园集团</a></li>
+                                <li><a href="#" title="">上海福寿园</a></li>
+                                <li><a href="#" title="">合肥大蜀山文化陵园</a></li>
+                                <li><a href="#" title="">山东福寿园</a></li>
+                                <li><a href="#" title="">上海海港陵园</a></li>
+                                <li><a href="#" title="">河南福寿园</a></li>
+                                <li><a href="#" title="">锦州帽山公墓</a></li>
+                                <li><a href="#" title="">上海福寿园礼仪公司</a></li>
+                                <li><a href="#" title="">重庆安乐堂</a></li>
+                                <li><a href="#" title="">合肥人本礼仪</a></li>
+                            </ul>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- 头部 end -->
+<script>
+$(document).ready(function(){
+	$("#nav_one").dropmenu();
+	
+	$(window).bind("scroll", function(){
+		var winSTop= $(this).scrollTop();
+		var top = winSTop - 315;
+		if(winSTop>=295){
+			$("#leftFixed").css("top",top+"px");
+		}else{
+			$("#leftFixed").css("top","0");
+		}
+		
+	})
+	
+	scrollShow('charity');
+	scrollShow('idea');
+	scrollShow('report');
+	$('#leftFixed a').click(function(){
+		var href = $(this).attr("href");
+		var hrefTop = $(href).offset().top - 99;
+		$("body, html").animate({
+			scrollTop: hrefTop
+		},800);
+		return false;
+	});
+	
+});
+</script>
+<!-- banner start -->
+<div class="banner_box about_banner_box wide-container" style="width:100%;height:312px;">
+	<div id="slides">
+        <ul class="slides-container">
+            <li>
+				<img src="img/responsibility_banner.jpg" width="100%" height="312" />
+    		</li>
+    	</ul>
+    </div>
+    <!-- 公益事业锚点 -->
+	<span name="charity" id="charity"></span>
+</div>
+<script type="text/javascript" src="js/superslides/jquery.superslides.js"></script>
+<script>
+    $(function() {
+		$('#slides').superslides({
+			play: 0,
+			animation: 'fade',
+			animation_speed: '500',
+			inherit_width_from: ".wide-container",
+			inherit_height_from: ".wide-container"
+		});
+    });
+</script>  
+<!-- banner end -->
+<div class="main_box" id="charity">
+	<div class="main">
+    	<div class="main_navul">
+        	<div id="leftFixed" class="leftFixed">
+            	<h4>社会责任</h4>
+                <ul>
+                    <li class="firstli"><a href="#charity" title="">公益事业</a></li>
+                    <li><a href="#idea" title="">环保理念</a></li>
+                    <li class="noborder"><a href="#report" title="">社会责任报告</a></li>
+                </ul>
+                <a href="index.html" title="" class="backIndex" style="width:100%;">回到首页</a>
+            </div>
+        </div>
+    	<div class="main_rightbox">
+        	<h3 class="achievement_h4_margin7">公益事业</h3>
+            <div class="about_content_idea main_content_charity">
+                <img src="img/responsibility_img1.jpg" width="726" height="484" class="responsibility_img1" />
+    
+            </div>
+        </div>
+    </div>
+</div>
+<div class="main_box main_box2" id="idea">
+	<div class="main">
+    	<div class="main_rightbox">
+            <h3 class="achievement_h4_margin8">环保理念</h3>
+            <div class="about_content_idea main_content_charity">
+                <img src="img/responsibility_img2.jpg" width="726" height="484" class="responsibility_img2" />
+            </div>
+        </div>
+    </div>
+</div>
+<div class="main_box" id="report">
+	<div class="main">
+    	<div class="main_rightbox">
+            <h3 class="achievement_h4_margin9">社会责任报告</h3>
+            <div class="about_content_idea main_content_charity">
+                <img src="img/responsibility_img3.jpg" width="726" height="484" class="responsibility_img1" />
+                
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- footer start -->
+<div class="footer">
+	<div class="footer_content">
+    	<ul>
+        	<li><a href="contact.html" title="">联系中福</a></li>
+            <li class="vertical">|</li>
+            <li><a href="map.html" title="">网站地图</a></li>
+            <li class="vertical">|</li>
+            <li><a href="map.html#statement" title="">法律声明</a></li>
+            <li class="vertical">|</li>
+            <li><a href="#" title="">沪ICP证：034583i45号</a></li>
+        </ul>
+        <p>Copyright © 1998 - 2013 Zhongfu. All Rights Reserved. 中福公司 版权所有</p>
+        <ul class="u1">
+        	<li><a href="#" title=""><img alt="" src="img/copyright_img1.jpg" width="122" height="52" /></a></li>
+        </ul>
+    </div>
+</div>
+<!-- footer end -->
+
+
+</body>
+</html>
