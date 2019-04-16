@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>基金超市</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+		<link rel="stylesheet" href="bootstrap/bootstrap.min.css" />
+		<link rel="stylesheet" href="css/public.css" />
+		<style type="text/css">
+			body{background-color: #f2f2f2;}
+			/* 查询图标 */
+			.p2-title a.weixin{line-height: 7rem;text-align: right;}
+			.p2-title .select{width: 50%;display: inline-block;}
+			/* 二级导航 */
+			.navigator{width: 100%;height: 4rem;background-color: #FFFFFF;padding: 0 1.5rem;position: relative;}
+			.navigator ul{height: 100%;width: 200%;}
+			.navigator ul li{float: left;width: 6rem;height: 100%;text-align: center;font-size: 1.4rem;line-height: 4rem;position: relative;}
+			.navigator ul li a{color: #404040;font-size: 1.2rem;display: block;}
+			.navigator ul li a:hover, .navigator ul li a:active, .navigator ul li a:focus{text-decoration: none;}
+			.navigator ul li .color{color: #FF5B52;border-bottom: .3rem solid #FF5B52;}
+			.navigator ul li .line{width: 100%;height: .3rem;position: absolute;bottom: 0;left: 0;background-color: #FF5B52;}
+			.navigator .arrow{position: absolute;right: 1rem;top: 50%;width: 1%;margin-top: -.5%;}
+			.navigator .ulbox{width: 100%;overflow: hidden;}
+			
+			.fiscal-itembox{margin-top: 1rem;}
+			.fiscal-item .bottom ul li .income{font-size: 4.5rem;}
+			.fiscal-item .top .right p{padding-right: 3rem;}
+			.fiscal-item .top .right p img{width: 50%;}
+			.fiscal-item .top .right p.p1{line-height: 4rem;font-size: 1.6rem;color: #999999;}
+			
+			.fiscal-item .top .left p.p1{height: 3rem;line-height: 3rem;font-size: 1.8rem;}
+			.fiscal-item .top .left p.p2{line-height: 1.5rem;font-size: 1.4rem;margin-top: .5rem;}
+			.fiscal-item .top .left p.p2 span{font-size: 1.3rem;color: #777777;padding: .2rem .5rem;border: 1px solid #9c8988;border-radius: 3px;margin-right: .7rem;}
+			.fiscal-item .bottom ul{margin-bottom: .5rem;}
+			.fiscal-item .bottom ul li .income{color: #ff5b52;font-size: 3.5rem;}
+			.fiscal-item .bottom ul li .increase{color: #84c137;font-size: 2rem;}
+			.fiscal-item .bottom ul li .income, .fiscal-item .bottom ul li .increase{line-height: 5rem;height: 5rem;}
+			.fiscal-item .bottom ul li .increase{line-height: 6.5rem;}
+			.fiscal-item .bottom .ps{font-size: 1.2rem;}
+		</style>
+	</head>
+	<body ng-app="myApp">
+		<div class="p2-title">
+			<a href="javascript:back();" class="back"><img src="images/back.jpg" /></a>
+			<h3 class="text-center">基金超市</h3>
+			<a href="select.html" class="weixin"><img class="select" src="images/select.jpg" /></a>
+		</div>
+		<div class="navigator">
+			<a href=""><img src="images/creditcard_arrow.png" class="arrow" /></a>
+			<div class="ulbox">
+				<ul class="nopadding nomargin clearfix">
+					<li><a href="supermarket.html" class="color">我的关注</a></li>
+					<li><a href="supermarket_currency.html">货币型</a></li>
+					<li><a href="supermarket_stock.html">股票型</a></li>
+					<li><a href="###">债券型</a></li>
+					<li><a href="###">混合型</a></li>
+					<li><a href="###">理财型</a></li>
+					<li><a href="###">债券型</a></li>
+					<li><a href="###">指数型</a></li>
+					<li><a href="###">QDII</a></li>
+				</ul>
+			</div>
+		</div>
+		
+		<div id="productList" ng-controller="supermarketController">
+			<!-- for start -->
+			<div class="fiscal-itembox" ng-repeat="supermarket in supermarkets">
+				<div class="fiscal-item">
+					<div class="clearfix top">
+						<div class="pull-left left">
+							<p class="p1"><a href="fund_detail.html?fundCode={{ supermarket.fundCode }}">{{ supermarket.fundName }}</a></p>
+							<p class="p2">
+								<span class="text-center pull-left">100元起购</span>
+								<span class="text-center pull-left">零利息</span>
+								<span class="text-center pull-left">低风险</span>
+							</p>
+						</div>
+						<div class="pull-right right clearfix text-right">
+							<p class="p1 nomargin nopadding">{{ supermarket.fundCode }}</p>
+							<p class="p2 nomargin nopadding">
+								<a href="###"><img src="images/super_icon.jpg" /></a>
+							</p>
+						</div>
+					</div>
+					<div class="clearfix bottom">
+						<ul class="clearfix">
+							<li>
+								<p class="income text-left">{{ supermarket.weekRate.substring(0, 6) }}</p>
+								<p class="income-text text-left">七日年化（%）</p>
+							</li>
+							<li>
+								<p class="increase color">{{ supermarket.tenThousandIncome.substring(0, 6) }}</p>
+								<p class="increase-text">万份收益（元）</p>
+							</li>
+							<li>
+								<p class="increase color">{{ supermarket.buyPeopleNum }}</p>
+								<p class="increase-text">申购人数</p>
+							</li>
+						</ul>
+						<p class="ps">本基金由{{ supermarket.distributorName }}销售，相关数据截止至{{ supermarket.updateDate.substring(0, 4) + "-" + supermarket.updateDate.substring(4, 6) + "-" + supermarket.updateDate.substring(6, 8) }}</p>
+					</div>
+				</div>
+			</div>
+			<!-- for end -->
+		</div>
+		
+		<script type="text/javascript" src="js/jquery-1.4.2.min.js"></script>
+		<script type="text/javascript" src="js/public.js"></script>
+		<script type="text/javascript" src="js/angular.min.js"></script>
+		<script type="text/javascript">
+			$(function(){
+				var request = new GetRequest();
+				if( request["pageName"] != undefined ) {
+					$(".back").attr("href", request["pageName"] + ".html");
+				}else{
+					$(".back").attr("href", "javascript:back();");
+				}
+			});
+			function back() {
+				window.history.go(-1);
+				return false;
+			}
+			function GetRequest() {
+			    var url = location.search; //获取url中"?"符后的字串
+			    var theRequest = new Object();
+			    if (url.indexOf("?") != -1) {
+			        var str = url.substr(1);
+			        strs = str.split("&");
+			        for(var i = 0; i < strs.length; i ++) {
+			            theRequest[strs[i].split("=")[0]] = unescape(strs[i].split("=")[1]);
+			        }
+			    }
+			    return theRequest;
+			}
+			
+			var app = angular.module('myApp', []);
+			app.controller('supermarketController', function($scope, $http) {
+				var data = { risk: 1, clientType: phoneType, eventId: Math.ceil(Math.random()*128) };
+			    $http({
+			    	url: ip + "/fmall-front/front/query/funds/purchaseableFunds.json",
+			    	method: "POST",
+			    	params: data
+			    }).success(function(data){
+			    	$scope.supermarkets = data.data;
+			    });
+			});
+		</script>
+	</body>
+</html>

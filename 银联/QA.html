@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>平台QA</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+		<link rel="stylesheet" href="bootstrap/bootstrap.min.css" />
+		<link rel="stylesheet" href="css/public.css" />
+		<style type="text/css">
+			body{background-color: #F2F2F2;}
+			.qa-main{padding: 0 3rem;margin-top: 1.5rem;}/* position: absolute;left: 0;top: 6rem; */
+			.qa-main .title{width: 100%;overflow: hidden;}
+			.qa-main .title .left{width: 10%;margin-right: 6%;}
+			.qa-main .title .left img{width: 100%;border-radius: 1rem;}
+			.qa-main .title .right{width: 70%;height: 20rem;background-color: #FFFFFF;border-radius: 1rem;position: relative;}
+			.qa-main .title .right .text{height: 100%;padding: 0 2rem;font-size: 1.4rem;}
+			.qa-main .title .right .text p.title{line-height: 3rem;margin: 0;}
+			.qa-main .title .right .text p.title span{color: #F5544C;}
+			.qa-main .title .right .text li{line-height: 4rem;height: 4rem;overflow: hidden;border-bottom: .1rem solid #E6E6E6;}
+			.qa-main .title .right .text .more{position: absolute;width: 100%;height: 4.8rem;line-height: 4.8rem;background-color: #FFFFFF;z-index: 10;left: 0;bottom: 0;border-bottom-right-radius: 1rem;border-bottom-left-radius: 1rem;text-align: center;}
+			.qa-main .title .right .text .more img{width: 10%;}
+			
+			.qa-main .item{width: 100%;margin-top: 3.5rem;}
+			.qa-main .item .right{width: 10%;}
+			.qa-main .item .right img{width: 100%;border-radius: 1rem;}
+			.qa-main .item .left{max-width: 70%;margin-right: 6%;}
+			.qa-main .item .left .text{font-size: 1.4rem;min-height: 4rem;}
+			.qa-main .item .left .text p.user_text{padding: 1rem 2rem;border-radius: .5rem;background-color: #6dcaec;color: #FFFFFF;margin: 0;}
+			
+			.fixed-bg{height: 5rem;width: 100%;}
+			.qa-ipt{height: 5rem;width: 100%;background-color: #FFFFFF;position: fixed;bottom: 0;left: 0;padding: 0 2rem;z-index: 20;}
+			.qa-ipt input{display: inline-block;height: 4rem;border: .1rem solid #DDDDDD;border-radius: .5rem;margin-top: .5rem;width: 75%;}
+			.qa-ipt a{width: 20%;height: 3.5rem;text-align: center;line-height: 3.5rem;margin-top: .75rem;background-color: #F5544C;color: #FFFFFF;border-radius: .5rem;}
+		</style>
+	</head>
+	<body>
+		<div class="p2-title">
+			<a href="javascript:back();" class="back"><img src="images/back.jpg" /></a>
+			<h3 class="text-center">平台QA</h3>
+		</div>
+		
+		<div class="qa-main">
+			<div class="title clearfix">
+				<div class="pull-left left"><img src="images/head.jpg" /></div>
+				<div class="pull-left right">
+					<div class="text">
+						<p class="title" style="padding-top: .5rem;">hi <span>小王</span>，很高兴为您服务！</p>
+						<p class="title" style="padding-bottom: .5rem;border-bottom: .1rem solid #E6E6E6;">以下问题是您关心的吗：</p>
+						<ul class="nomargin nopadding">
+							<li><a href="">银联基金计划十期（2015....</a></li>
+							<li><a href="">银联十大基金介绍</a></li>
+							<li><a href="">薛有才是我爷爷</a></li>
+						</ul>
+						<a id="more" href="javascript:void(0);" class="more"><img src="images/more.png" /></a>
+					</div>
+				</div>
+			</div>
+			
+			<div id="templete" class="item clearfix" style="display: block;">
+				<div class="pull-right right"><img src="images/head.jpg" /></div>
+				<div class="pull-right left">
+					<div class="text">
+						<p class="user_text">信用卡还款要怎么操作呢？</p>
+					</div>
+				</div>
+			</div>
+			<div id="templete" class="item clearfix" style="display: block;">
+				<div class="pull-right right"><img src="images/head.jpg" /></div>
+				<div class="pull-right left">
+					<div class="text">
+						<p class="user_text">信用卡还款要怎么操作呢？</p>
+					</div>
+				</div>
+			</div>
+			<div id="templete" class="item clearfix" style="display: block;">
+				<div class="pull-right right"><img src="images/head.jpg" /></div>
+				<div class="pull-right left">
+					<div class="text">
+						<p class="user_text">信用卡还款要怎么操作呢？</p>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="fixed-bg"></div>
+		<div class="qa-ipt clearfix">
+			<input class="pull-left" type="text" value="" /><a href="javascript:void(0);" class="pull-right" id="question">提问</a>
+		</div>
+		
+		<iframe style="display: none;" id="ifm"></iframe>
+		
+		<script type="text/javascript" src="js/jquery.js"></script>
+		<script type="text/javascript" src="js/public.js"></script>
+		<script type="text/javascript">
+			var copy = "", 
+				val = "",
+				li_height = $(".qa-main .title .right .text li").height(),
+				old_height = $(".qa-main .title .right").height(),
+				winow_height = document.body.clientHeight,
+				top_height = $(".p2-title").height(),
+				footer_height = $(".qa-ipt").height(),
+				request = new GetRequest();
+			$(function(){
+				// 提问
+				$("#question").click(function(){
+					val = $(".qa-ipt input").val();
+					if( val.length > 0 && val.trim().length > 0 ){
+						copy = $(".qa-main #templete").clone();
+						copy.css("display","block");
+						copy.find(".user_text").text(val);
+						copy.removeAttr("id");
+						$(".qa-main").append(copy);
+					}
+				});
+				
+				// 下拉
+				$("#more").click(function(){
+					var new_height = ( $(".qa-main .title .right .text li").size() - 2 ) * li_height + old_height,
+						src = $(".qa-main .title .right .text .more img").attr("src")
+					;
+					if( src.indexOf("more.png") > 0 ){
+						$(".qa-main .title .right .text .more img").attr("src", "images/more2.png");
+						$(".qa-main .title .right").height(new_height);
+					}else{
+						$(".qa-main .title .right .text .more img").attr("src", "images/more.png");
+						$(".qa-main .title .right").height(old_height);
+					}
+				});
+			});
+			
+			function GetRequest() {
+			    var url = location.search; //获取url中"?"符后的字串
+			    var theRequest = new Object();
+			    if (url.indexOf("?") != -1) {
+			        var str = url.substr(1);
+			        strs = str.split("&");
+			        for(var i = 0; i < strs.length; i ++) {
+			            theRequest[strs[i].split("=")[0]] = unescape(strs[i].split("=")[1]);
+			        }
+			    }
+			    return theRequest;
+			}
+			
+			function back() {
+				if(request["type"] != undefined) {
+					if(request["type"] == "android") {
+						// android
+						android.BackListener();
+					}else if(request["type"] == "ios") {
+						// ios
+						$("#ifm").attr("src", "window.nativeapi.nativeaction()");
+					}
+				}else {
+					window.history.go(-1);
+				}
+			}
+		</script>
+	</body>
+	<!--
+    	作者：薛宇晟
+    	时间：2015-12-16
+    	描述：免贵姓薛 名宇晟 字有才，简称有才哥
+    -->
+</html>

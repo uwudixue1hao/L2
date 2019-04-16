@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>基金详情</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+		<link rel="stylesheet" href="bootstrap/bootstrap.min.css" />
+		<link rel="stylesheet" href="css/public.css" />
+		<style type="text/css">
+			body{background-color: #f2f2f2;}
+			.main{padding: 0 2rem;}
+			
+			.fiscal-itembox{margin-top: 1rem;}
+			.fiscal-item .bottom ul li .income{font-size: 4.5rem;}
+			.fiscal-item .top .right p{padding-right: 3rem;}
+			.fiscal-item .top .right p img{width: 50%;}
+			.fiscal-item .top .right p.p1{line-height: 4rem;font-size: 1.6rem;color: #999999;}
+			
+			.month{background-color: #FFFFFF;margin-top: 1rem;}
+			.month .border{border: 1px solid #e6e6e6;}
+			.month .tab font{display: inline-block;width: 50%;color: #666666;line-height: 4rem;font-size: 2rem;}
+			.month .tab a{display: inline-block;padding: 0 .5rem;font-size: 1.8rem;}
+			.month .tab a.color{color: #FF6E66;border-bottom: 3px solid #FF6E66;}
+			
+			.select{background-color: #FFFFFF;margin-top: 1rem;}
+			.select .u1{height: 5rem;border-bottom: 1px solid #F2F2F2;}
+			.select .u1 li{float: left;width: 33%;text-align: center;line-height: 5rem;position: relative;}
+			.select .u1 li .line{position: absolute;width: 1px;height: 2rem;background-color: #e5e5e5;right: 0;top: 50%;margin-top: -1rem;}
+			.select .u1 li a{font-size: 1.6rem;padding: 0 .5rem;}
+			.select .u1 li a.border{border-bottom: .3rem solid #F5544C;width: auto;height: 100%;padding-bottom: 1rem;}
+			.select .u1 li span{color: #69c8eb;}
+			.select .list{height: auto;padding: .5rem 0 1rem;}
+			.select .list .left{width: 15%;height: 100%;text-align: center;}
+			.select .list .left img{width: 55%;padding-top: 1rem;}
+			.select .list .right{padding-left: 0;height: 100%;width: 80%;}
+			.select .list .right .p1{line-height: 3rem;font-size: 1.6rem;}
+			.select .list .right .p1 .f1{font-size: 1.6rem;color: #666666;}
+			.select .list .right .p1 .f1 img{width: 15%;display: inline-block;vertical-align: middle;margin-right: .5rem;}
+			.select .list .right .p2{line-height: 2rem;font-size: 1.4rem;color: #666666;}
+			.select .list .right .p3{line-height: 3rem;font-size: 1.4rem;color: #666666;}
+			.select .list .right .p3 span{color: #69C8EB;}
+			.select .list .right .p3 img{width: 6%;margin-right: .5rem;}
+			.select .list .right .p3 font{margin-right: .5rem;}
+			
+			.fundDetail .u2{width: 100%;height: 100%;}
+			.fundDetail .u2 li{line-height: 5rem;border-bottom: 1px solid #E6E6E6;}
+			.fundDetail .u2 li p{margin: 0;color: #333333;font-size: 1.65rem;}
+			.fundDetail .u2 li p.color{color: #808080;}
+			.padding{height: 1rem;width: 100%;background-color: #F2F2F2;}
+			.fundDetail .u3 li{padding: 1rem 0;border-bottom: 1px solid #e5e5e5;}
+			.fundDetail .u3 .left span, .fundDetail .u3 .left font{display: block;line-height: 2.15rem;margin: 0;padding: 0;}
+			.fundDetail .u3 .left span{color: #333333;font-size: 1.6rem;}
+			.fundDetail .u3 .left font{color: #999999;font-size: 1.4rem;}
+			.fundDetail .u3 .right{width: 57.5%;}
+			.fundDetail .u3 .right .block{height: 1.5rem;line-height: 1.1rem;width: 100%;background-color: #E6E6E6;border-radius: .5rem;margin-top: .5rem;position: relative;text-align: center;color: #333333;font-size: 1.8rem;}
+			.fundDetail .u3 .right .block label{height: 100%;background-color: #F5544C;position: absolute;left: 0;top: 1rem;}
+			.fundDetail .u3 .right .block span{font-size: 1.4rem;}
+			
+			/* 发表 */
+			.fixed-filling{width: 100%;height: 6rem;}
+			.ipt{width: 100%;background-color: #FFFFFF;height: 6rem;line-height: 6rem;box-shadow: 0 -4px 4px #f0f0f0;text-align: center;position: fixed;bottom: 0;left: 0;}
+			.ipt .iptbox{width: 100%;height: 100%;position: relative;}
+			.ipt input{width: 70%;height: 4.5rem;line-height: 2rem;border: 1px solid #EEEEEE;border-radius: .5rem;margin-right: 1.5rem;position: absolute;left: 2rem;top: 50%;margin-top: -2.25rem;padding-left: 1rem;}
+			.ipt .btn-primary{background-color: #F5544C;border: 1px solid #F5544C;position: absolute;right: 3rem;top: 50%;margin-top: -2rem;height: 4rem;line-height: 4rem;width: 15%;text-align: center;padding: 0;font-size: 1.7rem;}
+			.ipt .btn-primary:hover, .btn-primary:active, .btn-primary:focus{background-color: #F5544C;border: 1px solid #F5544C;}
+			/* 立即购买 */
+			.ipt-buy{width: 100%;height: 7rem;line-height: 7rem;background-color: #FFFFFF;box-shadow: 0 -4px 4px #f0f0f0;text-align: center;position: relative;}
+			.ipt-buy .btn-primary{width: 100%;height: 5rem;line-height: 5rem;background-color: #F5544C;border: 1px solid #F5544C;font-size: 1.8rem;padding: 0;}
+			.ipt-buy .btn-primary:hover, .ipt-buy .btn-primary:active, .ipt-buy .btn-primary:focus{background-color: #F5544C;border: 1px solid #F5544C;}
+			
+			.fiscal-item .top .left p.p1{line-height: 3rem;font-size: 1.8rem;}
+			.fiscal-item .top .left p.p2{line-height: 1.5rem;font-size: 1.4rem;margin-top: .5rem;}
+			.fiscal-item .top .left p.p2 span{font-size: 1.3rem;color: #777777;padding: .25rem 1.5rem;border: 1px solid #9c8988;border-radius: 3px;margin-right: .7rem;}
+			.fiscal-item .bottom ul{margin-bottom: .5rem;}
+			.fiscal-item .bottom ul li .income{color: #ff5b52;font-size: 4rem;}
+			.fiscal-item .bottom ul li .increase{color: #84c137;font-size: 2rem;}
+			.fiscal-item .bottom ul li .income, .fiscal-item .bottom ul li .increase{line-height: 5rem;}
+			.fiscal-item .bottom .ps{font-size: 1.2rem;}
+			.fiscal-title span{font-size: 1.8rem;margin-left: 1rem;}
+			
+			.p2-title a.weixin h5{font-size: 1.4rem;}
+			.loading{position: fixed;top: 50%;left: 50%;width: 10rem;margin: -5rem 0 0 -5rem;}
+			.loading img{width: 100%;}
+			.frame-detail{width: 100%;height: 27rem;}
+		</style>
+		<script type="text/javascript" src="js/jquery.js"></script>
+		<script type="text/javascript" src="js/public.js"></script>
+		<script type="text/javascript" src="js/angular.min.js"></script>
+		<script type="text/javascript">
+			var request = new GetRequest(),
+				app = angular.module('myApp', []);
+			$(function(){
+				$("#frameDetail").attr("src", "frame_detail.html?month=1&fundType=" + request["fundType"] + "&fundCode=" + request["fundCode"]);
+				
+				$(".frame-choice");
+				/* js end */
+			});
+			
+			app.controller('investmentController', function($scope, $http) {
+				var data = { risk: 1, clientType: phoneType, eventId: Math.ceil(Math.random()*128), fundCode: request["fundCode"], fundType: request["fundType"] };
+			    $http({
+			    	url: ip + "/fmall-front/front/query/funds/holding/list.json",
+			    	method: "POST",
+			    	params: data
+			    }).success(function(data){
+			    	$scope.investments = data.data;
+			    });
+			}).controller('detailController', function($scope, $http) {
+				var data = { clientType: phoneType, eventId: Math.ceil(Math.random()*128) };
+			    $http({
+			    	url: ip + "/fmall-front/front/query/funds/base/" + request["fundCode"] + ".json",
+			    	method: "GET",
+			    	params: data
+			    }).success(function(data){
+			    	var result = { data:[] };
+			    	result.data[0] = data.data;
+			    	$scope.details = result.data;
+			    });
+			});
+			
+			function GetRequest() {
+			    var url = location.search; //获取url中"?"符后的字串
+			    var theRequest = new Object();
+			    if (url.indexOf("?") != -1) {
+			        var str = url.substr(1);
+			        strs = str.split("&");
+			        for(var i = 0; i < strs.length; i ++) {
+			            theRequest[strs[i].split("=")[0]] = unescape(strs[i].split("=")[1]);
+			        }
+			    }
+			    return theRequest;
+			}
+		</script>
+	</head>
+	<body ng-app="myApp">
+		<div class="p2-title">
+			<a href="javascript:back();" class="back"><img src="images/back.jpg" /></a>
+			<h3 class="text-center">基金详情</h3>
+			<a href="###" class="weixin"><h5>分享</h5></a>
+		</div>
+		
+		<div class="fiscal-itembox" ng-controller="detailController">
+			<div class="fiscal-item" ng-repeat="detail in details">
+				<div class="clearfix top">
+					<div class="pull-left left">
+						<p class="p1">{{ detail.fundName }}</p>
+						<p class="p2">
+							<span class="text-center pull-left">10元起购</span>
+							<span class="text-center pull-left">零利率</span>
+							<span class="text-center pull-left">低风险</span>
+						</p>
+					</div>
+					<div class="pull-right right clearfix text-right">
+						<p class="p1 nomargin nopadding">{{ detail.fundCode }}</p>
+						<p class="p2 nomargin nopadding">
+							<a href="###"><img src="images/super_icon.jpg" /></a>
+						</p>
+					</div>
+				</div>
+				<div class="clearfix bottom">
+					<ul class="clearfix">
+						<li>
+							<p class="income text-left">{{  }}</p>
+							<p class="income-text text-left">年涨幅(%)</p>
+						</li>
+						
+						<li>
+							<p class="increase color">{{ detail.nav | number: 3 }}</p>
+							<p class="increase-text">最新净值(元)</p>
+						</li>
+						<li>
+							<p class="increase color">{{ detail.buyPeopleNum }}</p>
+							<p class="increase-text">申购人数</p>
+						</li>
+					</ul>
+					<p class="ps">本基金由华夏基金销售，相关数据截止至2015-12-04</p>
+				</div>
+			</div>
+		</div>
+		
+		<div class="month">
+			<div class="tab text-center clearfix border">
+				<font class="pull-left"><a href="javascript:void(0);" class="color" data-state="0">七日年化收益率(%)</a></font>
+				<font class="pull-left"><a href="javascript:void(0);" class="" data-state="1">最新净值(元)</a></font>
+			</div>
+			<div class="main">
+				<iframe id="frameDetail" framespacing="0" frameborder="0" class="frame-detail"></iframe>
+				
+				<a href="javascript:void(0);" class="frame-choice" data-month="1">一月</a>
+				<a href="javascript:void(0);" class="frame-choice" data-month="3">一季</a>
+				<a href="javascript:void(0);" class="frame-choice" data-month="6">半年</a>
+				<a href="javascript:void(0);" class="frame-choice" data-month="12">一年</a>
+			</div>
+		</div>
+		<!-- 基金概况 产品咨询 评论 -->
+		<form>
+			<div class="select">
+				<ul class="nomargin nopadding clearfix u1">
+					<li style="width: 25%;"><a href="javascript:void(0);" class="border" data-num="1">基金概况</a><div class="line"></div></li>
+					<li style="width: 50%;"><a href="javascript:void(0);" class="" data-num="2">产品咨询</a><span>(100)</span><div class="line"></div></li>
+					<li style="width: 25%;"><a href="javascript:void(0);" class="" data-num="3">评论</a><span>(200)</span></li>
+				</ul>
+				<!-- 基金概况 -->
+				<div class="main1 fundDetail listbox" style="padding: 0;">
+					<div class="fiscal-title" style="display: block;">
+						<div class="main title clearfix">
+							<label class="pull-left"></label>
+							<span class="pull-left">基金详情</span>
+						</div>
+						<div class="main">
+							<ul class="nomargin nopadding u2">
+								<li><div class="clearfix"><p class="pull-left">起购金额</p><p class="pull-right color"></p></div></li>
+								<li><div class="clearfix"><p class="pull-left">风险等级</p><p class="pull-right color"></p></div></li>
+								<li><div class="clearfix"><p class="pull-left">赎回到账</p><p class="pull-right color">一个工作日内到账</p></div></li>
+								<li><div class="clearfix"><p class="pull-left">申购费率</p><p class="pull-right color"></p></div></li>
+								<li><div class="clearfix"><p class="pull-left">基金类型</p><p class="pull-right color"></p></div></li>
+								<li><div class="clearfix"><p class="pull-left">基金管理机构</p><p class="pull-right color"></p></div></li>
+								<li><div class="clearfix"><p class="pull-left">基金销售机构</p><p class="pull-right color"></p></div></li>
+								<li><div class="clearfix"><p class="pull-left">基金规模</p><p class="pull-right color"></p></div></li>
+								<li><div class="clearfix"><p class="pull-left">客服热线</p><p class="pull-right color"></p></div></li>
+								<li><div class="clearfix"><p class="pull-left">基金经理人</p><p class="pull-right color"></p></div></li>
+							</ul>
+						</div>
+						<div class="padding"></div>
+						<div class="main title clearfix">
+							<label class="pull-left"></label>
+							<span class="pull-left" style="margin-left: 2rem;">投资组合</span>
+						</div>
+						<div class="main">
+							<ul class="nomargin nopadding u3" ng-controller="investmentController">
+								<!-- for start -->
+								<li ng-repeat="investment in investments">
+									<div class="clearfix">
+										<div class="pull-left left"><span>{{ investment.name }}</span><font>{{ investment.fundCode }}</font></div>
+										<div class="pull-right right">
+											<p class="block nomargin">
+												<label style="width: {{ investment.percentage }}%;"></label>
+												<span>{{ investment.percentage }}%</span>
+											</p>
+										</div>
+									</div>
+								</li>
+								<!-- for end -->
+							</ul>
+						</div>
+					</div>
+				</div>
+				<!-- 产品咨询 -->
+				<div class="main main2 listbox" style="display: none;padding: 0;">
+					<!-- for start -->
+					<div class="list clearfix">
+						<div class="left pull-left"><img src="images/head.jpg" /></div>
+						<div class="right pull-left">
+							<div class="p1 nomargin">
+								<span>张乐辰</span>
+								<div class="pull-right f1"><img src="images/block.jpg" />01-13 16:44</div>
+							</div>
+							<p class="p2 nomargin">我做投资很多年了，有时间可以教大家的呢，哈哈哈</p>
+							<p class="p3 nomargin">
+								<a href="reply.html"><span>回复:</span></a>
+								具体细节请拨打电话021-32393490
+							</p>
+						</div>
+					</div>
+					<!-- for end -->
+				</div>
+				<!-- 评论 -->
+				<div class="main main3 listbox" style="display: none;padding: 0;">
+					<!-- for start -->
+					<div class="list clearfix">
+						<div class="left pull-left"><img src="images/head.jpg" /></div>
+						<div class="right pull-left">
+							<div class="p1 nomargin">
+								<span>张乐辰</span>
+								<div class="pull-right f1"><img src="images/block.jpg" />01-13 16:44</div>
+							</div>
+							<p class="p2 nomargin">我做投资很多年了，有时间可以教大家的呢，哈哈哈</p>
+							<p class="p3 nomargin text-right">
+								<img src="images/reply.jpg" /><font>(12)</font>
+								<a href="reply.html?cardId=27&parentId=4"><span>回复</span></a>
+							</p>
+						</div>
+					</div>
+					<!-- for end -->
+				</div>
+			</div>
+			<div class="fixed-filling" style="display: none;"></div>
+			<div id="ipt" class="ipt" style="display: none;">
+				<div class="iptbox">
+					<input type="text" />
+					<button type="button" class="btn btn-primary">发表</button>
+				</div>
+			</div>
+			<div id="iptBuy" class="ipt-buy main" style="display: block;">
+				<a href="buy.html" class="btn btn-primary">立即购买</a>
+			</div>
+		</form>
+		<iframe id="ifm" src="" style="display: none;"></iframe>
+		<!-- hidden -->
+		<input type="hidden" id="fundType"value="" />
+		<input type="hidden" id="fundCode" value="" />
+		
+		<div id="loading" class="loading" style="display: none;"><img src="images/loading.gif" /></div>
+		
+		<script type="text/javascript">
+			var data = { clientType: phoneType, eventId: Math.ceil(Math.random()*128) };
+			$(function(){
+				if( request["fundType"] == "04" || request["fundType"] == "09" ) {
+					$(".month .text-center a").eq(0).text("七日年化收益率(%)");
+					$(".month .text-center a").eq(1).text("每万份收益(%)");
+					console.log($("body"));
+				}else {
+					$(".month .text-center a").eq(0).text("累计收益(%)");
+					$(".month .text-center a").eq(1).text("最新净值(%)");
+				}
+				// 折线图切换
+				$(".month .tab a").click(function(){
+					/*
+					 * 0:七日年化收益率
+					 * 1:最新净值
+					 */
+					var dataState = $(this).attr("data-state");
+					$(this).parents(".tab").find("a").removeClass("color");
+					$(this).addClass("color");
+					if( dataState == "0" ) {
+						// 七日年化收益率
+						$("#frameDetail").attr("src", "frame_detail.html?month=0&fundType=04&fundCode=" + request["fundCode"]);
+					}else {
+						// 最新净值
+						$("#frameDetail").attr("src", "frame_detail.html?month=0&fundType=" + request["fundType"] + "&fundCode=" + request["fundCode"]);
+					}
+				});
+				// 时间段切换
+				$(".frame-choice").click(function(){
+					var dataMonth = $(this).attr("data-month");
+					$("#frameDetail").attr("src", "frame_detail.html?month=" + dataMonth + "&fundType=" + request["fundType"] + "&fundCode=" + request["fundCode"]);
+				});
+				// 咨询切换
+				$(".select ul li a").click(function(){
+					dataNum = $(this).attr("data-num");
+					$(".select ul li a").removeClass("border");
+					$(this).addClass("border");
+					$(".listbox").css("display","none");
+					$(".main" + dataNum).css("display","block");
+					if(dataNum == 1){
+						$("#iptBuy").show();
+						$("#ipt").hide();
+						$(".fixed-filling").hide();
+					}else{
+						$("#iptBuy").hide();
+						$("#ipt").show();
+						$(".fixed-filling").show();
+						if(dataNum == 2){
+							$("#ipt input").attr("placeholder", "请输入您的问题..");
+						}else if(dataNum == 3){
+							$("#ipt input").attr("placeholder", "请输入评论内容");
+						}
+					}
+				});
+				
+//				$.ajax({
+//					type: "get",
+//					url: ip + "/fmall-front/front/query/funds/" + request["fundCode"] + ".json",
+//					data: data,
+//					async: true,
+//					success: function(data){
+//						if( data.data != undefined ){
+//							// 详情
+//							if( data.data.distributorName != undefined && data.data.updateDate != undefined ){
+//								$(".fiscal-itembox .bottom .ps").text("本基金由" + data.data.distributorName + "销售，相关数据截止至" + data.data.updateDate.substring(0, 4) + "-" + data.data.updateDate.substring(4, 6) + "-" + data.data.updateDate.substring(6, 8));
+//							}else if( data.data.distributorName == undefined && data.data.updateDate == undefined ){
+//								$(".fiscal-itembox .bottom .ps").text("本基金由销售，相关数据截止至");
+//							}else if( data.data.distributorName != undefined ){
+//								$(".fiscal-itembox .bottom .ps").text("本基金由销售，相关数据截止至" + data.data.updateDate.substring(0, 4) + "-" + data.data.updateDate.substring(4, 6) + "-" + data.data.updateDate.substring(6, 8));
+//							}else if( data.data.updateDate != undefined ){
+//								$(".fiscal-itembox .bottom .ps").text("本基金由" + data.data.distributorName + "销售，相关数据截止至");
+//							}
+//							
+//							// 概况
+//							if( data.data.buyMinVal != undefined ){
+//								$(".select .listbox .u2 li").eq(0).find(".pull-right").text(data.data.buyMinVal + "元");
+//							}else{
+//								$(".select .listbox .u2 li").eq(0).find(".pull-right").text("");
+//							}
+//							switch(data.data.risk){
+//								case 1: $(".select .listbox .u2 li").eq(1).find(".pull-right").text("低"); break;
+//								case 2: $(".select .listbox .u2 li").eq(1).find(".pull-right").text("中"); break;
+//								case 3: $(".select .listbox .u2 li").eq(1).find(".pull-right").text("高"); break;
+//							}
+//							if( data.data.buyMinVal != undefined ){
+//								$(".select .listbox .u2 li").eq(3).find(".pull-right").text(data.data.subFeeRate + "%");
+//							}else{
+//								$(".select .listbox .u2 li").eq(3).find(".pull-right").text("");
+//							}
+//							switch(data.data.fundType){
+//								case 01: $(".select .listbox .u2 li").eq(4).find(".pull-right").text("股票型"); break;
+//								case 02: $(".select .listbox .u2 li").eq(4).find(".pull-right").text("债券型"); break;
+//								case 03: $(".select .listbox .u2 li").eq(4).find(".pull-right").text("混合型"); break;
+//								case 04: $(".select .listbox .u2 li").eq(4).find(".pull-right").text("货币型"); break;
+//								case 05: $(".select .listbox .u2 li").eq(4).find(".pull-right").text("QDII"); break;
+//								case 06: $(".select .listbox .u2 li").eq(4).find(".pull-right").text("ETF"); break;
+//								case 07: $(".select .listbox .u2 li").eq(4).find(".pull-right").text("LOF"); break;
+//								case 08: $(".select .listbox .u2 li").eq(4).find(".pull-right").text("保本型"); break;
+//								case 09: $(".select .listbox .u2 li").eq(4).find(".pull-right").text("短期理财"); break;
+//								case 00: $(".select .listbox .u2 li").eq(4).find(".pull-right").text("其他类型"); break;
+//							}
+//							$("#fundType").val(data.data.fundType);
+//							if( data.data.fundSize != undefined ){
+//								$(".select .listbox .u2 li").eq(5).find(".pull-right").text(data.data.distributorName);
+//							}else{
+//								$(".select .listbox .u2 li").eq(5).find(".pull-right").text("");
+//							}
+//							if( data.data.fundSize != undefined ){
+//								$(".select .listbox .u2 li").eq(7).find(".pull-right").text(data.data.fundSize.split(".")[0] + "." + data.data.fundSize.split(".")[1].substring(0, 2) + "亿");
+//							}else{
+//								$(".select .listbox .u2 li").eq(7).find(".pull-right").text("");
+//							}
+//							if( data.data.institutionsList != undefined ){
+//								$(".select .listbox .u2 li").eq(8).find(".pull-right").text(data.data.institutionsList[0].phone);
+//							}else{
+//								$(".select .listbox .u2 li").eq(8).find(".pull-right").text("");
+//							}
+//							if( data.data.distributorName != undefined ){
+//							$(".select .listbox .u2 li").eq(9).find(".pull-right").text(data.data.distributorName);
+//							}else{
+//							$(".select .listbox .u2 li").eq(9).find(".pull-right").text("");
+//							}
+//						}
+//					}
+//				});
+				$.ajax({
+					type: "get",
+					url: ip + "/fmall-front/front/query/institutions/fundcode/" + request["fundCode"] + ".json",
+					data: data,
+					async: true,
+					success: function(data){
+						// 基金销售机构
+						if( data.data !=undefined ){
+							if( data.data.instiName == undefined ) {
+								$(".select .listbox .u2 li").eq(6).find(".pull-right").text(data.data.instiName);
+							}else {
+								$(".select .listbox .u2 li").eq(6).find(".pull-right").text("");
+							}
+						}
+					}
+				});
+				
+				/* js end */
+			});
+			
+			function back() {
+				if(request["type"] != undefined) {
+					alert(1);
+					if(request["type"] == "android") {
+						// android
+						window.android.BackListener();
+					}else if(request["type"] == "ios") {
+						// ios
+						$("#ifm").attr("src", "window.nativeapi.nativeaction()");
+					}
+				}else {
+					window.history.go(-1);
+				}
+			}
+		</script>
+	</body>
+</html>

@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>风险评测</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+		<link rel="stylesheet" href="bootstrap/bootstrap.min.css" />
+		<link rel="stylesheet" href="css/public.css" />
+		<style type="text/css">
+			body{background-color: #F2F2F2;}
+			a:hover, a:focus{}
+			.evaluationbox{background-color: #FFFFFF;height: 3.2rem;margin-top: 1rem;display: inline-block;width: 20rem;border: .1rem solid #F5544C;border-radius: .5rem;}
+			.evaluation{display: inline-block;height: 100%;line-height: 3.2rem;width: 50%;color: #F5544C;font-size: 1.4rem;}
+			.risk{background-color: #F5544C;color: #FFFFFF;}
+			.risk:hover{color: #FFFFFF;}
+			.risk-main, .custom-main{padding: 0 2rem;background-color: #FFFFFF;}
+			.risk-main .item label, .custom-main .item label{display: block;margin: 0;font-size: 1.4rem;min-height: 4rem;line-height: 4rem;color: #666666;}
+			.risk-main .item span, .custom-main .item span{display: inline-block;width: 2.2rem;height: 2.2rem;line-height: 2rem;text-align: center;color: #333333;border: .1rem solid #707070;border-radius: 1rem;margin-right: 1rem;font-weight: normal;vertical-align: middle;}
+			.risk-main .item span.selected, .custom-main .item span.selected{background-color: #F5544C;color: #FFFFFF;border-color: #F5544C;}
+			.risk-main .item input, .custom-main .item input{margin: 0 1rem 0 0;vertical-align: middle;display: inline-block;}
+			.risk-main .item .title, .custom-main .item .title{line-height: 3rem;width: 100%;font-size: 1.4rem;margin: 0;font-weight: bold;color: #000000;word-wrap: break-word;}
+			.risk-main .item, .custom-main .item{padding-bottom: 1rem;}
+			
+			.risk-btn{width: 100%;text-align: center;background-color: #FFFFFF;padding-bottom: 2rem;}
+			.risk-btn button{background-color: #F5544C;border-color: #F5544C;font-size: 2rem;height: 5rem;width: 90%;color: #FFFFFF;border: none;border-radius: .5rem;}
+		</style>
+	</head>
+	<body>
+		<div class="p2-title text-center">
+			<a href="javascript:vodi(0);" class="back" onclick="history.go(-1);"><img src="images/back.jpg" /></a>
+			<span class="evaluationbox"><a href="javascript:void(0);" class="evaluation risk">风险评测</a><a href="javascript:void(0);" class="evaluation">自定义评测</a></span>
+		</div>
+		
+		<div class="problem" style="display: block;" ng-app="myApp" ng-controller="risklistController">
+			<!-- 风险评测 -->
+			<div class="risk-main" ng-repeat="risk in risklist">
+				<!-- for start -->
+				<div class="item">
+					<p class="title">{{ risk.topicId }}、{{ risk.topic }}</p>
+					<!--  class="selected" -->
+					<label onclick="check(this);"><span data-fraction="{{ risk.aScore }}">A</span>{{ risk.aOption }}</label>
+					<label onclick="check(this);"><span data-fraction="{{ risk.bScore }}">B</span>{{ risk.bOption }}</label>
+					<label onclick="check(this);"><span data-fraction="{{ risk.cScore }}">C</span>{{ risk.cOption }}</label>
+					<label onclick="check(this);"><span data-fraction="{{ risk.dScore }}">D</span>{{ risk.dOption }}</label>
+					<label onclick="check(this);"><span data-fraction="{{ risk.eScore }}">E</span>{{ risk.eOption }}</label>
+				</div>
+				<!-- for end -->
+			</div>
+			<div class="risk-btn">
+		      	<button type="button" id="sendList">提交</button>
+		   	</div>
+		</div>
+		<!-- 自定义评测 -->
+		<div class="custom-main problem" style="display: none;">
+			<div class="item">
+				<p class="title">选择适合自己的风险类型</p>
+				<label><span>A</span>积极型</label>
+				<label><span>B</span>稳健型</label>
+				<label><span>C</span>保守型</label>
+				<label><span>D</span>风骚型</label>
+			</div>
+			<div class="risk-btn">
+		      	<button type="button" id="sendType">提交</button>
+		   	</div>
+		</div>
+		
+		<script type="text/javascript" src="js/jquery.js"></script>
+		<script type="text/javascript" src="js/public.js"></script>
+		<script type="text/javascript" src="js/angular.min.js"></script>
+		<script type="text/javascript">
+			$(function(){
+				// 切换
+				var index = 0;
+				$(".evaluationbox a").click(function(){
+					$(".evaluationbox a").removeClass("risk");
+					$(this).addClass("risk");
+					$(".problem").hide();
+					var eq = $(this).index();
+					$(".problem").eq(eq).show();
+				});
+				// 单个选择
+				$(".risk-main .item label, .custom-main .item label").click(function(){
+					$(this).parents(".item").find("label span").removeClass("selected");
+					$(this).find("span").addClass('selected');
+				});
+				
+				$("#sendList").click(function(){
+					var b = true,
+						dom = $(".problem").eq(0).find(".risk-main"),
+						sum = 0,
+						data = { lientType: phoneType, eventId: Math.ceil(Math.random()*128), userSysId: "000020000004", totalScore: "" };
+					for ( var i = 0; i < dom.size(); i++ ) {
+						if( !dom.eq(i).find("label span").hasClass("selected") ) {
+							b= false;
+						}else {
+							for( var j = 0; j < dom.eq(i).find("label span").size(); j++ ){
+								if( dom.eq(i).find("label span").eq(j).hasClass("selected") ){
+									sum += parseInt(dom.eq(i).find("label span").eq(j).attr("data-fraction"));
+								}
+							}
+						}
+					}
+					if( !b ) {
+						alert("你个傻逼尽然不选就提交，想屎啊！");
+					}else{
+						data.totalScore = sum;
+						$.ajax({
+							type: "post",
+							url: ip + "/fmall-front/front/accountsys/accounts/risklevels.json",
+							data: data,
+							async: true,
+							success: function(data){
+								if( data.success ) {
+									alert("你个傻逼尽然提交成功了，罕见啊！");
+								}else {
+									alert(data.msg);
+								}
+							}
+						});
+					}
+				});
+				/* end */
+			});
+			
+			var app = angular.module('myApp', []);
+			app.controller('risklistController', function($scope, $http) {
+			    $http({
+			    	url: ip + "/fmall-front/front/accountsys/accounts/risklevels.json",
+			    	method: "get"
+			    }).success(function(data){
+			    	$scope.risklist = data.data;
+			    });
+			});
+			
+			function check(dom){
+				$(dom).parent().find("label span").removeClass("selected");
+				$(dom).find("span").addClass("selected");
+			}
+		</script>
+	</body>
+</html>

@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>搜索基金</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+		<link rel="stylesheet" href="bootstrap/bootstrap.min.css" />
+		<link rel="stylesheet" href="css/public.css" />
+		<style type="text/css">
+			body{background-color: #f2f2f2;}
+			.main{padding: 0 2rem;}
+			.select-ipt{height: 6rem;width: 100%;background-color: #FFFFFF;line-height: 6rem;border-bottom: 1px solid #dadada;}
+			.select-ipt a{padding-left: 2rem;color: #666666;}
+			.select-ipt .iptbox{position: relative;display: inline-block;width: 85%;}
+			.select-ipt .iptbox .select{width: 5%;position: absolute;top: 50%;margin-top: -2.5%;left: 5%;}
+			.select-ipt .iptbox .cancel{position: absolute;top: 50%;margin-top: -2.5%;width: 5%;height: 25%;cursor: pointer;left: 90%;}
+			.select-ipt a.cancel{line-height: 6rem;font-size: 1.4rem;width: auto;color: #333333;font-weight: normal;}
+			.select-ipt input,.select-ipt a{display: inline-block;}
+			.select-ipt input{height: 4rem;width: 100%;padding-left: 12%;line-height: 2rem;border: 1px solid #DDDDDD;}
+			.select-ipt .cancel{position: absolute;left: 80%;top: 0;width: 5rem;cursor: default;height: 100%;}
+			.select-ipt .cancel img{width: 50%;cursor: pointer;}
+			
+			.history{height: 4rem;color: #999999;line-height: 4rem;}
+			.result-list{width: 100%;background-color: #FFFFFF;}
+			.result-list li{border-bottom: 1px solid #e6e6e6;line-height: 5rem;font-size: 1.6rem;}
+			.result-list li a{display: block;width: 100%;height: 100%;}
+			
+			.clearSelect{display: block;width: 100%;height: 4rem;line-height: 4rem;text-align: center;color: #999999;margin-bottom: 6rem;}
+			.clearSelect:hover{color: #999999;}
+		</style>
+	</head>
+	<body>
+		<div class="select-ipt">
+			<div class="main">
+				<div class="iptbox">
+					<img id="select" src="images/select2.jpg" class="select" />
+					<input type="text" id="startSelect" placeholder="搜索基金名称/代码" />
+					<img id="cancel2" src="images/cancel.jpg" class="cancel" style="display: none;" />
+				</div>
+				<a id="cancel3" href="supermarket.html?pageName=p2_index" class="cancel">取消</a>
+			</div>
+		</div>
+		
+		<div id="selectList" style="display: none;">
+			<div class="main">
+				<p class="history nomargin">搜索历史</p>
+			</div>
+			<div class="result-list">
+				<div class="main">
+					<ul class="nopadding nomargin">
+						<li><a href="javascript:void(0);">38920323</a></li>
+						<li><a href="javascript:void(0);">蚂蚁基金</a></li>
+						<li><a href="javascript:void(0);">快收</a></li>
+						<li><a href="javascript:void(0);">38920323</a></li>
+						<li><a href="javascript:void(0);">蚂蚁基金</a></li>
+						<li><a href="javascript:void(0);">快收</a></li>
+						<li><a href="javascript:void(0);">环保</a></li>
+						<li><a href="javascript:void(0);">基金</a></li>
+						<li><a href="javascript:void(0);">保险</a></li>
+					</ul>
+				</div>
+				<a href="javascript:void(0);" class="clearSelect" id="clearSelect">清空搜索历史</a>
+			</div>
+		</div>
+		
+		<script type="text/javascript" src="js/jquery.js"></script>
+		<script type="text/javascript">
+			$(function(){
+				// 下拉
+				$("#startSelect").click(function(){
+					$("#selectList").show();
+					$("#select").hide();
+					$("#cancel2").show();
+				});
+				// 点击
+				$(".result-list li a").click(function(){
+					$("#startSelect").val($(this).text());
+					$("#selectList").hide();
+					$("#cancel2").hide();
+					$("#select").show();
+				});
+				// 取消
+				$("#cancel, #cancel2").click(function(){
+					$(this).parent().parent().find("input").val("");
+				});
+				$("#cancel3").click(function(){
+					$("#selectList").hide();
+					$("#cancel2").hide();
+					$("#select").show();
+				});
+				// 清空历史
+				$("#clearSelect").click(function(){
+					$(".result-list ul li").remove();
+					$("#selectList").hide();
+				});
+			});
+		</script>
+	</body>
+</html>

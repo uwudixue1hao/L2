@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>基金理财</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+		<link rel="stylesheet" href="bootstrap/bootstrap.min.css" />
+		<link rel="stylesheet" href="css/public.css" />
+		<style type="text/css">
+			body{background-color: #f2f2f2;}
+			.main{padding: 0 1rem;}
+			
+			.fiscal-banner{width: 100%;background-color: #FFFFFF;padding-bottom: 1rem;position: relative;}
+			.fiscal-banner img{width: 95%;}
+			.fiscal-banner .banner{width: 95%;margin: 0 auto;background-color: #FAF3E0;padding: 3.5rem 0;}
+			.banner ul{width: 100%;padding-left: 3.5rem;}
+			.banner ul li{width: 33%;float: left;}
+			.banner ul li a{display: block;text-align: left;}
+			.banner ul li a span{font-size: 1.6rem;padding-left: .5rem;}
+			
+			.fiscal-title{width: 100%;background-color: #FFFFFF;margin-top: 1rem;}
+			.fiscal-title .title{line-height: 3rem;border-bottom: 1px solid #e6e6e6;position: relative;}
+			.fiscal-title label{width: .3rem;height: 1.25rem;background-color: #ff7a73;border-radius: 2px;position: absolute;left: 2rem;top: 50%;margin-top: -.625rem;}
+			.fiscal-title span{font-size: 1.4rem;margin-left: 1.75rem;}
+			.fiscal-title a{color: #f5544c;font-size: 1.2rem;margin: 0;}
+			.fiscal-title a img{width: 20%;}
+						
+			.fiscal-itembox{margin-bottom: 1rem;}
+			.fiscal-item{padding-top: .7rem;background-color: #FFFFFF;padding-left: 1.2rem;border-bottom: 1px solid #f2f2f2;}
+			.fiscal-item .top{padding-bottom: 1rem;}
+			.fiscal-item .top .left p{margin: 0;}
+			.fiscal-item .top .left p.p1{line-height: 4rem;}
+			.fiscal-item .top .left p.p2{line-height: 1.5rem;}
+			.fiscal-item .top .left p.p2 span{font-size: 1rem;color: #777777;padding: .125rem .5rem;border: 1px solid #9c8988;border-radius: 3px;margin-right: .7rem;}
+			.fiscal-item .top .right span{width: 6rem;height: 3rem;line-height: 3rem;background-color: #69c8eb;border-top-left-radius: 2.5rem;border-bottom-left-radius: 2.5rem;color: #FFFFFF;font-size: 1.4rem;margin-top: 3rem;}
+			.fiscal-item .bottom{padding-right: 1.5rem;}
+			.fiscal-item .bottom ul{width: 100%;padding: 0;margin-bottom: 0;}
+			.fiscal-item .bottom ul li{width: 33%;float: left;text-align: center;}
+			.fiscal-item .bottom ul li p{margin: 0;font-weight: normal;}
+			.fiscal-item .bottom ul li .income{color: #ff5b52;font-size: 3.5rem;line-height: 4rem;}
+			.fiscal-item .bottom ul li .income-text{font-size: 1rem;color: #a1a1a1;line-height: 2rem;}
+			.fiscal-item .bottom ul li .increase{color: #84c137;font-size: 2rem;line-height: 5rem;height: 4rem;}
+			.fiscal-item .bottom ul li .increase-text{font-size: 1rem;color: #a1a1a1;line-height: 2rem;}
+			.fiscal-item .bottom ul li .increase.color{color: #000000;}
+			.fiscal-item .bottom .ps{font-size: 1rem;color: #c7c7c7;}
+		</style>
+	</head>
+	<body>
+		<div class="p2-title">
+			<a href="javascript:vodi(0);" class="back" onclick="history.go(-1);"><img src="images/back.jpg" /></a>
+			<h3 class="text-center">基金理财</h3>
+		</div>
+		<div class="fiscal-banner text-center">
+			<div class="banner">
+				<ul class="nomargin clearfix">
+					<li><a href="myfund.html"><img src="images/banner_icon1.png" /><span>我的基金</span></a></li>
+					<li><a href="advisory.html"><img src="images/banner_icon2.png" /><span>基金资讯</span></a></li>
+					<li><a href="raiders.html"><img src="images/banner_icon3.png" /><span>理财攻略</span></a></li>
+				</ul>
+			</div>
+		</div>
+		<div class="fiscal-title">
+			<div class="main title clearfix">
+				<label class="pull-left"></label>
+				<span class="pull-left">免手续费  低风险理财</span>
+				<a href="supermarket.html" class="pull-right">基金超市<img src="images/fiscal_arrow.jpg" /></a>
+			</div>
+		</div>
+		
+		<div ng-app="myApp" ng-controller="supermarketController">
+			<!-- for start -->
+			<div class="fiscal-itembox" ng-repeat="supermarket in supermarkets">
+				<!-- child:1 -->
+				<div class="fiscal-item">
+					<div class="clearfix top">
+						<div class="pull-left left">
+							<p class="p1"><a href="fund_detail.html?fundCode={{ supermarket.fundCode }}&fundType={{ supermarket.fundType }}">{{ supermarket.fundName }}</a></p>
+							<p class="p2">
+								<span class="text-center pull-left">100元起购</span>
+								<span class="text-center pull-left">零利息</span>
+								<span class="text-center pull-left">低风险</span>
+							</p>
+						</div>
+						<div class="pull-right right clearfix">
+							<span class="pull-right text-center">股票</span>
+						</div>
+					</div>
+					<div class="clearfix bottom">
+						<ul class="clearfix">
+							<li>
+								<p class="income text-left">23.6</p>
+								<p class="income-text text-left">近一年收益（%）</p>
+							</li>
+							<li>
+								<p class="increase">{{ supermarket.dayRate.substring(0, 6) }}</p>
+								<p class="increase-text">日涨幅（%）</p>
+							</li>
+							<li>
+								<p class="increase color">{{ supermarket.buyPeopleNum }}</p>
+								<p class="increase-text">申购人数</p>
+							</li>	
+						</ul>
+						<p class="ps">本基金由{{ supermarket.distributorName }}销售，相关数据截止至{{ supermarket.updateDate.substring(0, 4) + "-" + supermarket.updateDate.substring(4, 6) + "-" + supermarket.updateDate.substring(6, 8) }}</p>
+					</div>
+				</div>
+			</div>
+			<!-- for end -->
+		</div>
+		
+		<script type="text/javascript" src="js/jquery.js"></script>
+		<script type="text/javascript" src="js/public.js"></script>
+		<script type="text/javascript" src="js/angular.min.js"></script>
+		<script type="text/javascript">
+			$(function(){
+			});
+			
+			var app = angular.module('myApp', []);
+			app.controller('supermarketController', function($scope, $http) {
+				var data = { risk: 1, clientType: phoneType, eventId: Math.ceil(Math.random()*128) };
+			    $http({
+			    	url: ip + "/fmall-front/front/query/funds/purchaseableFunds.json",
+//			    	url: "json/supermarket.json",
+			    	method: "POST",
+			    	params: data
+			    }).success(function(data){
+			    	$scope.supermarkets = data.data;
+			    });
+			});
+		</script>
+	</body>
+</html>

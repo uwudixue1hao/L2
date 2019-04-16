@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>购买</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+		<link rel="stylesheet" href="bootstrap/bootstrap.min.css" />
+		<link rel="stylesheet" href="css/public.css" />
+		<style type="text/css">
+			body{background-color: #F2F2F2;}
+			.p2-title a.back{left: 3rem;}
+			form .main{padding: 0 2rem;height: 100%;vertical-align: middle;}
+			.group-name{height: 4rem;line-height: 4rem;background-color: #f2f2f2;font-size: 1.6rem;}
+			.group-time{height: 5rem;background-color: #f2f2f2;color: #aeaeae;font-size: 1.8rem;}
+			.group-time .main{line-height: 4rem;font-size: 1.4rem;}
+			.group-list ul{padding: 0;width: 90%;margin: 0 auto;color: #999;}
+			.group-list ul li{font-size: 1.4rem;line-height: 3rem;}
+			.group-list ul .l1{width: 60%;}
+			.group-list ul span{color: #75cbeb;}
+			.input-group{border: 0;}
+			.input-group .form-control{border-left: 0;background-color: #FFFFFF;height: 5rem;font-size: 1.7rem;border: 0;}
+			.btn-primary{width: 90%;background-color: #f5544c;border-color: #f5544c;height: 5rem;font-size: 2rem;}
+			.btn-primary:hover, .btn-primary:active, .btn-primary:focus{background-color: #f5544c;border-color: #f5544c;}
+			.input-group{width: 100%;}
+			.input-group .arrow{position: absolute;top: 50%;right: 2rem;width: 2%;margin-top: -1%;z-index: 5;}
+			.input-group-a{position: absolute;left: 0;width: 100%;right: 0;height: 100%;z-index: 10;}
+			.input-group-addon{background-color: #FFFFFF;font-size: 1.8rem;border: 0;}
+			.addon1{padding-right: 3rem;border-right: 0;}
+			.card-img{position: absolute;width: 3rem;top: 50%;left: 1.5rem;z-index: 10;margin-top: -1.5rem;}
+			.group-list{background-color: #F2F2F2;}
+			
+			.protocol{font-size: 1.2rem;color: #999999;margin-bottom: .5rem;}
+			.protocolMarg{padding-bottom: 3.5rem;}
+			.protocolMarg span{color: #69C8EB;}
+			.overlay-tab{width: 80%;height: 20rem;background-color: #FFFFFF;position: absolute;top: 50%;left: 0;right: 0;margin: -11rem auto 0;z-index: 15;border-radius: .5rem;}
+			.overlay-tab .main{position: relative;height: 100%;}
+			.overlay-tab title{line-height: 3rem;color: #333333;display: block;text-align: center;font-size: 2rem;padding-top: 1rem;}
+			.overlay-tab .text{line-height: 4rem;margin: 0;color: #999999;font-size: 1.2rem;padding: 0 1rem;}
+			.overlay-tab .ipt{height: 5rem;padding: 0 1rem;}
+			.overlay-tab .ipt input{width: 60%;height: 100%;border: 1px solid #DDDDDD;border-radius: .5rem;padding-left: 1rem;}
+			.overlay-tab .ipt a{width: 37%;height: 100%;border-radius: .5rem;background-color: #f5544c;color: #FFFFFF;text-align: center;line-height: 5rem;font-size: 1.4rem;}
+			.overlay-tab .ipt a.color{background-color: #E5E5E5;font-size: 1.6rem;color: #999999;}
+			.overlay-tab .abtn{position: absolute;bottom: 0;left: 0;height: 5rem;width: 100%;}
+			.overlay-tab .abtn a{width: 49%;display: inline-block;text-align: center;color: #333333;font-size: 1.7rem;line-height: 5rem;height: 100%;}
+			.overlay-tab .abtn a.cancel{border-right: 1px solid #DDDDDD;}
+			.overlay-tab .abtn .line{position: absolute;width: 100%;height: 1px;background-color: #DDDDDD;left: 0;bottom: 5rem;}
+		</style>
+	</head>
+	<body>
+		<div class="p2-title">
+			<a href="javascript:vodi(0);" class="back" onclick="history.go(-1);"><img src="images/back.jpg" /></a>
+			<h3 class="text-center">购买</h3>
+		</div>
+		<form role="form" class="bs-example bs-example-form">
+			<div class="group-name"><span class="main">华安逆向策略混合</span></div>
+			
+			<div class="input-group" style="position: relative;">
+				<img src="images/card_logo.png" class="card-img" />
+				<span class="input-group-addon addon1"></span>
+				<img src="images/creditcard_arrow.png" class="arrow" />
+				<input type="text" class="form-control" value="建设银行储蓄卡  (7890)" readonly="readonly">
+				<a href="debitcard.html" class="input-group-a"></a>
+			</div>
+			<div class="group-time">
+				<span class="main">此卡本次最多可转入50万元，每日最多100万元</span>
+			</div>
+			
+			<div class="input-group">
+				<span class="input-group-addon">购买金额</span>
+				<input type="number" class="form-control" placeholder="起购金额1元">
+			</div>
+			
+			<div class="group-list">
+				<ul class="clearfix text-left">
+					<li class="pull-left l1">费率：0.6%</li>
+					<li class="pull-left">估算手续费：－－</li>
+				</ul>
+				<div class="main">
+					<p class="protocol">预计2015-12-09完成份额确认，最终以基金公司为准</p>
+					<p class="protocol protocolMarg">同意<a href="protocol.html"><span>服务协议</span></a></p>
+				</div>
+			</div>
+			
+			<div class="input-group text-center" style="background-color: #F2F2F2;">
+		      	<button type="button" class="btn btn-primary" id="myButton4">确定</button>
+		   	</div>
+		</form>
+		
+		<div id="overlay" class="overlay" style="display: none;"></div>
+		<div id="overlayTab" class="overlay-tab" style="display: none;">
+			<div class="main">
+				<title>支付1元</title>
+				<p class="text">请输入手机尾号5689接收的短信验证码</p>
+				<div class="ipt clearfix">
+					<input type="number" class="pull-left" id="mobile" />
+					<a href="javascript:void(0);" class="pull-right" id="send">发送验证码</a>
+				</div>
+				<div class="abtn">
+					<a id="cancel1" href="javascript:void(0);" class="cancel">取消</a>
+					<a href="###">确定</a>
+					<div class="line"></div>
+				</div>
+			</div>
+		</div>
+		<script type="text/javascript" src="js/jquery.js"></script>
+		<script type="text/javascript" src="js/public.js"></script>
+		<script type="text/javascript">
+			$(function(){
+				var time = 60;
+				// 发送验证码
+				$("#send").click(function(){
+					var data = { mobile: $("#mobile").val(), clientType: phoneType, eventId: Math.ceil(Math.random()*128) },
+						dom = $(this),
+						mobile_result = new checkPhone(data.mobile)
+					;
+					if( !mobile_result.returns ){
+						alert(mobile_result.tipInfo);
+					}else{
+						$.ajax({
+							type: "post",
+							url: ip + "/fmall-front/front/accountsys/accounts/phone/verificationcode.json?mobile=" + data.mobile + "&clientType=" + data.clientType + "&eventId=" + data.eventId,
+							success: function(data){
+								if( data.success ){
+									dom.addClass("color");
+									dom.text(time + "秒后重发");
+									var countdown = setInterval(function(){
+										time -= 1;
+										dom.text(time + "秒后重发");
+										if(time <= 0){
+											dom.removeClass("color");
+											clearInterval(countdown);
+											dom.text("重新发送");
+											time = 60;
+										}
+									}, 1000);
+								}
+							}
+						});
+					}
+					/**/
+				});
+				// 取消
+				$("#cancel1").click(function(){
+					$("#overlay, #overlayTab").fadeOut();
+				});
+				// 显示验证码
+				$("#myButton4").click(function(){
+					$("#overlay").show();
+					$("#overlayTab").show();
+				});
+			});
+			
+			// 手机验证
+			function checkPhone(data){
+				if(data.length==0) 
+				{ 
+					this.tipInfo='请输入手机号码！'; 
+					this.returns=false;
+					return;
+				}     
+				if(data.length!=11) 
+				{ 
+					this.tipInfo='手机号码长度为11位！'; 
+					this.returns=false; 
+					return;
+				}
+				var myreg = /^(((13[0-9]{1})|(15[0-9]{1})|(18[0-9]{1}))+\d{8})$/; 
+				if(!myreg.test(data)) 
+				{ 
+					this.tipInfo='请输入有效的手机号！'; 
+					this.returns=false;
+					return;
+				}
+				this.returns=true; 
+			}
+		</script>
+	</body>
+	<!--
+    	作者：薛宇晟
+    	时间：2015-12-16
+    	描述：免贵姓薛 名宇晟 字有才，简称有才哥
+    -->
+</html>

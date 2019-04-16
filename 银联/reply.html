@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>回复评论</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+		<link rel="stylesheet" href="bootstrap/bootstrap.min.css" />
+		<link rel="stylesheet" href="css/public.css" />
+		<style type="text/css">
+			body{background-color: #f2f2f2;}
+			.main{padding: 0 2rem;position: relative;}
+			
+			.reply{background-color: #FFFFFF;margin-top: 1rem;}
+			.reply .list{border-bottom: 1px solid #eaeaea;}
+			.reply .list .imgbox{line-height: 6rem;padding: 0 .5rem;width: 10%;}
+			.reply .list .imgbox img{width: 120%;}
+			.reply .list .textbox{width: 80%;}
+			.reply .list .textbox .pBox  p, .reply .list .textbox .pBox label{margin: 0;font-size: 1.6rem;color: #333333;}
+			.reply .list .textbox .pBox{padding-left: 1.5rem;font-size: 2.2rem;padding-bottom: 1rem;}
+			.reply .list .textbox, .reply .list .textbox .pBox font{font-size: 1.2rem;display: block;}
+			.reply .list .textbox .pBox  p{padding-top: 1rem;}
+			.reply .list .textbox .pBox span{color: #c6c6c6;margin-left: 1rem;}
+			.reply li{height: 8rem;font-size: 2rem;border-bottom: 1px solid #eaeaea;}
+			.reply li .iconbox, .reply li .imgbox{height: 7rem;}
+			.reply li .iconbox{width: 7%;position: relative;}
+			.reply li .iconbox img{width: 50%;position: absolute;top: 50%;margin-top: -25%;right: 1rem;}
+			.reply li .imgbox{width: 6%;line-height: 6rem;}
+			.reply li .imgbox img{width: 100%;}
+			.reply li .pBox2{width: 75%;line-height: 2rem;padding-top: 1rem;padding-left: 1.2rem;}
+			.reply li .pBox2 label, .reply li .pBox2 span, .reply li .pBox2 font{font-size: 1.2rem;}
+			.reply li .pBox2 label{color: #333333;}
+			.reply li .pBox2 span{color: #EAEAEA;}
+			.reply li .pBox2 font{display: block;}
+			.reply li .pBox2 span img{width: 15%;margin-right: .5rem;}
+			.btnbox{background-color: #FFFFFF;padding: 4rem 0;}
+			.btn-primary{width: 90%;background-color: #f5544c;border-color: #f5544c;height: 4rem;font-size: 1.8rem;display: block;margin: 0 auto 0;}
+			.btn-primary:hover, .btn-primary:active, .btn-primary:focus{background-color: #f5544c;border-color: #f5544c;}
+			.mess{background-color: #FFFFFF;padding-top: 2rem;}
+			.mess textarea{width: 100%;min-width: 100%;max-width: 100%;height: 15rem;min-height: 15rem;max-height: 15rem;border: 1px solid #EAEAEA;padding: 1rem;font-size: 1.2rem;border-radius: 1rem;}
+			.mess textarea.color{color: #AAAAAA;}
+			.mess p{position: absolute;bottom: 1rem;right: 3rem;margin: 0;font-size: 1.4rem;color: #AAAAAA;z-index: 10;}
+			.mess .txtbox{position: relative;width: 100%;height: 15rem;}
+			.mess .txtbox img{height: 5%;position: absolute;top: -4%;left: 4rem;}
+		</style>
+	</head>
+	<body ng-app="myApp">
+		<div class="p2-title">
+			<a href="javascript:vodi(0);" class="back" onclick="history.go(-1);"><img src="images/back.jpg" /></a>
+			<h3 class="text-center">回复评论</h3>
+		</div>
+		
+		<div class="reply">
+			<div class="main">
+				<div class="list clearfix">
+					<div class="pull-left imgbox"><img src="images/head.jpg" /></div>
+					<div class="pull-left textbox">
+						<div class="pBox">
+							<p><label>张乐辰</label><span>30分钟前</span></p>
+							<font>我做投资很多年了，有时间可以教大家的呢</font>
+						</div>
+					</div>
+				</div>
+				<ul class="nopadding nomargin" ng-controller="replyController">
+					<!-- for start -->
+					<li ng-repeat="reply in replys">
+						<div class="clearfix">
+							<div class="pull-left iconbox"><img src="images/reply.jpg" style="display: none;" /></div>
+							<div class="pull-left imgbox"><img src="images/head.jpg" /></div>
+							<div class="pull-left pBox2">
+								<p class="nomargin"><label class="nomargin">{{ reply.replyUserName }}</label><span class="pull-right"><img src="images/block2.jpg" />20分钟前</span></p>
+								<font>{{ reply.content }}</font>
+							</div>
+						</div>
+					</li>
+					<!-- for end -->
+				</ul>
+			</div>
+		</div>
+		<div class="mess">
+			<div class="main">
+				<p id="textNum">(0/300)</p>
+				<div class="txtbox">
+					<img src="images/reply_arrow.jpg" />
+					<textarea placeholder="请输入回复内容..."></textarea>
+				</div>
+			</div>
+		</div>
+		<div class="btnbox"><button type="button" class="btn btn-primary">提交</button></div>
+		
+		<script type="text/javascript" src="js/jquery.js"></script>
+		<script type="text/javascript" src="js/public.js"></script>
+		<script type="text/javascript" src="js/angular.min.js"></script>
+		<script type="text/javascript">
+			var request = new GetRequest(),
+				app = angular.module('myApp', []);
+			$(function(){
+				$("textarea").keyup(function(event){
+					//event.which
+					var newNum;
+					if($(this).val().length >= 300){
+						return false;
+					}else{
+						newNum = $(this).val().length;
+						$("#textNum").text("(" + newNum + "/300)");
+					}
+				});
+				/* end */
+			});
+			app.controller('replyController', function($scope, $http) {
+				var data = { clientType: phoneType, eventId: Math.ceil(Math.random()*128), cardId: request["cardId"], parentId: request["parentId"] };
+			    $http({
+			    	url: "http://112.64.173.178:20017/fmall-front/front/investment/viewReplyDetail.json",
+			    	method: "post",
+			    	params: data,
+			    	async: true
+			    }).success(function(data){
+			    	$scope.replys = data.data;
+			    });
+			});
+			
+			function GetRequest() {
+			    var url = location.search; //获取url中"?"符后的字串
+			    var theRequest = new Object();
+			    if (url.indexOf("?") != -1) {
+			        var str = url.substr(1);
+			        strs = str.split("&");
+			        for(var i = 0; i < strs.length; i ++) {
+			            theRequest[strs[i].split("=")[0]] = unescape(strs[i].split("=")[1]);
+			        }
+			    }
+			    return theRequest;
+			}
+		</script>
+	</body>
+</html>

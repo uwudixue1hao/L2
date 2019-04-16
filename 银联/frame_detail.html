@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+		<title>基金详情iframe</title>
+		<link rel="stylesheet" href="css/public.css" />
+		<style type="text/css">
+			.chart{width: 100%;height: 27rem;}
+		</style>
+		<script type="text/javascript" src="js/jquery.js"></script>
+		<script type="text/javascript" src="js/public.js"></script>
+		<script type="text/javascript" src="ichartjs/ichart.1.2.1.min.js"></script>
+		<script type="text/javascript">
+			var request = new GetRequest();
+			$(function(){
+				var ajaxUrl = "",
+					ajaxSet = {
+						month: request["month"],
+						fundCode: request["fundCode"],
+						clientType: phoneType,
+						eventId: Math.ceil(Math.random()*128)
+					},
+					data = [{
+		         		name : 'PV',
+		         		value: [ 0, 0, 0 ],
+		         		color:'#f4554d',
+		         		line_width:2
+		         	}],
+		         	chartSet = {
+						chartTitle: '',							// 主标题
+						chartSubtitle: '',						// 副标题
+						chartFootnote: '',						// 底部备注
+						chartWidth: $("#canvasDiv").width(),	// 宽度
+						chartHeight: $("#canvasDiv").height(),	// 高度
+						chartShadowcolor: '#FFFFFF',			// 阴影色
+						chartBackgroundcolor: '#FFFFFF',		// 背景色
+						chartLinecolor: '#6697bd',				// 线色
+						chartLinewidth: [0, 0, 1, 1],			// 线宽
+						chartGridcolor: '#c3d2de'				// 分割线色
+					},
+					labelsY = [ 0, 0, 0, 0, 0 ],
+					labelsIndex = 1,
+					labelsDate = [ "0-0", "0-0", "0-0", "0-0", "0-0" ];
+				
+				if( request["fundType"] == "04" || request["fundType"] == "09" ) {
+					ajaxUrl = ip + "/fmall-front/front/query/navCur/history.json";
+				}else {
+					ajaxUrl = ip + "/fmall-front/front/query/nav/history.json";
+				}
+				$.ajax({
+					type: "post",
+					url: ajaxUrl,
+					data: ajaxSet,
+					async: false,
+					beforeSend: function(response) { $("#loading").show(); },
+					complete: function(request) { $("#loading").hide(); },
+					success: function(result) {
+						if( result.data != undefined ){
+							var j = 0;
+							labelsY[0] = labelsY[4] = result.data[0].weekRate;
+							for (var i = 0; i < result.data.length; i++) {
+								if( result.data[i].weekRate != undefined ) { 
+									// data:value
+									data[0].value[i] = result.data[i].weekRate; 
+									// labelsY
+									if( labelsY[4] < result.data[i].weekRate ) {
+										labelsY[4] = result.data[i].weekRate;
+									}
+									if( labelsY[0] > result.data[i].weekRate ) {
+										labelsY[0] = result.data[i].weekRate;
+									}
+									if( i == parseInt(result.data.length/4) || i == parseInt(result.data.length/8) || i == parseInt(result.data.length/16) ) {
+										labelsY[labelsIndex] = data[0].value[i];
+										labelsIndex++;
+									}
+								}else { 
+									// data:value
+									data[0].value[i] = result.data[i].nav;
+									// labelsY
+									if( labelsY[4] < result.data[i].nav ) {
+										labelsY[4] = result.data[i].nav;
+									}
+									if( labelsY[0] > result.data[i].nav ) {
+										labelsY[0] = result.data[i].nav;
+									}
+									if( i == parseInt(result.data.length/4) || i == parseInt(result.data.length/8) || i == parseInt(result.data.length/16) ) {
+										labelsY[labelsIndex] = data[0].value[i];
+										labelsIndex++;
+									}
+								}
+								// labelsDate
+								if( i == 0 || i == parseInt((result.data.length - 1)/4) || i == parseInt((result.data.length - 1)*2/4) || i == parseInt((result.data.length - 1)*3/4) || i == parseInt(result.data.length - 1) ) {
+									labelsDate[j] = result.data[i].publishDate.substring(4, 6) + "-" + result.data[i].publishDate.substring(6, 8);
+									j++;
+								}
+							}
+						}
+					}
+				});
+				
+				// chart1
+				var chart = new iChart.LineBasic2D({
+					render : 'canvasDiv',
+					align: 'center',
+					data: data,
+					width : chartSet.chartWidth,
+					height : chartSet.chartHeight,
+					shadow_color: chartSet.chartShadowcolor,
+					background_color: chartSet.chartBackgroundcolor,
+					sub_option : {
+						label:false,
+						hollow_inside:false,
+						point_size:0
+					},
+					coordinate:{
+						width: '80%',
+						grid_color: chartSet.chartGridcolor,
+						scale:[{
+							 position:'left',
+							 decimalsnum: 3,		// 小数点位数
+							 scale_space: 0,		// 刻度值的间距
+							 scale_share: 4,		// 刻度数量
+							 label: { color: '#9d987a', font: '微软雅黑', fontsize: 11, fontweight: 600 },
+							 labels: labelsY,
+							 scale_color: '#9f9f9f'
+						},
+						{
+							 position:'bottom',	
+							 label : {color:'#9d987a',font : '微软雅黑',fontsize:11,fontweight:600},
+							 labels: labelsDate
+						}]
+					}
+				});
+				//开始画图
+				chart.draw();
+			});
+			
+			function GetRequest() {
+			    var url = location.search; //获取url中"?"符后的字串
+			    var theRequest = new Object();
+			    if (url.indexOf("?") != -1) {
+			        var str = url.substr(1);
+			        strs = str.split("&");
+			        for(var i = 0; i < strs.length; i ++) {
+			            theRequest[strs[i].split("=")[0]] = unescape(strs[i].split("=")[1]);
+			        }
+			    }
+			    return theRequest;
+			}
+		</script>
+	</head>
+	<body>
+		<div id="canvasDiv" class="chart" style="display: block;"></div>
+	</body>
+</html>

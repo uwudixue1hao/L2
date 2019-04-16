@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>记录详情</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+		<link rel="stylesheet" href="bootstrap/bootstrap.min.css" />
+		<link rel="stylesheet" href="css/public.css" />
+		<style type="text/css">
+			body{background-color: #f2f2f2;}
+			.p2-title a.weixin{right: 3rem;}
+			.recordingDetail-list{margin-top: 1rem;padding: 0 2rem;background-color: #FFFFFF;}
+			.recordingDetail-list .item .top{padding: 1rem 0;border-bottom: 1px solid #e6e6e6;}
+			.recordingDetail-list .item .top .p1{line-height: 3rem;}
+			.recordingDetail-list .item .top .p1 span,
+			.recordingDetail-list .item .top .p1 font{font-size: 2rem;}
+			.recordingDetail-list .item .top .p1 span{color: #333333;}
+			.recordingDetail-list .item .top .p1 font{color: #EE5A50;}
+			.recordingDetail-list .item .top .p2{line-height: 2rem;color: #999999;font-size: 1.5rem;}
+			.recordingDetail-list .item .bottom{padding: 2.5rem 0 0;}
+			.recordingDetail-list .item .bottom ul{padding: 0;padding-left: 4.5rem;position: relative;}
+			.recordingDetail-list .item .bottom li img{position: absolute;width: 7%;left: 0;top: .5rem;z-index: 10;background-color: #FFFFFF;}
+			.recordingDetail-list .item .bottom li p{margin: 0;line-height: 2rem;color: #333333;font-size: 1.6rem;}
+			.recordingDetail-list .item .bottom li p.color{color: #39B833;}
+			.recordingDetail-list .item .bottom li p.p2{padding: 0;padding-bottom: 4rem;color: #999999;}
+			.recordingDetail-list .item .bottom li .line{position: absolute;width: 1px;height: 70%;background-color: #CCCCCC;top: 3.5%;left: 3.5%;z-index: 1;}
+			.recordingDetail-list .item .bottom li .icon1{top: 0;}
+			.recordingDetail-list .item .bottom li .icon2{top: 8rem;}
+			.recordingDetail-list .item .bottom li .icon3{top: 16rem;}
+			
+			.recording-promptmess{line-height: 4rem;color: #999999;font-size: 1.3rem;text-align: left;padding-left: 1rem;}
+			
+			.overlay-tab{width: 80%;height: 20rem;background-color: #FFFFFF;position: absolute;top: 50%;left: 0;right: 0;margin: -11rem auto 0;z-index: 15;border-radius: .5rem;}
+			.overlay-tab .main{position: relative;height: 100%;}
+			.overlay-tab title{line-height: 3rem;color: #333333;display: block;text-align: center;font-size: 2rem;padding-top: 1rem;}
+			.overlay-tab .text{line-height: 4rem;margin: 0;color: #999999;font-size: 1.2rem;padding: 0 1rem;}
+			.overlay-tab .ipt{height: 5rem;padding: 0 1rem;}
+			.overlay-tab .ipt input{width: 60%;height: 100%;border: 1px solid #DDDDDD;border-radius: .5rem;padding-left: 1rem;}
+			.overlay-tab .ipt a{width: 37%;height: 100%;border-radius: .5rem;background-color: #f5544c;color: #FFFFFF;text-align: center;line-height: 5rem;font-size: 1.4rem;}
+			.overlay-tab .ipt a.color{background-color: #E5E5E5;font-size: 1.6rem;color: #999999;}
+			.overlay-tab .abtn{position: absolute;bottom: 0;left: 0;height: 5rem;width: 100%;}
+			.overlay-tab .abtn a{width: 49%;display: inline-block;text-align: center;color: #333333;font-size: 1.7rem;line-height: 5rem;height: 100%;}
+			.overlay-tab .abtn a.cancel{border-right: 1px solid #DDDDDD;}
+			.overlay-tab .abtn .line{position: absolute;width: 100%;height: 1px;background-color: #DDDDDD;left: 0;bottom: 5rem;}
+		</style>
+	</head>
+	<body>
+		<div class="p2-title">
+			<a href="javascript:vodi(0);" class="back" onclick="history.go(-1);"><img src="images/back.jpg" /></a>
+			<h3 class="text-center">记录详情</h3>
+			<a href="javascript:void(0);" class="weixin" id="revocation"><h5>撤销</h5></a>
+		</div>
+		
+		<div class="recordingDetail-list">
+			<!-- for start -->
+			<div class="item">
+				<div class="top">
+					<p class="p1 nomargin clearfix"><span class="pull-left">华安逆向策略混（040035）</span><font class="pull-right">10.00元</font></p>
+					<p class="p2 nomargin">中国建设银行储蓄卡（尾号4785）</p>
+				</div>
+				<div class="bottom clearfix">
+					<ul class="nomargin">
+						<li>
+							<img src="images/right.png" class="icon1" />
+							<span class="line"></span>
+							<p class="color">申请已受理</p>
+							<p class="p2">12-07 22:44</p>
+						</li>
+						<li>
+							<img src="images/select_icon2.jpg" class="icon2" />
+							<span class="line"></span>
+							<p>份额确认、开始计算收益</p>
+							<p class="p2">12-08 星期三</p>
+						</li>
+						<li>
+							<img src="images/select_icon3.jpg" class="icon3" />
+							<p>查看收益</p>
+							<p class="p2">预计12-09 星期四</p>
+						</li>
+					</ul>
+				</div>
+			</div>
+			<!-- for end -->
+		</div>
+			
+		<p class="recording-promptmess text-center">提示：本数据仅供参考，具体开始计算收益日期以基金公司为准</p>
+		
+		<div id="overlay" class="overlay" style="display: none;"></div>
+		<div id="overlayTab" class="overlay-tab" style="display: none;">
+			<div class="main">
+				<title>支付1元</title>
+				<p class="text">请输入手机尾号5689接收的短信验证码</p>
+				<div class="ipt clearfix">
+					<input type="number" class="pull-left" />
+					<a href="javascript:void(0);" class="pull-right" id="send">发送验证码</a>
+				</div>
+				<div class="abtn">
+					<a id="cancel1" href="javascript:void(0);" class="cancel">取消</a>
+					<a href="###">确定</a>
+					<div class="line"></div>
+				</div>
+			</div>
+		</div>
+		
+		<script type="text/javascript" src="js/jquery.js"></script>
+		<script type="text/javascript">
+			$(function(){
+				var dom,
+					time = 60
+				;
+				// 发送验证码
+				$("#send").click(function(){
+					dom = $(this);
+					dom.addClass("color");
+					dom.text(time + "秒后重发");
+					var countdown = setInterval(function(){
+						time -= 1;
+						dom.text(time + "秒后重发");
+						if(time <= 0){
+							dom.removeClass("color");
+							clearInterval(countdown);
+							dom.text("重新发送");
+							time = 60;
+						}
+					}, 1000);
+				});
+				// 取消
+				$("#cancel1").click(function(){
+					$("#overlay, #overlayTab").fadeOut();
+				});
+				// 显示验证码
+				$("#revocation").click(function(){
+					$("#overlay").show();
+					$("#overlayTab").show();
+				});
+			});
+		</script>
+	</body>
+</html>

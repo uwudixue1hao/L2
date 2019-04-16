@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>理财</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+		<link rel="stylesheet" href="bootstrap/bootstrap.min.css" />
+		<link rel="stylesheet" href="css/public.css" />
+		<style type="text/css">
+			body{background-color: #f2f2f2;}
+			.main{padding: 0 1rem;}
+			.fiscal-banner .imgbox{width: 97.5%;margin: .65rem auto 0;}
+			.fiscal-banner .imgbox img{width: 49%;}
+			.index-more{height: 4rem;background-color: #FFFFFF;margin-bottom: 1rem;margin-top: -1rem;}
+			.index-more a{display: block;width: 100%;height: 100%;color: #b8b8b8;line-height: 4rem;}
+			.index-more a:hover, .index-more a:active, .index-more a:focus{text-decoration: none;}
+			
+			.fiscal-title span{margin-left: 2rem;font-size: 1.4rem;}
+			.fiscal-item .top .left p.p1{line-height: 4rem;font-size: 1.6rem;}
+			.fiscal-item .top .left p.p2 span{font-size: 1.4rem;color: #777777;padding: .5rem 1.5rem;border: 1px solid #9c8988;border-radius: 3px;margin-right: .7rem;}
+			.fiscal-item .top .right span{width: 7rem;height: 3rem;line-height: 3rem;background-color: #69c8eb;border-top-left-radius: 2.5rem;border-bottom-left-radius: 2.5rem;color: #FFFFFF;font-size: 1.6rem;margin-top: 3rem;}
+			.fiscal-item .bottom ul li .income{color: #ff5b52;font-size: 4rem;}
+			.fiscal-item .bottom .ps{font-size: 1.2rem;font-weight: normal;}
+			.fiscal-banner img{width: 100%;}
+			.fiscal-banner{padding-bottom: .65rem;}
+			.fiscal-title a{font-size: 1.2rem;}
+			.fiscal-item .bottom ul li .increase, .fiscal-item .bottom ul li .income{line-height: 4rem;font-weight: lighter;height: 4rem;}
+			.fiscal-item .bottom ul{margin-bottom: .25rem;}
+			.fiscal-item .bottom ul li .increase{font-size: 2rem;line-height: 5rem;overflow: hidden;}
+			
+			.fiscal-title .title{position: relative;line-height: 3.5rem;}
+			.fiscal-title label{height: 1.5rem;margin-top: -.75rem;}
+		</style>
+	</head>
+	<body>
+		<div class="p2-title">
+			<h3 class="text-center">理财</h3>
+		</div>
+		<div class="fiscal-banner text-center">
+			<a href="###"><img src="images/p2_index_banner.jpg" /></a>
+			<div class="imgbox clearfix">
+				<a href="fiscal.html"><img src="images/p2_index_img1.jpg" class="pull-left" /></a>
+				<a href="javascript:void(0);"><img src="images/p2_index_img2.jpg" class="pull-right" /></a>
+			</div>
+		</div>
+		<div class="fiscal-title">
+			<div class="main title clearfix">
+				<label class="pull-left"></label>
+				<span class="pull-left">免手续费  低风险理财</span>
+				<a href="supermarket.html" class="pull-right">基金超市></a>
+			</div>
+		</div>
+		
+		<div id="itemlist" ng-app="myApp" ng-controller="supermarketController">
+			<!-- for start -->
+			<div class="fiscal-itembox" ng-repeat="supermarket in supermarkets">
+				<div class="fiscal-item">
+					<div class="clearfix top">
+						<div class="pull-left left">
+							<p class="p1"><a href="fund_detail.html?fundCode={{ supermarket.fundCode }}&fundType={{ supermarket.fundType }}">{{ supermarket.fundName }}</a></p>
+							<p class="p2 clearfix">
+								<span class="text-center pull-left">100元起购</span>
+								<span class="text-center pull-left">零利息</span>
+								<span class="text-center pull-left">低风险</span>
+							</p>
+						</div>
+						<div class="pull-right right clearfix">
+							<span class="pull-right text-center">股票</span>
+						</div>
+					</div>
+					<div class="clearfix bottom">
+						<ul class="clearfix">
+							<li>
+								<p class="income text-left">{{ supermarket.weekRate | number:3 }}</p>
+								<p class="income-text text-left">七日年化收益率(%)</p>
+							</li>
+							<li>
+								<p class="increase">{{ supermarket.dayRate | number:3 }}</p>
+								<p class="increase-text">日涨幅(%)</p>
+							</li>
+							<li>
+								<p class="increase color">{{ supermarket.buyPeopleNum }}</p>
+								<p class="increase-text">申购人数</p>
+							</li>
+						</ul>
+						<p class="ps">本基金由{{ supermarket.distributorName }}销售，相关数据截止至{{ supermarket.updateDate.substring(0, 4) + "-" + supermarket.updateDate.substring(4, 6) + "-" + supermarket.updateDate.substring(6, 8) }}</p>
+					</div>
+				</div>
+			</div>
+			<!-- for end -->
+		</div>
+		<div class="index-more text-center">
+			<a href="javascript:void(0);" id="more">更多相关信息</a>
+		</div>
+		
+		<div class="fiscal-title">
+			<div class="main title clearfix">
+				<label class="pull-left"></label>
+				<span class="pull-left">相关资讯</span>
+			</div>
+		</div>
+		<ul class="advisory-list">
+			<!-- for start -->
+			<li>
+				<p class="p1 nomargin"><a href="detail.html">沪指跳水跌超1%次新股逆势活跃</a></p>
+				<p class="p2 clearfix">
+					<span class="pull-left sp1">最新</span><span class="pull-left sp2">银华基金</span><span class="pull-left sp3">15分钟前</span>
+				</p>
+			</li>
+			<!-- for end -->
+			<li>
+				<p class="p1 nomargin"><a href="detail.html">沪指跳水跌超1%次新股逆势活跃</a></p>
+				<p class="p2 clearfix">
+					<span class="pull-left sp2">银华基金</span><span class="pull-left sp3">15分钟前</span>
+				</p>
+			</li>
+		</ul>
+		
+		<div id="copy" class="fiscal-itembox" style="display: none;">
+			<div class="fiscal-item">
+				<div class="clearfix top">
+					<div class="pull-left left">
+						<p class="p1">华夏招商债券基金B</p>
+						<p class="p2">
+							<span class="text-center pull-left">100元起购</span>
+							<span class="text-center pull-left">零利息</span>
+							<span class="text-center pull-left">低风险</span>
+						</p>
+					</div>
+					<div class="pull-right right clearfix">
+						<span class="pull-right text-center">股票</span>
+					</div>
+				</div>
+				<div class="clearfix bottom">
+					<ul class="clearfix">
+						<li>
+							<p class="income text-left">23.6</p>
+							<p class="income-text text-left">七日年化收益率(%)</p>
+						</li>
+						<li>
+							<p class="increase">-0.45</p>
+							<p class="increase-text">日涨幅（%）</p>
+						</li>
+						<li>
+							<p class="increase color">14562</p>
+							<p class="increase-text">申购人数</p>
+						</li>
+					</ul>
+					<p class="ps">本基金由华夏基金销售，相关数据截止至2015-12-04</p>
+				</div>
+			</div>
+		</div>
+		
+		<script type="text/javascript" src="js/jquery.js"></script>
+		<script type="text/javascript" src="js/public.js"></script>
+		<script type="text/javascript" src="js/angular.min.js"></script>
+		<script type="text/javascript">
+			$(function(){
+				var copydom = "",
+					arr = ""
+				;
+				$("#more").click(function(){
+					var data = { risk: 1, clientType: "Iph", eventId: Math.ceil(Math.random()*128), begin: "", count: "" };
+					$.ajax({
+						type: "post",
+						url: ip + "/fmall-front/front/query/funds/purchaseableFunds.json",
+						async: false,
+						data: data,
+						beforeSend: function(response){
+//							console.log(response);
+						},
+						success: function(data){
+							var begin = parseInt($("#itemlist .fiscal-itembox").size()) + 1;
+							if( data.data[begin] != undefined ){
+								copydom = $("#copy").clone();
+								copydom.removeAttr("id");
+								copydom.removeAttr("style");
+								copydom.find(".top .left .p1").text(data.data[begin].fundName);
+								copydom.find(".fiscal-item .income").text(data.data[begin].weekRate);
+								if( data.data[begin].dayRate.length > 6 ){
+									copydom.find(".fiscal-item .increase").eq(0).text(data.data[begin].dayRate.substring(0, 6));
+								}else{
+									copydom.find(".fiscal-item .increase").eq(0).text(data.data[begin].dayRate);
+								}
+								copydom.find(".fiscal-item .increase").eq(1).text(data.data[begin].buyPeopleNum);
+								$("#itemlist").append(copydom);
+							}
+						}
+					});
+				});
+			});
+			
+			var app = angular.module('myApp', []);
+			app.controller('supermarketController', function($scope, $http) {
+				var data = { risk: 1, clientType: phoneType, eventId: Math.ceil(Math.random()*128), begin: "", count: "" };
+			    $http({
+			    	url: ip + "/fmall-front/front/query/funds/purchaseableFunds.json",
+			    	method: "POST",
+			    	params: data
+			    }).success(function(data){
+			    	var newObj = [];
+			    	for(var i=0; i<5; i++){
+			    		newObj[i] = data.data[i];
+			    	}
+			    	$scope.supermarkets = newObj;
+			    });
+			});
+		</script>
+	</body>
+</html>

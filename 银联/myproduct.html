@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>我的理财产品</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+		<link rel="stylesheet" href="bootstrap/bootstrap.min.css" />
+		<link rel="stylesheet" href="css/public.css" />
+		<style type="text/css">
+			body{background-color: #f2f2f2;font-weight: normal;}
+			.main{padding: 0 2rem;}
+			.p2-title{height: 7rem;}
+			.p2-title h3{height: 7rem;line-height: 2.5rem;font-size: 1.7rem;padding-top: 1rem;font-weight: normal;}
+			.p2-title h3 span{color: #FF5B52;display: block;font-size: 2rem;}
+			.yesterday{margin-top: 1rem;background-color: #FFFFFF;}
+			.yesterday .border{border-bottom: 1px solid #E6E6E6;padding: 1rem 2rem;}
+			.yesterday p{line-height: 2.5rem;}
+			.yesterday p.p1{padding: 0 7rem 0 0;}
+			.yesterday p span, .yesterday p font{display: block;}
+			.yesterday p span{font-size: 1.4rem;color: #333333;}
+			.yesterday p font{font-size: 2rem;color: #F5544C;font-weight: initial;}
+			.yesterday .textbox{padding: .75rem 2rem;}
+			.yesterday .text{width: 35%;position: relative;}
+			.yesterday .text1{width: 30%;}
+			.yesterday .text label{display: block;margin: 0;line-height: 2rem;color: #999999;font-size: 1.4rem;font-weight: lighter;font-weight: normal;}
+			.yesterday .text label.lbl1{font-size: 1.2rem;}
+			.yesterday .text .line{width: 1px;background-color: #E6E6E6;height: 4rem;position: absolute;right: 0;top: 50%;margin-top: -2rem;}
+			.yesterday .recent{width: 40%;line-height: 3rem;font-size: 2rem;color: #333333;}
+			.yesterday .recent span{color: #999999;padding-right: 1.2rem;font-size: 1.2rem;}
+			.yesterday .recent font{font-size: 1.4rem;}
+			
+			.productDetail{position: relative;}
+			.productDetail a{display: block;width: 100%;height: 100%;color: #333333;margin: 0 auto;}
+			.productDetail img{width: 1.5%;position: absolute;top: 50%;right: 2rem;margin-top: -.75%;}
+			.btn{background-color: #FFFFFF;height: 5rem;width: 100%;padding: 0;position: fixed;bottom: 0;left: 0;}
+			.btn a{width: 50%;text-align: center;display: inline-block;line-height: 5rem;font-size: 1.8rem;}
+			.btn a.color{color: #FFFFFF;background-color: #FF6E66;}
+			
+			.month{background-color: #FFFFFF;margin-top: 1rem;}
+			.month .border{border: 1px solid #e6e6e6;}
+			.month .tab font{display: inline-block;width: 50%;color: #666666;line-height: 4rem;font-size: 1.6rem;}
+			.month .tab a{display: inline-block;padding: 0 .5rem;}
+			.month .tab a.color{color: #FF6E66;border-bottom: .3rem solid #FF6E66;}
+			
+			.month .tab2 ul{margin-top: 1rem;}
+			.month .tab2 li{border-bottom: 1px solid #e9e9e9;padding: 1rem 0 .3rem;}
+			.month .tab2 li p{margin: 0;}
+			.month .tab2 li p span, .month .tab2 li p font, .month .tab2 li p label{display: block;line-height: 2rem;font-size: 1.6rem;margin: 0;}
+			.month .tab2 li p span{color: #333333;}
+			.month .tab2 li p label{font-size: 1.6rem;}
+			.month .tab2 li p label.color1{color: #69c8eb;}
+			.month .tab2 li p label.color2{color: #39b833;}
+			.month .tab2 li p label.color3{color: #999999;}
+			.month .tab1 .chart{width: 100%;height: 33rem;margin: 0 auto;}
+			
+			.fiscal-title span{font-size: 1.6rem;margin-left: .8rem;}
+			.fiscal-title label{height: 1.8rem;margin-top: -.9rem;width: .3rem;}
+			.block{width: 100%;height: 5rem;}
+		</style>
+	</head>
+	<body>
+		<div class="p2-title">
+			<a href="javascript:vodi(0);" class="back" onclick="history.go(-1);"><img src="images/back.jpg" /></a>
+			<h3 class="text-center"><span>华安逆向策略混合</span>(招商银行2356)</h3>
+		</div>
+		
+		<div class="yesterday">
+			<div class="clearfix border">
+				<p class="nomargin pull-left p1"><span>昨日收益</span><font>0.89元</font></p>
+				<p class="nomargin pull-left"><span>金额</span><font>21.59元</font></p>
+			</div>
+			<div class="clearfix border main textbox">
+				<div class="nomargin pull-left text-left text text1">
+					<label class="lbl1">持有金额</label><label>11.59元</label>
+					<div class="line"></div>
+				</div>
+				<div class="pull-left text-center text">
+					<label class="lbl1">待确认金额</label><label>10.00元</label>
+					<div class="line"></div>
+				</div>
+				<div class="pull-left text-center text">
+					<label class="lbl1">持有份额</label><label>0.82份</label>
+				</div>
+			</div>
+			<div class="clearfix main">
+				<div class="pull-left text-left recent"><span>累计收益</span><font>1.34元</font></div>
+				<div class="pull-left text-left recent"><span>最新净值</span><font>2.74%</font></div>
+			</div>
+		</div>
+		
+		<div class="month">
+			<div class="main border">
+				<div class="tab text-center clearfix">
+					<font class="pull-left"><a href="javascript:void(0);" class="color" data-num="1">月收益走势</a></font>
+					<font class="pull-left"><a href="javascript:void(0);" class="" data-num="2">交易记录</a></font>
+				</div>
+			</div>
+			<div class="tab1 table" style="display: block;">
+				<div id="canvasDiv" class="chart"></div>
+			</div>
+			<div class="tab2 table" style="display: none;">
+				<div class="main">
+					<ul class="nopadding nomargin">
+						<li>
+							<a href="recording_income.html">
+								<div class="clearfix">
+									<p class="left pull-left text-left"><span>赎回</span><label class="color3">11-25 05:08:34</label></p>
+									<p class="right pull-right text-right"><span>1.00份</span><label class="color1">已赎回</label></p>
+								</div>
+							</a>
+						</li>
+						<li>
+							<a href="recording_income.html">
+								<div class="clearfix">
+									<p class="left pull-left text-left"><span>赎回</span><label class="color3">11-25 05:08:34</label></p>
+									<p class="right pull-right text-right"><span>1.00份</span><label class="color2">确认中</label></p>
+								</div>
+							</a>
+						</li>
+						<li>
+							<a href="recording_income.html">
+								<div class="clearfix">
+									<p class="left pull-left text-left"><span>赎回</span><label class="color3">11-25 05:08:34</label></p>
+									<p class="right pull-right text-right"><span>1.00份</span><label class="color3">已撤单</label></p>
+								</div>
+							</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		
+		<div class="fiscal-title productDetail">
+			<div class="main title clearfix">
+				<a href="fund_detail.html" class="clearfix">
+					<label class="pull-left"></label>
+					<span class="pull-left">产品详情</span>
+					<img src="images/next.jpg" />
+				</a>
+			</div>
+		</div>
+		<div class="block"></div>
+		<div class="btn"><a href="redemption.html">赎回</a><a href="buy.html" class="color">购买</a></div>
+		
+		<script type="text/javascript" src="js/jquery.js"></script>
+		<script type="text/javascript" src="js/public.js"></script>
+		<!-- H5折线图 -->
+		<script type="text/javascript" src="ichartjs/ichart.1.2.1.min.js"></script>
+		<script type="text/javascript">
+			var request = new GetRequest();
+			$(function(){
+				var index = -1,
+					dataNum = 0,
+					chartSet = {
+						chartTitle: '',							// 主标题
+						chartSubtitle: '',						// 副标题
+						chartFootnote: '',						// 底部备注
+						chartWidth: $("#canvasDiv").width(),	// 宽度
+						chartHeight: $("#canvasDiv").height(),	// 高度
+						chartShadowcolor: '#FFFFFF',			// 阴影色
+						chartBackgroundcolor: '#FFFFFF',		// 背景色
+						chartLinecolor: '#6697bd',				// 线色
+						chartLinewidth: [0, 0, 1, 1],			// 线宽
+						chartGridcolor: '#c3d2de'				// 分割线色
+					},
+					labels = ["11-28","11-29","11-30","12-01","12-02"],
+					ajaxUrl = "",
+					ajaxSet = {
+						month: 0,
+						fundCode: request["fundCode"],
+						clientType: phoneType,
+						eventId: Math.ceil(Math.random()*128)
+					},
+					data = [{
+		         		name : 'PV',
+		         		value: [],
+		         		color:'#f4554d',
+		         		line_width:2
+		         	}];
+//				
+//				var flow=[];
+//				for(var i=0;i<25;i++){
+//					flow.push(Math.floor(Math.random()*(10+((i%16)*5)))+10);
+//				}
+				if( request["fundType"] == "04" ) {
+					ajaxUrl = ip + "/fmall-front/front/query/navCur/history.json";
+				}else {
+					ajaxUrl = ip + "/fmall-front/front/query/nav/history.json";
+				}
+				$.ajax({
+					type: "post",
+					url: ajaxUrl,
+					data: ajaxSet,
+					async: false,
+					success: function(result){
+						if( result.data != undefined ){
+							for (var i=0; i<5; i++) {
+								labels[i] = result.data[i].publishDate.substring(4, 6) + "-" + result.data[i].publishDate.substring(6, 8);
+								data.value[i] = result.data[i].;
+							}
+						}
+					}
+				});
+				var chart = new iChart.LineBasic2D({
+					render : 'canvasDiv',
+					data: data,
+					align:'center',
+					title : {
+						text: chartSet.chartTitle,
+						font : '微软雅黑',
+						fontsize: 24,
+						color:'#FFFFFF'
+					},
+					subtitle : {
+						text: chartSet.chartSubtitle,
+						font : '微软雅黑',
+						color: '#FFFFFF'
+					},
+					footnote : {
+						text: chartSet.chartFootnote,
+						font : '微软雅黑',
+						fontsize:11,
+						fontweight:600,
+						padding:'0 28',
+						color:'#FFFFFF'
+					},
+					width : chartSet.chartWidth - 20,
+					height : chartSet.chartHeight - 20,
+					shadow: true,
+					shadow_color : chartSet.chartShadowcolor,
+					shadow_blur : 8,
+					shadow_offsetx : 0,
+					shadow_offsety : 0,
+					background_color: chartSet.chartBackgroundcolor,
+					animation : true,			//开启过渡动画
+					animation_duration: 600,	//600ms完成动画
+					tip:{
+						enable:true,
+						shadow:true,
+						listeners:{
+							 //tip:提示框对象、name:数据名称、value:数据值、text:当前文本、i:数据点的索引
+//							parseText:function(tip,name,value,text,i){
+//								 return "<span style='color:#005268;font-size:12px;'>"+labels[i]+":00访问量约:<br/>"+
+//									"</span><span style='color:#005268;font-size:20px;'>"+value+"万</span>";
+//							}
+						}
+					},
+					crosshair:{
+						enable:true,
+						line_color:'#c3d2de'
+					},
+					sub_option : {
+						smooth : true,
+						label:false,
+						hollow:false,
+						hollow_inside:false,
+						point_size:8
+					},
+					coordinate:{
+						width:640,
+						height:260,
+						striped_factor : 0.18,
+						grid_color: chartSet.chartGridcolor,
+						axis:{
+							color: chartSet.chartLinecolor,
+							width: chartSet.chartLinewidth
+						},
+						scale:[{
+							 position:'left',	
+							 start_scale: 0,
+							 end_scale: 100,
+							 scale_space: 10,
+							 scale_size: 10,
+							 scale_enable : false,
+							 label : {color:'#9d987a',font : '微软雅黑',fontsize:11,fontweight:600},
+							 scale_color: '#9f9f9f'
+						},{
+							 position:'bottom',	
+							 label : {color:'#9d987a',font : '微软雅黑',fontsize:11,fontweight:600},
+							 scale_enable : false,
+							 labels:labels
+						}]
+					}
+				});
+
+				//开始画图
+				chart.draw();
+			});
+			
+			$(".month .tab a").click(function(){
+				dataNum = $(this).attr("data-num");
+				$(this).parents(".tab").find("a").removeClass("color");
+				$(this).addClass("color");
+				$(".table").css("display","none");
+				$(".tab" + dataNum).css("display","block");
+			});
+			
+			function GetRequest() {
+			    var url = location.search; //获取url中"?"符后的字串
+			    var theRequest = new Object();
+			    if (url.indexOf("?") != -1) {
+			        var str = url.substr(1);
+			        strs = str.split("&");
+			        for(var i = 0; i < strs.length; i ++) {
+			            theRequest[strs[i].split("=")[0]] = unescape(strs[i].split("=")[1]);
+			        }
+			    }
+			    return theRequest;
+			}
+		</script>
+	</body>
+</html>

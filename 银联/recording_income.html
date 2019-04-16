@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>记录详情</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+		<link rel="stylesheet" href="bootstrap/bootstrap.min.css" />
+		<link rel="stylesheet" href="css/public.css" />
+		<style type="text/css">
+			body{background-color: #f2f2f2;}
+			.main{padding: 0 2rem;}
+			.p2-title a.weixin{right: 3rem;}
+			.recordingDetail-list{margin-top: 1rem;padding: 0 2rem;background-color: #FFFFFF;}
+			.recordingDetail-list .item .top{padding: 1rem 0;border-bottom: 1px solid #e6e6e6;}
+			.recordingDetail-list .item .top .p1{line-height: 2rem;}
+			.recordingDetail-list .item .top .p1 span,
+			.recordingDetail-list .item .top .p1 font{font-size: 1.8rem;}
+			.recordingDetail-list .item .top .p1 span{color: #333333;}
+			.recordingDetail-list .item .top .p1 font{color: #EE5A50;}
+			.recordingDetail-list .item .top .p2{line-height: 2rem;color: #999999;font-size: 1.2rem;}
+			.recordingDetail-list .item .bottom{padding: 2.5rem 0 0;}
+			.recordingDetail-list .item .bottom ul{padding: 0;padding-left: 4.5rem;position: relative;}
+			.recordingDetail-list .item .bottom li img{position: absolute;width: 7%;left: 0;top: .5rem;z-index: 10;background-color: #FFFFFF;}
+			.recordingDetail-list .item .bottom li p{margin: 0;line-height: 2rem;color: #333333;font-size: 1.4rem;}
+			.recordingDetail-list .item .bottom li p.color{color: #39B833;}
+			.recordingDetail-list .item .bottom li p.p2{padding: 0;padding-bottom: 3rem;color: #999999;}
+			.recordingDetail-list .item .bottom li .line{position: absolute;width: 1px;height: 70%;background-color: #CCCCCC;top: 3.5%;left: 3.5%;z-index: 1;}
+			.recordingDetail-list .item .bottom li .icon1{top: 0;}
+			.recordingDetail-list .item .bottom li .icon2{top: 8rem;}
+			.recordingDetail-list .item .bottom li .icon3{top: 16rem;}
+			
+			.recording-promptmess{line-height: 5.1rem;font-size: 1.5rem;color: #999999;}
+			
+			.recording-income li{color: #999999;font-size: 1.4rem;line-height: 3rem;border-bottom: 1px solid #E6E6E6;}
+			.recording-income{position: relative;background-color: #FAFAFA;}
+			.recording-income .arrow{position: absolute;width: 15px;height: 10px;overflow: hidden;top: -10px;left: 5%;}
+			.recording-income .box{position: relative;height: 100%;}
+			.recording-income .box .left, .recording-income .box .right{position: absolute;top: 5px;background-color: #FAFAFA;}
+			.recording-income .box .left{width: 70%;height: 100%;transform: rotate(-45deg);left: 2px;}
+			.recording-income .box .right{width: 70%;height: 100%;transform: rotate(45deg);right: 2px;}
+		</style>
+	</head>
+	<body>
+		<div class="p2-title">
+			<a href="javascript:vodi(0);" class="back" onclick="history.go(-1);"><img src="images/back.jpg" /></a>
+			<h3 class="text-center">记录详情</h3>
+		</div>
+		
+		<div class="recordingDetail-list">
+			<!-- for start -->
+			<div class="item">
+				<div class="top">
+					<p class="p1 nomargin clearfix"><span class="pull-left">华安逆向策略混（040035）</span><font class="pull-right">10.00元</font></p>
+					<p class="p2 nomargin">中国建设银行储蓄卡（尾号4785）</p>
+				</div>
+				<div class="bottom clearfix">
+					<ul class="nomargin">
+						<li>
+							<img src="images/select_icon1.jpg" class="icon1" />
+							<span class="line"></span>
+							<p>申请已受理</p>
+							<p class="p2">12-07 22:44</p>
+						</li>
+						<li>
+							<img src="images/select_icon2.jpg" class="icon2" />
+							<span class="line"></span>
+							<p>份额确认、开始计算收益</p>
+							<p class="p2">12-08 星期三</p>
+						</li>
+						<li>
+							<img src="images/select_icon3_active.jpg" class="icon3" />
+							<p class="color">查看收益</p>
+							<p class="p2">预计12-09 星期四</p>
+						</li>
+					</ul>
+				</div>
+			</div>
+			<!-- for end -->
+		</div>
+		<!-- 收益结果 -->
+		<div class="recording-income main">
+			<div class="arrow">
+				<div class="box">
+					<div class="left"></div>
+					<div class="right"></div>
+				</div>
+			</div>
+			<ul class="nomargin nopadding">
+				<li>确认金额  9.99元</li>
+				<li>确认份额 4.56份</li>
+				<li>确认净值 2.1890</li>
+				<li>手续费 0.01元</li>
+				<li>订单号：324905903040</li>
+			</ul>
+		</div>
+		
+		<script type="text/javascript" src="js/jquery.js"></script>
+	</body>
+</html>

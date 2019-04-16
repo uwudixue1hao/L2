@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>选择储蓄卡</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+		<link rel="stylesheet" href="bootstrap/bootstrap.min.css" />
+		<link rel="stylesheet" href="css/public.css" />
+		<style type="text/css">
+			.card-list{padding: 0 2rem;}
+			.card-list li{margin-top: 2rem;}
+			.card-list .cardbox{width: 100%;height: auto;border: 1px solid #F6615A;border-radius: 1rem;}/* 18rem */
+			.card-list .cardbox .top{width: 100%;height: 75%;padding: 2.7rem 2rem 0;}
+			.card-list .cardbox .top .imgbox{width: 15%;height: 3.8rem;}
+			.card-list .cardbox .top .imgbox img{width: 85%;}
+			.card-list .cardbox .top .textbox{width: 85%;}
+			.card-list .cardbox .top p{margin: 0;}
+			.card-list .cardbox .top .p1{font-size: 2rem;}
+			.card-list .cardbox .top .p2{color: #8c8c8c;line-height: 2rem;font-size: 1.6rem;padding-bottom: .5rem;font-weight: normal;}
+			.card-list .cardbox .top .p3{line-height: 4rem;color: #999999;font-size: 2.7rem;vertical-align: middle;padding-bottom: 1rem;}
+			.card-list .cardbox .top .p3 span{line-height: 5.5rem;float: left;padding-right: .5rem;}
+			.card-list .cardbox .bottom{background-color: #faa9a5;width: 100%;height: 25%;padding: 1rem 2rem;border-bottom-right-radius: 1rem;border-bottom-left-radius: 1rem;}
+			.card-list .cardbox .bottom span{font-size: 1.6rem;color: #FFFFFF;line-height: 3rem;}
+			.card-list .cardbox .bottom img{width: 7.5%;}
+			.add-btn{width: 100%;height: 5rem;line-height: 5rem;margin: 3rem 0;background-color: #F5544C;border: 0;color: #FFFFFF;font-size: 2rem;border-radius: .6rem;display: inline-block;text-align: center;}
+			.add-btn span{font-size: 2.6rem;}
+			.add-btn:hover{color: #FFFFFF;}
+		</style>
+	</head>
+	<body ng-app="myApp">
+		<div class="p2-title">
+			<a href="javascript:vodi(0);" class="back" onclick="history.go(-1);"><img src="images/back.jpg" /></a>
+			<h3 class="text-center">选择储蓄卡</h3>
+		</div>
+		
+		<div class="card-list">
+			<ul class="nomargin nopadding" ng-controller="cardController">
+				<!-- for start -->
+				<li ng-repeat="card in cards">
+					<div class="cardbox">
+						<div class="top clearfix">
+							<div class="imgbox pull-left">
+								<img src="images/bank3.jpg" />
+							</div>
+							<div class="pull-left textbox">
+								<p class="p1">{{ card.cardName }}</p>
+								<p class="p2">张龙</p>
+								<p class="p3"><span>**** **** ****</span> {{ card.bankCode }}</p>
+							</div>
+						</div>
+						<div class="bottom clearfix">
+							<span class="pull-left">预留手机号：139***0298</span>
+							<a href="javascript:void(0);" class="choice"><img class="pull-right" src="images/no.png" /></a>
+						</div>
+					</div>
+				</li>
+				<!-- for end -->
+			</ul>
+			<a href="addcard.html" class="add-btn"><span>+</span> 添加储蓄卡</a>
+		</div>
+		
+		<script type="text/javascript" src="js/jquery.js"></script>
+		<script type="text/javascript" src="js/public.js"></script>
+		<script type="text/javascript" src="js/angular.min.js"></script>
+		<script type="text/javascript">
+			var app = angular.module('myApp', []);
+			$(function(){
+				$(".choice").click(function(){
+					if ( $(this).attr("state") == undefined ) {
+						$(".card-list ul li .choice img").attr("src", "images/no.png");
+						$(".card-list ul li .choice").removeAttr("state");
+						$(this).find("img").attr("src", "images/yes.png");
+						$(this).attr("state", "1");
+					}else{
+						$(".card-list ul li .choice img").attr("src", "images/no.png");
+						$(this).removeAttr("state");
+					}
+				});
+			});
+			
+			app.controller('cardController', function($scope, $http) {
+				var data = { clientType: phoneType, eventId: Math.ceil(Math.random()*128), userSysId: userSysId };
+			    $http({
+			    	url: ip + "/fmall-front/front/accountsys/accounts/bankcards/queryBindedCard.json",
+			    	method: "POST",
+			    	params: data,
+			    	xhrFields: {
+                      	withCredentials: true
+              		}
+			    }).success(function(data){
+			    	$scope.cards = data.data;
+			    });
+			});
+		</script>
+	</body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>记录详情</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+		<link rel="stylesheet" href="bootstrap/bootstrap.min.css" />
+		<link rel="stylesheet" href="css/public.css" />
+		<style type="text/css">
+			body{background-color: #f2f2f2;}
+			.p2-title a.weixin{right: 3rem;}
+			.recordingDetail-list{margin-top: 1rem;padding: 0 2rem;background-color: #FFFFFF;}
+			.recordingDetail-list .item .top{padding: 1.25rem 0;border-bottom: 1px solid #e6e6e6;}
+			.recordingDetail-list .item .top .p1{line-height: 2rem;}
+			.recordingDetail-list .item .top .p1 span,
+			.recordingDetail-list .item .top .p1 font{font-size: 1.8rem;}
+			.recordingDetail-list .item .top .p1 span{color: #333333;}
+			.recordingDetail-list .item .top .p1 font{color: #EE5A50;}
+			.recordingDetail-list .item .top .p2{line-height: 2rem;color: #999999;font-size: 1.2rem;}
+			.recordingDetail-list .item .bottom{padding: 2rem 0;}
+			.recordingDetail-list .item .bottom p img{width: 65%;margin-top: .5rem;}
+			.recordingDetail-list .item .bottom .p2 font,
+			.recordingDetail-list .item .bottom .p2 span{display: block;font-size: 1.6rem;color: #999999;}
+			.recordingDetail-list .item .bottom .p2 font{font-size: 1.6rem;color: #39b833;}
+		</style>
+	</head>
+	<body>
+		<div class="p2-title">
+			<a href="javascript:vodi(0);" class="back" onclick="history.go(-1);"><img src="images/back.jpg" /></a>
+			<h3 class="text-center">记录详情</h3>
+		</div>
+		
+		<div class="recordingDetail-list">
+			<!-- for start -->
+			<div class="item">
+				<div class="top">
+					<p class="p1 nomargin clearfix"><span class="pull-left">华安逆向策略混（040035）</span><font class="pull-right">10.00元</font></p>
+					<p class="p2 nomargin">中国建设银行储蓄卡（尾号4785）</p>
+				</div>
+				<div class="bottom clearfix">
+					<p class="pull-left" style="width: 10%;"><img src="images/right.png" /></p>
+					<p class="pull-left p2"><font>交易已撤销</font><span>资金已退回到储蓄卡</span><span>12-07 22:44</span><span>订单号：324905903040</span></p>
+				</div>
+			</div>
+			<!-- for end -->
+		</div>
+		
+		<script type="text/javascript" src="js/jquery.js"></script>
+	</body>
+</html>

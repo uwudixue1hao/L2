@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>搜索基金结果</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+		<link rel="stylesheet" href="bootstrap/bootstrap.min.css" />
+		<link rel="stylesheet" href="css/public.css" />
+		<style type="text/css">
+			body{background-color: #f2f2f2;}
+			.main{padding: 0 2rem;}
+			.select-ipt{height: 6rem;width: 100%;background-color: #FFFFFF;line-height: 6rem;border-bottom: 1px solid #dadada;}
+			.select-ipt a{padding-left: 2rem;color: #666666;}
+			.select-ipt .iptbox{position: relative;display: inline-block;width: 85%;}
+			.select-ipt a.cancel{line-height: 6rem;font-size: 1.4rem;width: auto;color: #333333;font-weight: normal;}
+			.select-ipt input,.select-ipt a{display: inline-block;}
+			.select-ipt input{height: 4rem;width: 100%;padding-left: 5%;line-height: 2rem;border: 1px solid #DDDDDD;}
+			.select-ipt .cancel{position: absolute;left: 80%;top: 0;width: 5rem;cursor: default;height: 100%;}
+			.select-ipt .cancel img{width: 50%;cursor: pointer;}
+			
+			.history{height: 6.8rem;color: #999999;line-height: 6.8rem;}
+			.result-list{width: 100%;background-color: #FFFFFF;}
+			.result-list li{border-bottom: 1px solid #e6e6e6;line-height: 5rem;}
+			.result-list li a{display: block;width: 100%;height: 100%;}
+			
+			.clearSelect{display: block;width: 100%;height: 4rem;line-height: 4rem;text-align: center;color: #999999;margin-bottom: 6rem;}
+			.clearSelect:hover{color: #999999;}
+			
+			.result-list{margin-top: 1rem;font-size: 2.25rem;}
+			.result-list li{position: relative;}
+			.result-list li span, .result-list li font{font-size: 1.6rem;}
+			.result-list li span{color: #333333;}
+			.result-list li font{color: #999999;}
+			.result-list li .attention{position: absolute;right: 0;top: 0;width: 7%;padding: 0;cursor: default;}
+			.result-list li .attention img{width: 90%;cursor: pointer;}
+		</style>
+	</head>
+	<body>
+		<div class="select-ipt">
+			<div class="main">
+				<div class="iptbox">
+					<input type="text" id="startSelect" />
+					<a href="javascript:void(0);" class="cancel" id="cancel2"><img id="cancel" src="images/cancel.jpg" /></a>
+				</div>
+				<a href="supermarket.html" class="cancel">取消</a>
+			</div>
+			
+			<div class="result-list">
+				<div class="main">
+					<ul class="nopadding nomargin">
+						<!-- for start -->
+						<li>
+							<div class="clearfix">
+								<span>华夏稳增</span>
+								<font>（519083.SH）</font>
+								<a href="javascript:vodi(0);" class="attention"><img id="attention" src="images/attention.jpg" /></a>
+							</div>
+						</li>
+						<!-- for end -->
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div class=""></div>
+		
+		<script type="text/javascript" src="js/jquery.js"></script>
+		<script type="text/javascript">
+			$(function(){
+				$("#attention").click(function(){
+					$(this).attr("src", "images/attention_success.jpg");
+				});
+				// 取消
+				$("#cancel, #cancel2").click(function(){
+					console.log($(this).parent());
+					$(this).parent().parent().find("input").val("");
+				});
+			});
+		</script>
+	</body>
+</html>

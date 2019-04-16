@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>基金超市</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+		<link rel="stylesheet" href="bootstrap/bootstrap.min.css" />
+		<link rel="stylesheet" href="css/public.css" />
+		<style type="text/css">
+			[ng:cloak],
+	        [ng-cloak],
+	        [data-ng-cloak],
+	        [x-ng-cloak],
+	        .ng-cloak,
+	        .x-ng-cloak {
+	            display:none !important;
+	        }
+			body{background-color: #f2f2f2;}
+			/* 查询图标 */
+			.p2-title a.weixin{line-height: 7rem;text-align: right;}
+			.p2-title .select{width: 50%;display: inline-block;}
+			/* 二级导航 */
+			.navigator{width: 100%;height: 4rem;background-color: #FFFFFF;padding: 0 1.5rem;position: relative;}
+			.navigator ul{height: 100%;width: 200%;}
+			.navigator ul li{float: left;width: 7rem;height: 100%;text-align: center;font-size: 1.4rem;line-height: 4rem;position: relative;}
+			.navigator ul li a{color: #404040;font-size: 1.2rem;display: block;}
+			.navigator ul li a:hover, .navigator ul li a:active, .navigator ul li a:focus{text-decoration: none;}
+			.navigator ul li .color{color: #FF5B52;border-bottom: .3rem solid #FF5B52;}
+			.navigator ul li .line{width: 100%;height: .3rem;position: absolute;bottom: 0;left: 0;background-color: #FF5B52;}
+			.navigator .arrow{position: absolute;right: 1rem;top: 50%;width: 1%;margin-top: -.5%;z-index: 100;}
+			.navigator .ulbox{width: 100%;overflow: hidden;}
+			
+			.fiscal-itembox{margin-top: 1rem;}
+			.fiscal-item .bottom ul li .income{font-size: 4.5rem;}
+			.fiscal-item .top .right p{padding-right: 3rem;}
+			.fiscal-item .top .right p img{width: 50%;}
+			.fiscal-item .top .right p.p1{line-height: 4rem;font-size: 1.6rem;color: #999999;}
+			
+			.fiscal-item .top .left p.p1{height: 3rem;line-height: 3rem;font-size: 1.8rem;}
+			.fiscal-item .top .left p.p2{line-height: 1.5rem;font-size: 1.4rem;margin-top: .5rem;}
+			.fiscal-item .top .left p.p2 span{font-size: 1.3rem;color: #777777;padding: .2rem .5rem;border: 1px solid #9c8988;border-radius: 3px;margin-right: .7rem;}
+			.fiscal-item .bottom ul{margin-bottom: .5rem;}
+			.fiscal-item .bottom ul li .income{color: #ff5b52;font-size: 4rem;}
+			.fiscal-item .bottom ul li .increase{color: #84c137;font-size: 2rem;}
+			.fiscal-item .bottom ul li .income, .fiscal-item .bottom ul li .increase{line-height: 5rem;height: 5rem;}
+			.fiscal-item .bottom ul li .increase{line-height: 6.5rem;}
+			.fiscal-item .bottom .ps{font-size: 1.2rem;}
+		</style>
+	</head>
+	<body>
+		<div class="p2-title">
+			<a href="javascript:vodi(0);" class="back" onclick="history.go(-1);"><img src="images/back.jpg" /></a>
+			<h3 class="text-center">基金超市</h3>
+			<a href="select.html" class="weixin"><img class="select" src="images/select.jpg" /></a>
+		</div>
+		<div class="navigator">
+			<a href=""><img src="images/creditcard_arrow.png" class="arrow" /></a>
+			<div class="ulbox">
+				<ul class="nopadding nomargin clearfix">
+					<li><a href="javascript:void(0);" class="color">我的关注</a></li>
+					<li><a href="supermarket_currency.html">货币型</a></li>
+					<li><a href="supermarket_stock.html">股票型</a></li>
+					<li><a href="###">债券型</a></li>
+					<li><a href="###">混合型</a></li>
+					<li><a href="###">理财型</a></li>
+					<li><a href="###">债券型</a></li>
+					<li><a href="###">指数型</a></li>
+					<li><a href="###">QDII</a></li>
+				</ul>
+			</div>
+		</div>
+		
+		<div ng-app="myApp" ng-controller="supermarketController">
+		<!-- for start -->
+		<div class="fiscal-itembox" ng-repeat="supermarket in supermarkets">
+			<div class="fiscal-item">
+				<div class="clearfix top">
+					<div class="pull-left left">
+						<p class="p1">{{ supermarket.fundName }}</p>
+						<p class="p2">
+							<span class="text-center pull-left">100元起购</span>
+							<span class="text-center pull-left">零利息</span>
+							<span class="text-center pull-left">低风险</span>
+						</p>
+					</div>
+					<div class="pull-right right clearfix text-right">
+						<p class="p1 nomargin nopadding">{{ supermarket.productNum }}</p>
+						<p class="p2 nomargin nopadding">
+							<a href="###"><img src="images/super_icon.jpg" /></a>
+						</p>
+					</div>
+				</div>
+				<div class="clearfix bottom">
+					<ul class="clearfix">
+						<li>
+							<p class="income text-left">{{ supermarket.productAnn }}</p>
+							<p class="income-text text-left">七日年化（%）</p>
+						</li>
+						<li>
+							<p class="increase color">{{ supermarket.productInc }}</p>
+							<p class="increase-text">万份收益（元）</p>
+						</li>
+						<li>
+							<p class="increase color">{{ supermarket.productPeo }}</p>
+							<p class="increase-text">申购人数</p>
+						</li>
+					</ul>
+					<p class="ps">本基金由华夏基金销售，相关数据截止至2015-12-04</p>
+				</div>
+			</div>
+		</div>
+		<!-- for end -->
+		</div>
+		
+		<!--<script type="text/javascript" src="js/jquery.js"></script>-->
+		<script src="http://apps.bdimg.com/libs/angular.js/1.4.6/angular.min.js"></script>
+		<script type="text/javascript">
+//			$(function(){
+//			});
+//			function supermarketController($scope,$http) {
+//				var url="data.json";
+//				console.log($scope);
+//				$http({
+//					method: "GET",
+//					url: url
+//				}).success( function(response) {
+//					console.log(response.data);
+//	              	$scope.supermarkets = response;
+//	            });
+//			}
+var app = angular.module('myApp', []);
+app.controller('supermarketController', function($scope, $http) {
+	document.cookie = "eventId=" + Math.ceil(Math.random()*128);
+	document.cookie = "clientType=Iph";
+    $http({
+    	url: "json/supermarket.json",
+    	method: "POST"
+    }).success(function(data){
+    	$scope.supermarkets = data.data;
+    });
+});
+		</script>
+	</body>
+</html>

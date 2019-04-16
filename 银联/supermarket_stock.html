@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>基金超市</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+		<link rel="stylesheet" href="bootstrap/bootstrap.min.css" />
+		<link rel="stylesheet" href="css/public.css" />
+		<style type="text/css">
+			body{background-color: #f2f2f2;}
+			a:hover{text-decoration: none;}
+			/* 查询图标 */
+			.p2-title a.weixin{line-height: 7rem;text-align: right;}
+			.p2-title .select{width: 50%;display: inline-block;}
+			/* 二级导航 */
+			.navigator{width: 100%;height: 4rem;background-color: #FFFFFF;padding: 0 1.5rem;}
+			.navigator ul{height: 100%;}
+			.navigator ul li{float: left;width: 16.6%;height: 100%;text-align: center;font-size: 1.4rem;line-height: 4rem;position: relative;}
+			.navigator ul li a{color: #404040;font-size: 1.2rem;}
+			.navigator ul li a:hover, .navigator ul li a:active, .navigator ul li a:focus{text-decoration: none;}
+			.navigator ul li .color{color: #FF5B52;}
+			.navigator ul li .line{width: 100%;height: .3rem;position: absolute;bottom: 0;left: 0;background-color: #FF5B52;}
+			
+			.fiscal-itembox{margin-top: 1rem;}
+			.fiscal-item .bottom ul li .income{font-size: 4.5rem;}
+			.fiscal-item .top .right p{padding-right: 3rem;}
+			.fiscal-item .top .right p img{width: 50%;}
+			.fiscal-item .top .right p.p1{line-height: 4rem;font-size: 1.6rem;color: #999999;}
+			
+			.navigator2{width: 100%;height: 5rem;background-color: #FFFFFF;border-top: 1px solid #F2F2F2;padding: 0 1.5rem;overflow: hidden;}
+			.navigator2 .ulbox{width: 110%;}
+			.navigator2 ul{width: 100%;height: 100%;}
+			.navigator2 ul li{float: left;padding: 0;line-height: 5rem;vertical-align: middle;position: relative;margin-right: 1rem;width: 30%;text-align: center;}
+			.navigator2 ul li a{display: inline-block;height: 100%;color: #666666;text-align: center;font-size: 1.4rem;padding: 0 .5rem;}
+			.navigator2 ul li a.color{color: #F5544C;}
+			.navigator2 ul li .choice{height: .3rem;background-color: #F5544C;position: absolute;bottom: .3rem;left: 0;width: 100%;right: 0;margin: 0 auto;}
+			.navigator2 ul li img{width: 18%;margin-left: 1rem;}
+			
+			.fiscal-item .top .left p.p1{line-height: 3rem;font-size: 1.8rem;}
+			.fiscal-item .top .left p.p2{line-height: 1.5rem;font-size: 1.4rem;margin-top: .5rem;}
+			.fiscal-item .top .left p.p2 span{font-size: 1.3rem;color: #777777;padding: .2rem .5rem;border: 1px solid #9c8988;border-radius: 3px;margin-right: .7rem;}
+			.fiscal-item .bottom ul{margin-bottom: .5rem;}
+			.fiscal-item .bottom ul li .income{color: #ff5b52;font-size: 4rem;}
+			.fiscal-item .bottom ul li .increase{color: #84c137;font-size: 2rem;}
+			.fiscal-item .bottom ul li .income, .fiscal-item .bottom ul li .increase{line-height: 5rem;height: 5rem;}
+			.fiscal-item .bottom ul li .increase{line-height: 6.5rem;}
+			.fiscal-item .bottom .ps{font-size: 1.2rem;}
+			.supermarket-fixed{width: 100%;height: 5rem;background-color: #FFFFFF;border-top: 1px solid #E6E6E6;position: fixed;bottom: 0;left: 0;}
+			.supermarket-fixed ul{width: 100%;height: 1.5rem;line-height: 1.5rem;margin-top: 1.75rem;}
+			.supermarket-fixed ul li{float: left;width: 16.5%;text-align: center;border-right: 1px solid #E5E5E5;}
+			.supermarket-fixed ul li a{font-size: 1.4rem;display: block;width: 100%;}
+			.supermarket-fixed ul li a.color{color: #FF5B52;}
+		</style>
+	</head>
+	<body>
+		<div class="p2-title">
+			<a href="p2_index.html" class="back"><img src="images/back.jpg" /></a>
+			<h3 class="text-center">基金超市</h3>
+			<a href="select.html" class="weixin"><img class="select" src="images/select.jpg" /></a>
+		</div>
+		<div class="navigator">
+			<ul class="nopadding nomargin clearfix">
+				<li>
+					<a href="supermarket.html">我的关注</a>
+				</li>
+				<li>
+					<a href="supermarket_currency.html">货币型</a>
+				</li>
+				<li>
+					<a href="supermarket_stock.html" class="color">股票型</a>
+					<div class="line"></div>
+				</li>
+				<li><a href="###">债券型</a></li>
+				<li><a href="###">混合型</a></li>
+				<li><a href="###">理财型</a></li>
+			</ul>
+		</div>
+		<div class="navigator2">
+			<div class="ulbox">
+				<ul class="clearfix nopadding nomargin">
+					<li><a href="javascript:void(0);" orderType="a">涨跌幅<img src="images/super_nav2.jpg" /></a><div class="choice" style="display: none;"></div></li>
+					<li><a href="javascript:void(0);" orderType="a">最新净值<img src="images/super_nav2.jpg" /></a><div class="choice" style="display: none;"></div></li>
+					<li><a href="javascript:void(0);" orderType="a">购买人数<img src="images/super_nav2.jpg" /></a><div class="choice" style="display: none;"></div></li>
+				</ul>
+			</div>
+		</div>
+		
+		<div ng-app="myApp" ng-controller="supermarketController">
+			<!-- for start -->
+			<div class="fiscal-itembox" ng-repeat="supermarket in supermarkets">
+				<div class="fiscal-item">
+					<div class="clearfix top">
+						<div class="pull-left left">
+							<p class="p1"><a href="fund_detail.html?fundCode={{ supermarket.fundCode }}">{{ supermarket.fundName }}</a></p>
+							<p class="p2 clearfix">
+								<span class="text-center pull-left">100元起购</span>
+								<span class="text-center pull-left">零利息</span>
+								<span class="text-center pull-left">低风险</span>
+							</p>
+						</div>
+						<div class="pull-right right clearfix text-right">
+							<p class="p1 nomargin nopadding">{{ supermarket.fundCode }}</p>
+							<p class="p2 nomargin nopadding">
+								<a href="###"><img src="images/super_icon.jpg" /></a>
+							</p>
+						</div>
+					</div>
+					<div class="clearfix bottom">
+						<ul class="clearfix">
+							<li>
+								<p class="income text-left">{{ supermarket.weekRate.substring(0, 6) }}</p>
+								<p class="income-text text-left">七日年化(%)</p>
+							</li>
+							<li>
+								<p class="increase color">{{ supermarket.tenThousandIncome.substring(0, 6) }}</p>
+								<p class="increase-text">万份收益(元)</p>
+							</li>
+							<li>
+								<p class="increase color">{{ supermarket.buyPeopleNum }}</p>
+								<p class="increase-text">申购人数</p>
+							</li>
+						</ul>
+						<p class="ps">本基金由{{ supermarket.distributorName }}销售，相关数据截止至{{ supermarket.updateDate.substring(0, 4) + "-" + supermarket.updateDate.substring(4, 6) + "-" + supermarket.updateDate.substring(6, 8) }}</p>
+					</div>
+				</div>
+			</div>
+			<!-- for end -->
+		</div>
+		
+		<div class="supermarket-fixed">
+			<ul class="nomargin nopadding">
+				<li><a href="supermarket_stock.html?orderType=sl&eq=0">日</a></li>
+				<li><a href="supermarket_stock.html?orderType=3m&eq=0">月</a></li>
+				<li><a href="supermarket_stock.html?orderType=6m&eq=0">季</a></li>
+				<li><a href="supermarket_stock.html?orderType=6m&eq=0">半年</a></li>
+				<li><a href="supermarket_stock.html?orderType=1y&eq=0">年</a></li>
+				<li><a href="supermarket_stock.html?orderType=1y&eq=0">今年</a></li>
+			</ul>
+		</div>
+		
+		<script type="text/javascript" src="js/jquery.js"></script>
+		<script type="text/javascript" src="js/public.js"></script>
+		<script type="text/javascript" src="js/angular.min.js"></script>
+		<script type="text/javascript">
+			var request = new GetRequest(),
+				orderType = "a"
+			;
+			$(function(){
+				if( request["orderType"] == undefined ){
+					orderType = "a";
+					$(".navigator2 ul li a").attr("orderType", "a");
+				}else if( request["orderType"] == "a" ){
+					orderType = request["orderType"];
+					$(".navigator2 ul li").eq(request["eq"]).find("a").attr("orderType", "d");
+					changeNav(request["eq"]);
+				}else{
+					orderType = request["orderType"];
+					$(".navigator2 ul li").eq(request["eq"]).find("a").attr("orderType", "a");
+					changeNav(request["eq"]);
+				}
+				$(".navigator2 ul li a").click(function(){
+					window.location.href = "supermarket_stock.html?orderType=" + $(this).attr("orderType") + "&eq=" + $(this).parent().index();
+				});
+			});
+			
+			var app = angular.module('myApp', []);
+			app.controller('supermarketController', function($scope, $http) {
+				document.cookie = "eventId=" + Math.ceil(Math.random()*128);
+				document.cookie = "clientType=Iph";
+				var data = { risk: 1, clientType: phoneType, eventId: Math.ceil(Math.random()*128), oderType: "a", orderBy: "" };
+				// orderType
+				if( request["orderType"] == "a" ){
+					data.oderType = "d";
+				}else if( request["orderType"] == "d" ){
+					data.oderType = "a";
+				}else{
+					data.oderType = request["orderType"];
+				}
+				// orderBy
+				if( request["eq"] == 0 ){
+					data.orderBy = "d";
+				}else if( request["eq"] == 1 ){
+					data.orderBy = "n";
+				}else if( request["eq"] == 2 ){
+					data.orderBy = "b";
+				}
+			    $http({
+			    	url: ip + "/fmall-front/front/query/funds/purchaseableFunds.json",
+//			    	url: "json/supermarket.json",
+			    	method: "POST",
+			    	params: data
+			    }).success(function(data){
+			    	$scope.supermarkets = data.data;
+			    });
+			});
+			
+			function GetRequest() {
+			    var url = location.search; //获取url中"?"符后的字串
+			    var theRequest = new Object();
+			    if (url.indexOf("?") != -1) {
+			        var str = url.substr(1);
+			        strs = str.split("&");
+			        for(var i = 0; i < strs.length; i ++) {
+			            theRequest[strs[i].split("=")[0]] = unescape(strs[i].split("=")[1]);
+			        }
+			    }
+			    return theRequest;
+			}
+			
+			function changeNav(eq){
+				$(".navigator2 ul li").eq(eq).find("a").addClass("color");
+				$(".navigator2 ul li").eq(eq).find(".choice").show();
+				$(".navigator2 ul li").eq(eq).find("img").attr("src", "images/super_nav2_2.jpg");
+			}
+		</script>
+	</body>
+</html>
