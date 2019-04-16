@@ -1,0 +1,15 @@
+@charset "utf-8";
+/* CSS Document */
+
+@font-face{
+	font-family: "Helvetica";
+	src:url('../fonts/HELVETICANEUELTPRO-TH.eot') format('truetype');
+}
+@font-face{
+	font-family: "Helvetica";
+	src:url('../fonts/HELVETICANEUELTPRO-TH.ttf') format('truetype');
+}
+@font-face{
+	font-family: "Helvetica";
+	src:url('../fonts/HELVETICANEUELTPRO-TH.svg') format('truetype');
+}
