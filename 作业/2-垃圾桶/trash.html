@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			.trash {
+				width: 100px;
+			}
+			.trash img {
+				width: 100%;
+			}
+			.block {
+				width: 200px;
+				height: 40px;
+				margin-bottom: 10px;
+				background-color: grey;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="trash">
+			<img src="img/trash1.png"/>
+		</div>
+		
+		<div class="block block1" draggable="true">1</div>
+		<div class="block block2" draggable="true">2</div>
+		<div class="block block3" draggable="true">3</div>
+		
+		<script type="text/javascript">
+			var block1 = document.querySelector("div.block1");
+			var block2 = document.querySelector("div.block2");
+			var block3 = document.querySelector("div.block3");
+			var img = document.querySelector("div.trash img");
+			block1.ondrag = function () {
+				deleteDvi(this);
+			}
+			block2.ondrag = function () {
+				deleteDvi(this);
+			}
+			block3.ondrag = function () {
+				deleteDvi(this);
+			}
+			function deleteDvi(dom) {
+				img.src = "img/trash2.jpg";
+				dom.remove();
+			}
+		</script>
+	</body>
+</html>
