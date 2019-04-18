@@ -15,8 +15,10 @@
 		var txt = document.querySelector("#txt");
 		var btn = document.querySelector("#btn");
 		var finish = document.querySelector("#finish");
+		var select = document.querySelector("#select");
 		var arr = new Array();
 		var jsonData;
+		var count = 0;
 		
 		btn.onclick = function() {
 			var item = {
@@ -27,11 +29,22 @@
 				arr.push(item);
 				var li = document.createElement("li");
 				li.innerText = txt.value;
+				li.setAttribute("index", count);
 				ul.appendChild(li);
 				txt.value = "";
 				jsonData = JSON.stringify(arr);
 				localStorage.setItem("result", jsonData);
+				++count;
 			}
+		}
+		ul.onclick = function(e) {
+			e.target.className = "finish";
+			var index = e.target.getAttribute("index");
+			var data = JSON.parse(localStorage.getItem("result"));
+			
+			data[index].finish = true;
+			localStorage.clear();
+			localStorage.setItem("result", JSON.stringify(data));
 		}
 		select.onclick = function() {
 			var ret = localStorage.getItem("result");
