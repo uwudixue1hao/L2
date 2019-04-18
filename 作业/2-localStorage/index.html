@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<input type="text" name="" id="txt" value="" /><button id="btn">add</button><button id="finish">finish</button>
+		
+		<ul id="ul"></ul>
+		
+		<button id="select">select</button>
+	</body>
+	<script type="text/javascript">
+		var ul = document.querySelector("#ul");
+		var txt = document.querySelector("#txt");
+		var btn = document.querySelector("#btn");
+		var finish = document.querySelector("#finish");
+		var arr = new Array();
+		var jsonData;
+		btn.onclick = function() {
+			var item = {
+				txt: txt.value,
+				finish: false
+			};
+			if(txt.value != "") {
+				arr.push(item);
+				var li = document.createElement("li");
+				li.innerText = txt.value;
+				ul.appendChild(li);
+				txt.value = "";
+				jsonData = JSON.stringify(arr);
+			}
+		}
+		
+		finish.onclick = function() {
+			localStorage.setItem("result", jsonData);
+		}
+		
+		select.onclick = function() {
+			var ret = localStorage.getItem("result");
+			var datas = JSON.parse(ret);
+			for(var i = 0; i < datas.length; ++i) {
+				console.log(datas[i]);
+			}
+		}
+	</script>
+</html>
