@@ -5,11 +5,10 @@
 		<title></title>
 	</head>
 	<body>
-		<input type="text" name="" id="txt" value="" /><button id="btn">add</button><button id="finish">finish</button>
+		<input type="text" name="" id="txt" value="" />
+		<button id="btn">add</button><button id="select">select</button>
 		
 		<ul id="ul"></ul>
-		
-		<button id="select">select</button>
 	</body>
 	<script type="text/javascript">
 		var ul = document.querySelector("#ul");
@@ -18,6 +17,7 @@
 		var finish = document.querySelector("#finish");
 		var arr = new Array();
 		var jsonData;
+		
 		btn.onclick = function() {
 			var item = {
 				txt: txt.value,
@@ -30,13 +30,9 @@
 				ul.appendChild(li);
 				txt.value = "";
 				jsonData = JSON.stringify(arr);
+				localStorage.setItem("result", jsonData);
 			}
 		}
-		
-		finish.onclick = function() {
-			localStorage.setItem("result", jsonData);
-		}
-		
 		select.onclick = function() {
 			var ret = localStorage.getItem("result");
 			var datas = JSON.parse(ret);
