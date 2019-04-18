@@ -23,23 +23,17 @@
 			<img src="img/trash1.png"/>
 		</div>
 		
-		<div class="block block1" draggable="true">1</div>
-		<div class="block block2" draggable="true">2</div>
-		<div class="block block3" draggable="true">3</div>
+		<div class="block" draggable="true">1</div>
+		<div class="block" draggable="true">2</div>
+		<div class="block" draggable="true">3</div>
 		
 		<script type="text/javascript">
-			var block1 = document.querySelector("div.block1");
-			var block2 = document.querySelector("div.block2");
-			var block3 = document.querySelector("div.block3");
+			var blocks = document.getElementsByClassName("block");
 			var img = document.querySelector("div.trash img");
-			block1.ondrag = function () {
-				deleteDvi(this);
-			}
-			block2.ondrag = function () {
-				deleteDvi(this);
-			}
-			block3.ondrag = function () {
-				deleteDvi(this);
+			for (var i in blocks) {
+				blocks[i].ondrag = function(e) {
+					deleteDvi(this);
+				};
 			}
 			function deleteDvi(dom) {
 				img.src = "img/trash2.jpg";
