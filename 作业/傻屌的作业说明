@@ -1,1 +1,20 @@
-1-响应式作业：仅修改了style.css文件中@media only screen and (max-width:1024px) 和 @media only screen and (max-width:960px)，如有需要修改请回复
+1.响应式作业：仅修改了style.css文件中@media only screen and (max-width:1024px) 和 @media only screen and (max-width:960px)，如有需要修改请回复
+
+4.时钟文字，由于自己代码误删了，又不想重写，故而直接在原有代码上修改，新增代码如下：
+
+				var angle = -60;
+				var x1 = 300 * Math.cos((Math.PI / 180) * angle);
+				var y1 = 300 * Math.sin((Math.PI / 180) * angle);
+				for (var i = 0; i < 12; i++) {					
+					ctx.beginPath();
+					ctx.font="40px Arial";
+					ctx.fillText((i + 1).toString(), x1 - 10, y1 + 15);
+					ctx.closePath();
+					
+					angle += 30;
+					x1 = 300 * Math.cos(Math.PI / 180 * angle);
+					y1 = 300 * Math.sin(Math.PI / 180 * angle);
+				}
+        
+思路：xy坐标的更新不使用(i*角度)而是角度递增，小时间隔30故 angle += 30; 公式还是使用cos和sin，去除i换成变量angle
+PS：循环12次代表12小时，90度是12点的位置所以默认角度应该为-60，即循环(i+1).toString()即为1-12的文本
